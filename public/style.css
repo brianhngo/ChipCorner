@@ -1,5 +1,166 @@
 body {
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Section */
+#headerSection {
+  background-color: #f0f0f0;
+  padding: 10px 0;
+}
+
+#headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#websiteTitle h3 {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+#navContainer {
+  display: flex;
+  align-items: center;
+}
+
+/* Cart placeholder /
+.cart {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/ Panel Container Section */
+#panelContainerSection {
+  display: flex;
+  padding: 20px;
+}
+
+.imagePlaceholder {
+  width: 50%;
+  background-color: #e0e0e0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#productContainer {
+  width: 50%;
+  padding: 0 20px;
+}
+
+#productContainer h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#productContainer button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* About Us Page Section /
+#aboutUsPageSection {
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+#aboutUsPageSection h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/ Featured Products Section /
+#featuredProductsSection {
+  padding: 20px;
+}
+
+#featuredProductsSection h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+#FeatureProductsContainers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ProductsContainer {
+  width: 25%;
+  padding: 20px;
+  text-align: center;
+}
+
+.productImage {
+  background-color: #e0e0e0;
+  padding: 100px 0;
+  margin-bottom: 10px;
+}
+
+.ProductsContainer button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/ Newsletter Section /
+#newsletterSection {
+  padding: 20px;
+}
+
+#newsLetterContainer {
+  display: flex;
+}
+
+#newsletterSection label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+#newsletterSection input[type='email'] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#newsletterSection button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/ Footer Section */
+#footerSection {
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 a {

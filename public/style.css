@@ -90,13 +90,8 @@ body {
   margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
-/* Featured Products Section */
-#featuredProductsSection {
-=======
 /*Featured Products */
 Section / #featuredProductsSection {
->>>>>>> origin
   padding: 20px;
 }
 
@@ -160,11 +155,7 @@ Section / #featuredProductsSection {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-/* Footer Section */
-=======
 /*Footer Section */
->>>>>>> origin
 #footerSection {
   background-color: #f0f0f0;
   padding: 20px;

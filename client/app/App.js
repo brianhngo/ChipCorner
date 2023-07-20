@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
-import Navbar from "../features/navbar/Navbar";
-import AppRoutes from "./AppRoutes";
+import Navbar from '../features/navbar/Navbar';
+import AppRoutes from './AppRoutes';
+import { useDispatch, useSelector } from 'react-redux';
+import { getChipDataList } from './LandingPageSlice';
 
 const App = () => {
+  const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
+  const dispatch = useDispatch();
+  console.log(chipsDataList);
+  useEffect(() => {
+    dispatch(getChipDataList());
+  }, []);
+
   return (
     <div id="container">
       <section id="headerSection">
@@ -33,26 +42,19 @@ const App = () => {
 
       <section id="featuredProductsSection">
         <h2>Featured Products</h2>
+
         <div id="FeatureProductsContainers">
-          <div className="ProductsContainer">
-            <div className="productImage">Chip1 Image</div>
-            <button>Chips1 Button</button>
-          </div>
-
-          <div className="ProductsContainer">
-            <div className="productImage">Chip2 Image</div>
-            <button>Chips2 Button</button>
-          </div>
-
-          <div className="ProductsContainer">
-            <div className="productImage">Chip3 Image</div>
-            <button>Chips3 Button</button>
-          </div>
-
-          <div className="ProductsContainer">
-            <div className="productImage">Chip4 Image</div>
-            <button>Chips4 Button</button>
-          </div>
+          {chipsDataList.map((element) => {
+            return (
+              <div className="ProductsContainer" key={element.id}>
+                <div className="productImage">
+                  <img className="productImage2" src={element.imageUrl} />
+                </div>
+                <p> {element.title}</p>
+                <button> Click Here! </button>
+              </div>
+            );
+          })}
         </div>
       </section>
       <section id="newsletterSection">

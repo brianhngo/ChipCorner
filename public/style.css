@@ -90,8 +90,13 @@ body {
   margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 /* Featured Products Section */
 #featuredProductsSection {
+=======
+/*Featured Products */
+Section / #featuredProductsSection {
+>>>>>>> origin
   padding: 20px;
 }
 
@@ -155,7 +160,11 @@ body {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* Footer Section */
+=======
+/*Footer Section */
+>>>>>>> origin
 #footerSection {
   background-color: #f0f0f0;
   padding: 20px;
@@ -179,4 +188,12 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+img.productImage2 {
+  max-width: 200px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  margin: 5px;
 }

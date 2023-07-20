@@ -18,5 +18,6 @@ module.exports = {
   models: {
     User,
     Chips,
+    Orders
   },
 };

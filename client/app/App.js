@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Navbar from "../features/navbar/Navbar";
 import AppRoutes from "./AppRoutes";
 import { useDispatch, useSelector } from "react-redux";
-import { getChipDataList } from "./LandingPageSlice";
+import { getChipDataList } from "./landingPageSlice";
 import Carousel from "./Carousel";
 
 const App = () => {

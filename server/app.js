@@ -16,7 +16,7 @@ app.use("/api", require("./api"));
 
 //ROUTES for chips, orders, users
 app.use("/api/chips", require("./api/chips"));
-// app.use('/api/orders', require('./api/orders'))
+// app.use('/api/orders', require('./api/orders'));
 app.use("/api/users", require("./api/users"));
 
 app.get("/", (req, res) =>

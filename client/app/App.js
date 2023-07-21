@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
-  // const dispatch = useDispatch();
-  // console.log(chipsDataList);
-  // useEffect(() => {
-  //   dispatch(getChipDataList());
-  // }, []);
+  const dispatch = useDispatch();
+   console.log(chipsDataList);
+   useEffect(() => {
+     dispatch(getChipDataList());
+   }, []);
 
   return (
     <div id="container">

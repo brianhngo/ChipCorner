@@ -32,4 +32,13 @@ router.get('/landingPage', async (req, res, next) => {
   }
 });
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const singleChipInfo = await Chips.findByPk(req.params.id);
+    res.json(singleChipInfo);
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

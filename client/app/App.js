@@ -3,15 +3,15 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../features/navbar/Navbar';
 import AppRoutes from './AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
-import { getChipDataList } from './LandingPageSlice';
+// import { getChipDataList } from './landingPageSlice';
 
 const App = () => {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
-  const dispatch = useDispatch();
-  console.log(chipsDataList);
-  useEffect(() => {
-    dispatch(getChipDataList());
-  }, []);
+  // const dispatch = useDispatch();
+  // console.log(chipsDataList);
+  // useEffect(() => {
+  //   dispatch(getChipDataList());
+  // }, []);
 
   return (
     <div id="container">
@@ -72,6 +72,7 @@ const App = () => {
         <p> Beetal Team </p>
       </section>
     </div>
+
   );
 };
 

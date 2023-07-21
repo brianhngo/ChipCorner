@@ -14,6 +14,11 @@ app.use(express.json())
 app.use('/auth', require('./auth'))
 app.use('/api', require('./api'))
 
+//ROUTES for chips, orders, users
+app.use('/api/chips', require('./api/chips'))
+app.use('/api/orders', require('./api/orders'))
+app.use('/api/users', require('./api/users'))
+
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '..', 'public/index.html')));
 
 // static file-serving middleware

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {
     models: { Chips },
   } = require("../db"); 
+  const { Op } = require('sequelize');
 
 router.get('/', async (req, res, next) => {
     try {
@@ -11,6 +12,24 @@ router.get('/', async (req, res, next) => {
       next(err);
     }
   });
+
+const landingPageChipId = [2, 4, 6, 8, 10, 12];
+
+// get localhost:3000/api/chips/landingPage
+router.get('/landingPage', async (req, res, next) => {
+  try {
+    const data = await Chips.findAll({
+      where: {
+        id: {
+          [Op.or]: landingPageChipId,
+        },
+      },
+    });
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 //GET individual chip
 router.get('/:chipId', async (req, res, next) => {

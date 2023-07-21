@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import Navbar from '../features/navbar/Navbar';
-import AppRoutes from './AppRoutes';
-import { useDispatch, useSelector } from 'react-redux';
-import { getChipDataList } from './LandingPageSlice';
-import Carousel from './Carousel';
+import Navbar from "../features/navbar/Navbar";
+import AppRoutes from "./AppRoutes";
+import { useDispatch, useSelector } from "react-redux";
+import { getChipDataList } from "./landingPageSlice";
+import Carousel from "./Carousel";
 
 const LandingPage = () => {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
@@ -28,7 +28,6 @@ const LandingPage = () => {
           <nav id="navContainer">
             <Navbar />
             <AppRoutes />
-            <div className="cart">CART</div>
           </nav>
         </header>
       </section>
@@ -38,15 +37,15 @@ const LandingPage = () => {
       <section id="aboutUsPageSection">
         <h2>About Us Page</h2>
         <p>
-          {' '}
+          {" "}
           Welcome to Chip Enthusiasts, your one-stop destination for all things
           chips! We are a passionate team of chip enthusiasts who share a common
           love for these crispy, flavorful delights. Our mission is simple: to
           spread the joy of eating chips to people around the world and make the
-          experience of snacking on chips an unforgettable one!{' '}
+          experience of snacking on chips an unforgettable one!{" "}
         </p>
         <p>
-          {' '}
+          {" "}
           It all began with a group of friends who bonded over their mutual
           admiration for chips. We realized that chips are more than just a
           snack; they bring people together, ignite conversations, and create

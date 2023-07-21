@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 
+import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
+
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
@@ -14,7 +16,6 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>FS-App-Template</h1>
       <nav>
         {isLoggedIn ? (
           <div>
@@ -33,6 +34,11 @@ const Navbar = () => {
         )}
       </nav>
       <hr />
+      <Link to="/cart">
+        <div className="cart">
+          <ShoppingCartTwoToneIcon />
+        </div>
+      </Link>
     </div>
   );
 };

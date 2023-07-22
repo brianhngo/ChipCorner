@@ -17,7 +17,7 @@ export const getSingleChipData = createAsyncThunk(
   async (id) => {
     try {
       const { data } = await axios.get(`/api/chips/${id}`);
-      console.log(data);
+
       return data;
     } catch {
       console.error(error);
@@ -29,7 +29,7 @@ const landingPageSlice = createSlice({
   name: 'LandingPage',
   initialState: {
     chipsInfo: [],
-    singleChipInfo: [],
+    singleChipInfo: {},
   },
   reducers: {},
   extraReducers: (builder) => {

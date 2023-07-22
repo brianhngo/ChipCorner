@@ -55,11 +55,17 @@ img.logoImage {
 
 /* Cart placeholder */
 .cart {
+  display: flex;
   background-color: #007bff;
   color: #fff;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
+  width: 30px;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  margin-left: 50vh;
 }
 
 /* Panel Container Section */
@@ -285,6 +291,49 @@ form div {
   display: inline-block;
 }
 
+/* Cart Page CSS */
+.shoppingCartItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  width: 200px;
+}
+
+/* Styling for the product image */
+.shoppingCartItem__image {
+  width: 100px;
+  max-height: 150px; /* Set a maximum height for the image container */
+  overflow: hidden; /* Hide any image content that exceeds the container */
+  border-radius: 8px;
+}
+
+/* Styling for the product title */
+.shoppingCartItem__title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Styling for the button */
+.shoppingCartItem__button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.shoppingCartItem__button:hover {
+  background-color: #830000;
+}
 
 .createNewUserContainer {
   display: flex;
@@ -300,7 +349,6 @@ form div {
   color: red;
   margin-bottom: 5px;
 }
-
 
 /* Single Chip Page */
 
@@ -323,7 +371,7 @@ form div {
   margin-top: 0;
 }
 
-.chip-brand{
+.chip-brand {
   font-size: 40px;
 }
 .chip-ingredients,
@@ -344,7 +392,7 @@ form div {
   margin: 10px 0;
 }
 
-.single-chip-add-to-cart{
+.single-chip-add-to-cart {
   background-color: #007bff;
   color: #f0f0f0;
   font-size: 16px;

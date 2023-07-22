@@ -1,7 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
-import authReducer from '../features/auth/authSlice';
-import landingPageSlice from './landingPageSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+import authReducer from "../features/auth/authSlice";
+import landingPageSlice from "./landingPageSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,4 +12,4 @@ const store = configureStore({
 });
 
 export default store;
-export * from '../features/auth/authSlice';
+export * from "../features/auth/authSlice";

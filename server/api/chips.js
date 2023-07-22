@@ -45,9 +45,6 @@ router.get('/:id', async (req, res, next) => {
     } catch (err) {
       next(err);
     }
-  } catch (err) {
-    next(err);
-  }
 });
 
 //POST new chip

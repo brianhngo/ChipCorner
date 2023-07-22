@@ -38,17 +38,17 @@ const SingleProduct = () => {
       <div className='info-container'>
         <h1 className='chip-title'>{title}</h1>
         <p className='chip-description'>{description}</p>
-        <h3 className='chip-ingredients'>Ingredients: {ingredients}</h3>
-        <h3 className='chip-size'>Size: {size}oz</h3>
         <h3 className='chip-size'>{baked ? 'Baked' : 'Standard Flavor'}</h3>
         <img className="nutrition-image" src={nutritional} alt="Nutrition Facts" />
+        <h3 className='chip-ingredients'>Ingredients: {ingredients}</h3>
         <h3 className='chip-price'>Price: ${price}</h3>
+        <h3 className='chip-size'>Size: {size}oz</h3>
         <button className='single-chip-add-to-cart'>Buy Now</button>
         <Link to="/" >Back to Products</Link>
       </div>
     </section>
     <section>
-      <div>Our customers also like</div>
+      <div>Our customers also like: image carousel</div>
     </section>
   </div>
   </section>

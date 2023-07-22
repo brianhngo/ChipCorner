@@ -320,13 +320,16 @@ form div {
   background-color: hsl(26, 100%, 45%);
 }
 
+.chip-img-container {
+  display: flex;
+  align-items: center;
+}
+
 .img-single-chip {
-  /* max-width: 500px;
+  max-width: 500px;
   max-height: 500px;
-  width: auto;
-  height: auto; */
-  width: 100%;
-  height: 708px;
+  height: auto;
+  width:fit-content;
 }
 
 .nutrition-image {

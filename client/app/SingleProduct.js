@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { useParams, Link } from 'react-router-dom'
 import { getSingleChipData } from './LandingPageSlice';
 
@@ -17,8 +18,14 @@ const SingleProduct = () => {
         dispatch(getSingleChipData(id));
       }, []);
 
+
+  useEffect(() => {
+    dispatch(getSingleChipData(id));
+  }, []);
+  console.log(singleChip);
   return (
     <div>
+
     <section className='single-product-container'>
       <div className="chip-img-container">
         <p>Image goes here</p>

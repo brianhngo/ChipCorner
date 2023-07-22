@@ -4,6 +4,16 @@ body {
   padding: 0;
 }
 
+ul,
+a {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  gap: 10px;
+  color: black;
+}
+
 #container {
   display: flex;
   flex-direction: column;
@@ -173,6 +183,10 @@ img.productImage2 {
   margin: 5px;
 }
 
+.buttonLink {
+  color: white;
+}
+
 #newsletterSection {
   display: flex;
   justify-content: center;
@@ -234,6 +248,22 @@ form div {
 }
 
 
+.createNewUserContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.highlights {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 5px;
+}
+
+
 /* Single Chip Page */
 
 .single-product-container {
@@ -287,3 +317,4 @@ form div {
 .single-chip-add-to-cart:hover {
   background-color: hsl(26, 100%, 45%);
 }
+

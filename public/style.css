@@ -4,6 +4,16 @@ body {
   padding: 0;
 }
 
+ul,
+a {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  gap: 10px;
+  color: black;
+}
+
 #container {
   display: flex;
   flex-direction: column;
@@ -173,6 +183,10 @@ img.productImage2 {
   margin: 5px;
 }
 
+.buttonLink {
+  color: white;
+}
+
 #newsletterSection {
   display: flex;
   justify-content: center;
@@ -234,18 +248,35 @@ form div {
 }
 
 
+.createNewUserContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.highlights {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 5px;
+}
+
+
 /* Single Chip Page */
 
 .single-product-container {
   width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   border: 2px solid black;
 }
 
 .info-container {
   background-color: #ccc;
-  width: 50vw;
+  max-width: 767px;
+  padding: 20px 10px;
 }
 
 .chip-title {
@@ -254,10 +285,11 @@ form div {
   margin-top: 0;
 }
 
-
+.chip-brand{
+  font-size: 40px;
+}
 .chip-ingredients,
-.chip-size,
-.chip-brand {
+.chip-size {
   font-size: 14px;
   margin: 5px 0;
 }
@@ -286,4 +318,20 @@ form div {
 
 .single-chip-add-to-cart:hover {
   background-color: hsl(26, 100%, 45%);
+}
+
+.img-single-chip {
+  /* max-width: 500px;
+  max-height: 500px;
+  width: auto;
+  height: auto; */
+  width: 100%;
+  height: 708px;
+}
+
+.nutrition-image {
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
 }

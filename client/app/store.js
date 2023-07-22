@@ -4,7 +4,6 @@ import authReducer from '../features/auth/authSlice';
 import landingPageSlice from './LandingPageSlice';
 import CreateNewUserSlice from './CreateNewUserSlice';
 
-
 const store = configureStore({
   reducer: {
     auth: authReducer,

@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../features/navbar/Navbar';
-import AppRoutes from './AppRoutes';
+import NavBar from '../features/navbar/Navbar';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getChipDataList } from './LandingPageSlice';
 import Carousel from './Carousel';
-import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
@@ -16,24 +15,7 @@ const LandingPage = () => {
 
   return (
     <div id="container">
-      <section id="headerSection">
-        <header id="headerContainer">
-          <div id="websiteTitle">
-            <h3>The Chip Corner</h3>
-            <img
-              className="logoImage"
-              src="https://media.istockphoto.com/id/164661881/vector/nachos-cartoon.jpg?s=612x612&w=0&k=20&c=AFnAYL79XMt0VQSVHtPRTuJUR1z0Iwig8LCzC3083Ag="
-            />
-          </div>
-          <nav id="navContainer">
-            <Link to="/"> Home </Link>
-            <Link to="/allchips"> All Chips </Link>
-            <Navbar />
-            <AppRoutes />
-            <div className="cart">CART</div>
-          </nav>
-        </header>
-      </section>
+      <NavBar />
       <section id="panelContainerSection">
         <Carousel />
       </section>

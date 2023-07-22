@@ -34,16 +34,13 @@ router.get('/landingPage', async (req, res, next) => {
 //GET individual chip
 
 router.get('/:id', async (req, res, next) => {
-    try {
-      const chip = await Chips.findByPk(req.params.id);
-      console.log(chip)
-      if(chip){
-        res.json(chip);
-      } else {
-        res.status(404).send("Chip not found");
-      }
-    } catch (err) {
-      next(err);
+  try {
+    const chip = await Chips.findByPk(req.params.id);
+    console.log(chip);
+    if (chip) {
+      res.json(chip);
+    } else {
+      res.status(404).send('Chip not found');
     }
   } catch (err) {
     next(err);

@@ -16,7 +16,7 @@ const App = () => {
       <Route path="/signup" element={<CreateNewUser />} />
       <Route path="/successPage" element={<SuccessPage />} />
       <Route path="/" element={<LandingPage />} />
-      <Route path="/allchips" element={<FilteredChips/>} />
+      <Route path="/allchips" element={<FilterChips/>} />
     </Routes>
   );
 };

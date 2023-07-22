@@ -5,7 +5,6 @@ import AppRoutes from './AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getChipDataList } from './LandingPageSlice';
 import Carousel from './Carousel';
-import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../features/navbar/Navbar';
 import AppRoutes from './AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
-import { getChipDataList } from './landingPageSlice';
+import { getChipDataList } from './LandingPageSlice';
 import Carousel from './Carousel';
 import { Link } from 'react-router-dom'
 

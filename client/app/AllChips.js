@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../features/navbar/Navbar';
 import AppRoutes from './AppRoutes';
-import { getChipDataList } from './landingPageSlice';
+import { Link } from 'react-router-dom';
 
 const AllChips = ({ chips, filters, handleFilterChange }) => (
     <div id="container">
@@ -40,6 +40,7 @@ const AllChips = ({ chips, filters, handleFilterChange }) => (
               <option value="Not Baked">Not baked</option>
             </select>
             <p>Number of Chips: {chips.length}</p>
+            <Link to="/" >Back to Home</Link>
           </div>
 
     <section id="productsSection">

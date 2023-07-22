@@ -41,8 +41,7 @@ const Chips = db.define("chips", {
   },
   nutritional: {
     type: Sequelize.TEXT,
-    defaultValue:
-      "https://gofreefoods.com/wp-content/uploads/nutrition-label-290x600.png",
+    defaultValue: "https://qph.cf2.quoracdn.net/main-qimg-602f1c2b1c4d7b1fcda15a581d2b51b1-pjlq",
   },
   imageUrl: {
     type: Sequelize.TEXT,

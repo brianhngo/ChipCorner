@@ -5,6 +5,7 @@ import AppRoutes from './AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getChipDataList } from './LandingPageSlice';
 import Carousel from './Carousel';
+import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
@@ -68,7 +69,7 @@ const LandingPage = () => {
                   <img className="productImage2" src={element.imageUrl} />
                 </div>
                 <p> {element.title}</p>
-                <button> Click Here! </button>
+                <Link to={`chips/${element.id}`}><button> Click Here! </button></Link>
               </div>
             );
           })}

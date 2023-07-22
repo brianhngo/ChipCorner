@@ -19,7 +19,6 @@ const chips = [
     baked: false,
     ingredients: `Potatoes, Vegetable Oil (Canola, Corn, Soybean, and/or Sunflower Oil), and Salt.`,
     imageUrl: `https://www.lays.com/sites/lays.com/files/2020-11/lays-Classic-small.jpg`,
-    nutritional: "",
   },
   {
     price: 4.98,
@@ -30,7 +29,6 @@ const chips = [
     baked: false,
     ingredients: `Potatoes, Vegetable Oil (Canola, Corn, Soybean, and/or Sunflower Oil), and Salt, Barbecue Seasoning (Sugar, Dextrose, Salt, Maltodextrin [Made From Corn], Molasses, Torula Yeast, Onion Powder, Spices, Tomato Powder, Paprika, Natural Flavors, Corn Starch, Caramel Color, Yeast Extract, Paprika Extract, Garlic Powder, and Mustard Seed Oil).`,
     imageUrl: `https://www.lays.com/sites/lays.com/files/2020-11/lays-bbq.jpg`,
-    nutritional: "",
   },
   {
     price: 4.98,
@@ -41,7 +39,6 @@ const chips = [
     baked: true,
     ingredients: `Dried Potatoes, Corn Starch, Corn Oil, Sugar, Sea Salt, Soy Lecithin, Dextrose, And Annatto Extracts. Contains Soy Ingredients.`,
     imageUrl: `https://www.lays.com/sites/lays.com/files/2022-08/0.01%20LAYS%20BAKED%20ORIGINAL%20%281%29.png`,
-    nutritional: "",
   },
   {
     price: 4.98,
@@ -52,7 +49,6 @@ const chips = [
     baked: true,
     ingredients: `Dried Potatoes, Corn Starch, Corn Oil, Sugar, Salt, Soy Lecithin, Onion Powder, Maltodextrin (Made From Corn), Dextrose, Brown Sugar, Molasses, Spices, Fructose, Tomato Powder, Garlic Powder, Yeast, Soybean Oil, Natural Flavors (Contains Milk), Sunflower Oil, Paprika, Acacia Gum, Paprika Extracts, Annatto Extracts, And Caramel Color. Contains Milk And Soy Ingredients.`,
     imageUrl: `https://www.lays.com/sites/lays.com/files/2022-08/0.02%20BAKED%20BBQ%20%281%29.png`,
-    nutritional: "",
   },
   {
     price: 4.98,
@@ -63,7 +59,6 @@ const chips = [
     baked: false,
     ingredients: `Potatoes, Vegetable Oil (Sunflower, Corn and/or Canola Oil), Sour Cream & Onion Seasoning (Skim Milk, Salt, Maltodextrin[Made from Corn], Onion Powder, Whey, Sour Cream[Cultured Cream, Skim Milk], Canola Oil, Parsley, Natural Flavor, Lactose, Sunflower Oil, Citric Acid, Whey Protein Concentrate and Buttermilk). Contains Milk Ingredients.`,
     imageUrl: `https://www.lays.com/sites/lays.com/files/2020-11/sour-cream.jpg`,
-    nutritional: "",
   },
 
   // doritos
@@ -76,7 +71,6 @@ const chips = [
     baked: false,
     ingredients: `Corn, Vegetable Oil (Corn, Canola, And/or Sunflower Oil), Maltodextrin (Made From Corn), Salt, Cheddar Cheese (Milk, Cheese Cultures, Salt, Enzymes), Whey, Monosodium Glutamate, Buttermilk, Romano Cheese (Part-skim Cow's Milk, Cheese Cultures, Salt, Enzymes), Whey Protein Concentrate, Onion Powder, Corn Flour, Natural And Artificial Flavor, Dextrose, Tomato Powder, Lactose, Spices, Artificial Color (Yellow 6, Yellow 5, And Red 40), Lactic Acid, Citric Acid, Sugar, Garlic Powder, Skim Milk, Red And Green Bell Pepper Powder, Disodium Inosinate, And Disodium Guanylate.`,
     imageUrl: `https://www.doritos.com/sites/doritos.com/files/2018-08/new-nacho-cheese.png`,
-    nutritional: "",
   },
   {
     price: 5.38,
@@ -87,7 +81,6 @@ const chips = [
     baked: false,
     ingredients: `Corn, Vegetable Oil (Corn, Canola, And/or Sunflower Oil), Maltodextrin (Made From Corn), Salt, Tomato Powder, Lactose, Whey, Skim Milk, Onion Powder, Sugar, Garlic Powder, Monosodium Glutamate, Maltodextrin (Made From Corn), Cheddar Cheese (Milk, Cheese Cultures, Salt, Enzymes), Dextrose, Malic Acid, Corn Syrup Solids, Buttermilk, Natural and Artificial Flavors, Sodium Acetate, Artificial Color (Red 40, Blue 1, Yellow 5), Spice, Citric Acid, Disodium Inosinate, and Disodium Guanylate.`,
     imageUrl: `https://www.doritos.com/sites/doritos.com/files/2020-06/%28medium%29%20Cool%20Ranch%20XXL%20no%20background.png`,
-    nutritional: "",
   },
   {
     price: 5.38,
@@ -98,7 +91,6 @@ const chips = [
     baked: false,
     ingredients: `Corn, Vegetable Oil (Corn, Canola, and/or Sunflower Oil), Salt, Sugar, Monosodium Glutamate, Fructose, Sodium Diacetate, Soy Sauce (Soybean, Wheat, Salt), Onion Powder, Maltodextrin (Made from Corn), Hydrolyzed Soy Protein, Hydrolyzed Corn Protein, Garlic Powder, Torula Yeast, Malic Acid, Extractives of Paprika, Spices, Caramel Color, Disodium Inosinate, Disodium Guanylate, Dextrose, and Natural Flavor.`,
     imageUrl: `https://www.doritos.com/sites/doritos.com/files/2018-08/new-sweet-chili.png`,
-    nutritional: "",
   },
   {
     price: 5.38,
@@ -109,7 +101,6 @@ const chips = [
     baked: false,
     ingredients: `Corn, Vegetable Oil (Sunflower, Corn, and/or Canola Oil), Maltodextrin (Made from Corn), Salt, Whey, Monosodium Glutamate, Buttermilk, Romano Cheese (Cow's Milk, Cheese Cultures, Salt, Enzymes), Corn Starch, Onion Powder, Garlic Powder, Dextrose, Natural and Artificial Flavor, Spices, Lactose, Sodium Caseinate, Artificial Color (Including Yellow 6 Lake, Red 40 Lake, Yellow 6, Red 40, Yellow 5, Blue 1), Citric Acid, Sugar, Lactic Acid, Skim Milk, Disodium Inosinate and Disodium Guanylate.`,
     imageUrl: `https://www.doritos.com/sites/doritos.com/files/2018-08/new-spicy-nacho.png`,
-    nutritional: "",
   },
   {
     price: 5.38,
@@ -120,7 +111,6 @@ const chips = [
     baked: false,
     ingredients: `Corn, Vegetable Oil (Corn, Canola, and/or Sunflower Oil), Sugar, Sodium Diacetate, Tomato Powder, Salt, Dextrose, Onion Powder, Spices, Monosodium Glutamate, Molasses, Yeast Extract, Paprika, Sodium Acetate, Maltodextrin (Made from Corn), Corn Syrup Solids, Artificial Color (Yellow 6 Lake, Red 40 Lake, Blue 2 Lake), Garlic Powder, Malic Acid, Natural Flavors (Including Milk), Disodium Inosinate, and Disodium Guanylate.`,
     imageUrl: `https://www.doritos.com/sites/doritos.com/files/2023-02/DORITOS%20BBQ%20%281%29.png`,
-    nutritional: "",
   },
 
   //Pringles
@@ -133,7 +123,6 @@ const chips = [
     baked: false,
     ingredients: `Dried potatoes, vegetable oil (corn, cottonseed, high oleic soybean, and/or sunflower oil), degerminated yellow corn flour, cornstarch, rice flour, maltodextrin, mono- and diglycerides, salt, wheat starch.`,
     imageUrl: `https://images.kglobalservices.com/www.pringles.com_us/en_us/product/product_1896199/prod_img-1380142_favs-orig.png`,
-    nutritional: "",
   },
   {
     price: 2.24,
@@ -144,7 +133,6 @@ const chips = [
     baked: false,
     ingredients: `Dried potatoes, vegetable oil (corn, cottonseed, high oleic soybean, and/or sunflower oil), degerminated yellow corn flour, cornstarch, rice flour, maltodextrin, sugar, mono- and diglycerides. Contains 2% or less of salt, tomato powder, monosodium glutamate, citric acid, onion powder, spice, garlic powder, yeast extract, hydrolyzed corn protein, malted barley flour, malic acid, disodium inosinate, disodium guanylate, paprika extract color, natural flavors, whey, wheat starch.`,
     imageUrl: `https://images.kglobalservices.com/www.pringles.com_us/en_us/product/product_2289454/prod_img-3270327_smokeybbq.png`,
-    nutritional: "",
   },
   {
     price: 2.24,
@@ -155,7 +143,6 @@ const chips = [
     baked: false,
     ingredients: `Dried potatoes, vegetable oil (corn, cottonseed, high oleic soybean, and/or sunflower oil), degerminated yellow corn flour, cornstarch, rice flour, maltodextrin, mono- and diglycerides. Contains 2% or less of salt, whey, sour cream (cream, nonfat milk, cultures), monosodium glutamate, onion powder, coconut oil, dextrose, sugar, natural flavors, nonfat milk, citric acid, sodium caseinate, lactic acid, yeast extract, disodium inosinate, disodium guanylate, buttermilk, malic acid, invert sugar, cultured nonfat milk, cream, wheat starch.`,
     imageUrl: `https://images.kglobalservices.com/www.pringles.com_us/en_us/product/kic-32074/prod_img-1395490_favs-sco.png`,
-    nutritional: "",
   },
   {
     price: 2.24,
@@ -166,7 +153,6 @@ const chips = [
     baked: false,
     ingredients: `Dried potatoes, vegetable oil (corn, cottonseed, high oleic soybean, and/or sunflower oil), degerminated yellow corn flour, cornstarch, rice flour, maltodextrin, sugar, mono- and diglycerides. Contains 2% or less of salt, tomato powder, monosodium glutamate, citric acid, onion powder, spice, garlic powder, yeast extract, hydrolyzed corn protein, malted barley flour, malic acid, disodium inosinate, disodium guanylate, paprika extract color, natural flavors, whey, wheat starch.`,
     imageUrl: `https://images.kglobalservices.com/www.pringles.com_us/en_us/product/kic-32075/prod_img-1349541_favs-bbq.png`,
-    nutritional: "",
   },
   {
     price: 2.24,
@@ -177,7 +163,6 @@ const chips = [
     baked: false,
     ingredients: `Dried potatoes, vegetable oil (corn, cottonseed, high oleic soybean and/or sunflower oil), degerminated yellow corn flour, cornstarch, rice flour, maltodextrin, mono- and diglycerides, lactose. Contains 2% or less of salt, sodium diacetate, vinegar, dextrose, malic acid, turmeric color, wheat starch.`,
     imageUrl: `https://images.kglobalservices.com/www.pringles.com_us/en_us/product/kic-32076/prod_img-1395486_favs-salt-vinegar.png`,
-    nutritional: "",
   },
 ];
 

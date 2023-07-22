@@ -1,11 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// save cart items to local storage
-const saveCartItemsToLocalStorage = (cartItems) => {
-  localStorage.setItem('cartItems', JSON.stringify(cartItems));
-};
-
+//fetch users order
 export const fetchOrder = createAsyncThunk('order/fetchOrder', async (id) => {
   try {
     const { data } = await axios.get(`/api/order/${id}`);
@@ -16,6 +12,7 @@ export const fetchOrder = createAsyncThunk('order/fetchOrder', async (id) => {
   }
 });
 
+//update users cart if item is deleted
 export const updatedOrder = createAsyncThunk(
   'order/updateOrder',
   async (order) => {
@@ -29,6 +26,7 @@ export const updatedOrder = createAsyncThunk(
   }
 );
 
+//add item to the cart/order
 export const addToCart = createAsyncThunk('order/addToCart', async (item) => {
   try {
     const { data } = await axios.post('/api/cart', item);
@@ -39,12 +37,10 @@ export const addToCart = createAsyncThunk('order/addToCart', async (item) => {
   }
 });
 
-const initialCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
 export const singleOrder = createSlice({
   name: 'singleOrder',
   initialState: {
-    orders: initialCartItems,
+    orders: [],
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -56,14 +52,11 @@ export const singleOrder = createSlice({
         return action.payload;
       })
       .addCase(addToCart.fulfilled, (state, action) => {
-        const updatedOrders = [...state.orders, action.payload];
-        saveCartItemsToLocalStorage(updatedOrders);
         return {
           ...state,
-          orders: updatedOrders,
+          orders: [...state.orders, action.payload],
         };
       });
   },
 });
-
 export default singleOrder.reducer;

@@ -1,8 +1,12 @@
-import axios from "axios";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-//fetch users order
-export const fetchOrder = createAsyncThunk("order/fetchOrder", async (id) => {
+// save cart items to local storage
+const saveCartItemsToLocalStorage = (cartItems) => {
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+};
+
+export const fetchOrder = createAsyncThunk('order/fetchOrder', async (id) => {
   try {
     const { data } = await axios.get(`/api/order/${id}`);
     return data;
@@ -12,9 +16,8 @@ export const fetchOrder = createAsyncThunk("order/fetchOrder", async (id) => {
   }
 });
 
-//update users cart if item is deleted
 export const updatedOrder = createAsyncThunk(
-  "order/updateOrder",
+  'order/updateOrder',
   async (order) => {
     try {
       const { data } = await axios.put(`/api/order/${order.id}`, order);
@@ -26,20 +29,41 @@ export const updatedOrder = createAsyncThunk(
   }
 );
 
+export const addToCart = createAsyncThunk('order/addToCart', async (item) => {
+  try {
+    const { data } = await axios.post('/api/cart', item);
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+});
+
+const initialCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
 export const singleOrder = createSlice({
-  name: "singleOrder",
+  name: 'singleOrder',
   initialState: {
-    tasks: [],
+    orders: initialCartItems,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUser.fulfilled, (state, action) => {
+      .addCase(fetchOrder.fulfilled, (state, action) => {
         return action.payload;
       })
-      .addCase(updateUser.fulfilled, (state, action) => {
+      .addCase(updatedOrder.fulfilled, (state, action) => {
         return action.payload;
+      })
+      .addCase(addToCart.fulfilled, (state, action) => {
+        const updatedOrders = [...state.orders, action.payload];
+        saveCartItemsToLocalStorage(updatedOrders);
+        return {
+          ...state,
+          orders: updatedOrders,
+        };
       });
   },
 });
+
 export default singleOrder.reducer;

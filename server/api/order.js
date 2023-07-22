@@ -1,9 +1,9 @@
-const router = require("express").Router();
+const router = require('express').Router();
 const {
   models: { Orders },
-} = require("../db");
+} = require('../db');
 
-router.get("/", async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const orders = await Orders.findAll();
     res.json(orders);
@@ -13,13 +13,13 @@ router.get("/", async (req, res, next) => {
 });
 
 //GET individual order
-router.get("/:orderId", async (req, res, next) => {
+router.get('/:orderId', async (req, res, next) => {
   try {
     const order = await Orders.findByPk(req.params.orderId);
     if (order) {
       res.json(order);
     } else {
-      res.status(404).send("Order not found");
+      res.status(404).send('Order not found');
     }
   } catch (err) {
     next(err);
@@ -27,9 +27,14 @@ router.get("/:orderId", async (req, res, next) => {
 });
 
 //POST new order
-router.post("/", async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
-    const newOrder = await Orders.create(req.body);
+    const { items, totalPrice, userId } = req.body; // Assuming the request body contains items, totalPrice, and userId
+    const newOrder = await Orders.create({
+      items,
+      totalPrice,
+      userId,
+    });
     res.status(201).json(newOrder);
   } catch (err) {
     next(err);
@@ -37,14 +42,14 @@ router.post("/", async (req, res, next) => {
 });
 
 //DELETE order
-router.delete("/:orderId", async (req, res, next) => {
+router.delete('/:orderId', async (req, res, next) => {
   try {
     const order = await Orders.findByPk(req.params.orderId);
     if (order) {
       await order.destroy();
-      res.status(204).send("Order deleted");
+      res.status(204).send('Order deleted');
     } else {
-      res.status(404).send("Order not found");
+      res.status(404).send('Order not found');
     }
   } catch (err) {
     next(err);
@@ -52,14 +57,14 @@ router.delete("/:orderId", async (req, res, next) => {
 });
 
 //PUT order - update
-router.put("/:orderId", async (req, res, next) => {
+router.put('/:orderId', async (req, res, next) => {
   try {
     const order = await Orders.findByPk(req.params.orderId);
     if (order) {
       const updatedOrder = await order.update(req.body);
       res.json(updatedOrder);
     } else {
-      res.status(404).send("Order not found");
+      res.status(404).send('Order not found');
     }
   } catch (err) {
     next(err);

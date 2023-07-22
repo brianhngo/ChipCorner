@@ -11,21 +11,25 @@ export const getChipDataList = createAsyncThunk('GET /api/users', async () => {
 });
 
 // fecth data for single chip
-export const getSingleChipData = createAsyncThunk('api/chips/products', async (id) => {
-  try {
-    const { data } = await axios.get(`api/chips/${id}`);
-    // return data;
-    return data;
-  } catch (error) {
-    console.error(error);
+
+export const getSingleChipData = createAsyncThunk(
+  'GET api/chips/',
+  async (id) => {
+    try {
+      const { data } = await axios.get(`/api/chips/${id}`);
+      console.log(data);
+      return data;
+    } catch {
+      console.error(error);
+    }
   }
-});
+);
 
 const landingPageSlice = createSlice({
   name: 'LandingPage',
   initialState: {
     chipsInfo: [],
-    singleChipInfo: {},
+    singleChipInfo: [],
   },
   reducers: {},
   extraReducers: (builder) => {

@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Route, Routes } from 'react-router-dom';
 import { getSingleChipData } from './LandingPageSlice';
-import { addToCart } from './cart/CartPageSlice';
-
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Navbar from '../features/navbar/Navbar';
 
 const SingleProduct = () => {
   const dispatch = useDispatch();
   const singleChip = useSelector((state) => state.landingPage.singleChipInfo);
+  console.log(singleChip);
   const { id } = useParams();
+  console.log(id);
   const {
     price,
     title,
@@ -30,31 +30,42 @@ const SingleProduct = () => {
     dispatch(addToCart(singleChip));
   };
 
+  useEffect(() => {
+    dispatch(getSingleChipData(id));
+  }, []);
+  console.log(singleChip);
   return (
-    <div>
-      <section>
-        <div className='chip-img-container'>
-          <img src={singleChip.imageUrl} alt={singleChip.title} />
-        </div>
-        <div>
-          <h2>{singleChip.title}</h2>
-          <p>{singleChip.description}</p>
-          <h3>Image of nutrition - change to image</h3>
-          <h3>Ingredients: {singleChip.ingredients}</h3>
-          <h3>Size: {singleChip.size}oz</h3>
-          <h3>Brand: {singleChip.brand}</h3>
-          <h3>{singleChip.baked ? 'Baked' : 'Not Baked'}</h3>
-          <h3>Nutrition Facts: {singleChip.nutritional}</h3>
-          <h3>Price: ${singleChip.price}</h3>
-          <button onClick={handleAddToCart}>{<AddShoppingCartIcon />}</button>
-          <Link to='/'>Back to Products</Link>
-          {/* Link to go back to the products page */}
-        </div>
-      </section>
-      <section>
-        <div>Customer Reviews</div>
-      </section>
-    </div>
+    <section>
+      <Navbar />
+      <div>
+        <h1 className='chip-brand'>{brand}</h1>
+      </div>
+      <div>
+        <section className='single-product-container'>
+          <div className='chip-img-container'>
+            <img className='img-single-chip' src={imageUrl} alt={title} />
+          </div>
+          <div className='info-container'>
+            <h1 className='chip-title'>{title}</h1>
+            <p className='chip-description'>{description}</p>
+            <h3 className='chip-ingredients'>Ingredients: {ingredients}</h3>
+            <h3 className='chip-size'>Size: {size}oz</h3>
+            <h3 className='chip-size'>{baked ? 'Baked' : 'Standard Flavor'}</h3>
+            <img
+              className='nutrition-image'
+              src={nutritional}
+              alt='Nutrition Facts'
+            />
+            <h3 className='chip-price'>Price: ${price}</h3>
+            <button className='single-chip-add-to-cart'>Buy Now</button>
+            <Link to='/'>Back to Products</Link>
+          </div>
+        </section>
+        <section>
+          <div>Our customers also like</div>
+        </section>
+      </div>
+    </section>
   );
 };
 

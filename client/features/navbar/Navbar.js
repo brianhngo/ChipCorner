@@ -1,7 +1,7 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../app/store";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { logout } from '../../app/store';
 
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 
@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate("/login");
+    navigate('/');
   };
 
   return (
@@ -33,12 +33,15 @@ const Navbar = () => {
           </div>
         )}
       </nav>
+<<<<<<< HEAD
       <hr />
       <Link to="/cart">
         <div className="cart">
           <ShoppingCartTwoToneIcon />
         </div>
       </Link>
+=======
+>>>>>>> main
     </div>
   );
 };

@@ -17,9 +17,8 @@ export const getSingleChipData = createAsyncThunk(
   async (id) => {
     try {
       const { data } = await axios.get(`/api/chips/${id}`);
-
       return data;
-    } catch {
+    } catch (error) {
       console.error(error);
     }
   }

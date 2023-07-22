@@ -15,7 +15,23 @@ const LandingPage = () => {
 
   return (
     <div id="container">
-      <NavBar />
+      <section id="headerSection">
+        <header id="headerContainer">
+          <div id="websiteTitle">
+            <h3>The Chip Corner</h3>
+            <img
+              className="logoImage"
+              src="https://media.istockphoto.com/id/164661881/vector/nachos-cartoon.jpg?s=612x612&w=0&k=20&c=AFnAYL79XMt0VQSVHtPRTuJUR1z0Iwig8LCzC3083Ag="
+            />
+          </div>
+          <nav id="navContainer">
+            <Link to="/"> Home </Link>
+            <Link to="/allchips"> All Chips </Link>
+            <Navbar />
+            <AppRoutes />
+          </nav>
+        </header>
+      </section>
       <section id="panelContainerSection">
         <Carousel />
       </section>

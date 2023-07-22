@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link, Route, Routes } from 'react-router-dom'
 import { getSingleChipData } from './LandingPageSlice';
@@ -17,7 +17,12 @@ const SingleProduct = () => {
     useEffect(() => {
         dispatch(getSingleChipData(id));
       }, []);
-  console.log(nutritional)
+
+
+  useEffect(() => {
+    dispatch(getSingleChipData(id));
+  }, []);
+  console.log(singleChip);
   return (
     <section>
         <Navbar/>
@@ -25,6 +30,7 @@ const SingleProduct = () => {
             <h1 className='chip-brand'>{brand}</h1>
         </div>
     <div>
+
     <section className='single-product-container'>
       <div className="chip-img-container">
         <img className='img-single-chip' src={imageUrl} alt={title} />

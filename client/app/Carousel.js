@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const Carousel = () => {
+  window.onload = function () {
+    setTimeout(nextImage, 7000);
+  };
   const [index, setIndex] = useState(0);
   const images = [
     'https://cdn.musebycl.io/2020-07/Doritos-Crash-From-Home-hed-2020.jpg',
@@ -18,7 +21,9 @@ const Carousel = () => {
     setIndex(newIndex >= images.length ? 0 : newIndex);
   };
 
-  useEffect(() => {}, [index]);
+  useEffect(() => {
+    setTimeout(nextImage, 7000);
+  }, [index]);
 
   return (
     <div className="imagePlaceHolder">

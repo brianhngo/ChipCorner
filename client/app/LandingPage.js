@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 import Navbar from '../features/navbar/Navbar';
 import AppRoutes from './AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom'
 const LandingPage = () => {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
   const dispatch = useDispatch();
-  console.log(chipsDataList);
   useEffect(() => {
     dispatch(getChipDataList());
   }, []);
@@ -27,6 +26,8 @@ const LandingPage = () => {
             />
           </div>
           <nav id="navContainer">
+            <Link to="/"> Home </Link>
+            <Link to="/allchips"> All Chips </Link>
             <Navbar />
             <AppRoutes />
             <div className="cart">CART</div>
@@ -69,7 +70,15 @@ const LandingPage = () => {
                   <img className="productImage2" src={element.imageUrl} />
                 </div>
                 <p> {element.title}</p>
-                <Link to={`chips/${element.id}`}><button> Click Here! </button></Link>
+                <button>
+                  {' '}
+                  <Link
+                    className="buttonLink"
+                    to={{ pathname: `/chips/${element.id}` }}>
+                    {' '}
+                    {element.title}{' '}
+                  </Link>
+                </button>
               </div>
             );
           })}

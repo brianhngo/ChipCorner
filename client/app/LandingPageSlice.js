@@ -11,11 +11,13 @@ export const getChipDataList = createAsyncThunk('GET /api/users', async () => {
 });
 
 // fecth data for single chip
+
 export const getSingleChipData = createAsyncThunk(
   'GET api/chips/',
   async (id) => {
     try {
       const { data } = await axios.get(`/api/chips/${id}`);
+
       return data;
     } catch {
       console.error(error);

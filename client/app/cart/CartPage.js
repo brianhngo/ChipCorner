@@ -10,12 +10,13 @@ const CartPage = () => {
   const orderDataList = useSelector((state) => state.order.orders);
   const dispatch = useDispatch();
   // deStringify the JSON stringify
-  const grabCartFromStorage = JSON.parse(window.localStorage.getItem('cart'));
+  const grabCartFromStorage =
+    JSON.parse(window.localStorage.getItem('cart')) || {};
   // Array of product IDs
-  const arrayOfProductId = Object.keys(grabCartFromStorage);
+  const arrayOfProductId = Object.keys(grabCartFromStorage) || [];
   console.log(arrayOfProductId);
   // Array of the Object ex/ [ {ProductId#1} : Quantity , {ProductId#2} : Quantity ]
-  const arrayOfQuantity = Object.entries(grabCartFromStorage);
+  const arrayOfQuantity = Object.entries(grabCartFromStorage) || [];
 
   return (
     <div id="container">

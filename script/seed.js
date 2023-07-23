@@ -180,13 +180,13 @@ async function seed() {
       username: "cody135",
       email: "cody135@gmail.com",
       password: "123",
-      admin: "y",
+      admin: true,
     }),
     User.create({
       username: "murphy246",
       email: "murphy246@gmail.com",
       password: "123",
-      admin: "n",
+      admin: true,
     }),
   ]);
 

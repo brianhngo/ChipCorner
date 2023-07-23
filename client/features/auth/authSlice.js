@@ -48,6 +48,28 @@ export const authenticate = createAsyncThunk(
   }
 );
 
+export const checkAdminStatus = createAsyncThunk("auth/checkAdminStatus", async () => {
+  const token = window.localStorage.getItem(TOKEN);
+  try {
+    if (token) {
+      const res = await axios.get("/auth/checkAdminStatus", {
+        headers: {
+          authorization: token,
+        },
+      });
+      return res.data.isAdmin;
+    } else {
+      return false;
+    }
+  } catch (err) {
+    if (err.response.data) {
+      throw new Error(err.response.data);
+    } else {
+      return "There was an issue with your request.";
+    }
+  }
+});
+
 /*
   SLICE
 */
@@ -73,6 +95,12 @@ export const authSlice = createSlice({
     });
     builder.addCase(authenticate.rejected, (state, action) => {
       state.error = action.payload;
+    });
+    builder.addCase(checkAdminStatus.fulfilled, (state, action) => {
+      state.isAdmin = action.payload;
+    });
+    builder.addCase(checkAdminStatus.rejected, (state, action) => {
+      state.error = action.error;
     });
   },
 });

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../features/navbar/Navbar';
-
+import AppRoutes from './AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getChipDataList } from './LandingPageSlice';
 import Carousel from './Carousel';
@@ -27,7 +27,7 @@ const LandingPage = () => {
           <nav id="navContainer">
             <Link to="/"> Home </Link>
             <Link to="/allchips"> All Chips </Link>
-            <Navbar />
+            <NavBar />
             <AppRoutes />
           </nav>
         </header>

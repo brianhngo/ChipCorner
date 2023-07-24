@@ -23,9 +23,9 @@ const User = db.define('user', {
     type: Sequelize.STRING,
   },
   admin: {
-    type: Sequelize.STRING,
+    type: Sequelize.BOOLEAN,
     allowNull: false,
-    defaultValue: 'n',
+    defaultValue: false,
   },
 });
 

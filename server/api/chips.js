@@ -42,8 +42,9 @@ router.get('/:id', async (req, res, next) => {
     } else {
       res.status(404).send('Chip not found');
     }
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    // Handle any potential errors here
+    next(error);
   }
 });
 

@@ -3,6 +3,7 @@ const {
   models: { User },
 } = require('../db');
 
+
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -91,5 +92,34 @@ router.put('/:id', async (req, res, next) => {
     next(err);
   }
 });
+
+const isAdmin = async (req, res, next) => {
+  const token = req.headers.authorization;
+  try {
+    const isAdmin = token ? true : false;
+
+    if (isAdmin) {
+      // If the user is an admin, continue to the next middleware/route handler
+      req.isAdmin = true;
+      next();
+    } else {
+      // If the user is not an admin, respond with a 403 Forbidden status
+      res.status(403).send('Access forbidden');
+    }
+  } catch (error) {
+    res.status(401).send('Unauthorized');
+  }
+};
+
+router.get('/checkAdminStatus', isAdmin, async (req, res, next) => {
+  try {
+    // The isAdmin middleware would have added the `isAdmin` property to the request object
+    const isAdmin = req.isAdmin;
+    res.json({ isAdmin });
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 module.exports = router;

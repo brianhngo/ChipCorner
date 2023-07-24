@@ -82,48 +82,54 @@ export default function CreateNewUser() {
             </nav>
           </header>
         </section>
-      </div>
-      <div className="createNewUserContainer">
-        <h1> Create New User</h1>
-        <p> Please Enter Information to continue </p>
-        <form onSubmit={submitHandler}>
-          <label htmlFor="username">
-            <h4> Username :</h4>
-          </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={username}
-            onChange={userNameHandler}
-            className={verifyStatus === true ? 'highlights' : null}></input>
 
-          <label htmlFor="password">
-            <h4> Password : </h4>
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={passwordHandler}></input>
+        <div className="createNewUserContainer">
+          <h1> Create New User</h1>
+          <p> Please Enter Information to continue </p>
+          <form onSubmit={submitHandler}>
+            <label htmlFor="username">
+              <h4> Username :</h4>
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={username}
+              onChange={userNameHandler}
+              className={verifyStatus === true ? 'highlights' : null}></input>
 
-          <label htmlFor="email">
-            <h4> Email : </h4>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={emailHandler}
-            className={verifyStatus === true ? 'highlights' : null}></input>
-          <button> Create User! </button>
-        </form>
-        {verifyStatus === true ? (
-          <p className="error-message"> Email and Username has been used </p>
-        ) : null}
-        <Link to="/"> Back to Home Page</Link>
+            <label htmlFor="password">
+              <h4> Password : </h4>
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={passwordHandler}></input>
+
+            <label htmlFor="email">
+              <h4> Email : </h4>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={emailHandler}
+              className={verifyStatus === true ? 'highlights' : null}></input>
+            <button> Create User! </button>
+          </form>
+          {verifyStatus === true ? (
+            <p className="error-message"> Email and Username has been used </p>
+          ) : null}
+          <Link to="/"> Back to Home Page</Link>
+        </div>
+
+        <section id="footerSection">
+          <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
+          <p> Beetal Team </p>
+        </section>
       </div>
     </>
   );

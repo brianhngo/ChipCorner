@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { Link } from 'react-router-dom';
+
 import Navbar from '../../features/navbar/Navbar';
 import AppRoutes from '../AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,29 +19,25 @@ const CartPage = () => {
   const arrayOfQuantity = Object.entries(grabCartFromStorage) || [];
 
   return (
-    <div id="container">
-      <section id="headerSection">
-        <header id="headerContainer">
-          <div id="websiteTitle">
-            <h3>All Chips</h3>
+    <div id='container'>
+      <section id='headerSection'>
+        <header id='headerContainer'>
+          <div id='websiteTitle'>
+            <h3>The Chip Corner</h3>
             <img
-              className="logoImage"
-              src="https://media.istockphoto.com/id/164661881/vector/nachos-cartoon.jpg?s=612x612&w=0&k=20&c=AFnAYL79XMt0VQSVHtPRTuJUR1z0Iwig8LCzC3083Ag="
+              className='logoImage'
+              src='https://media.istockphoto.com/id/164661881/vector/nachos-cartoon.jpg?s=612x612&w=0&k=20&c=AFnAYL79XMt0VQSVHtPRTuJUR1z0Iwig8LCzC3083Ag='
             />
           </div>
-          <nav id="navContainer">
-            <Link to="/"> Home </Link>
-            <Link to="/allchips"> All Chips </Link>
-            <Link to="/signup">Sign Up</Link>
-            <AppRoutes />
+          <nav id='navContainer'>
             <Navbar />
+            <AppRoutes />
           </nav>
         </header>
       </section>
-
       {grabCartFromStorage === null ? <p> Wrong</p> : <p> Yes</p>}
 
-      <section id="footerSection">
+      <section id='footerSection'>
         <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
         <p> Beetal Team </p>
       </section>

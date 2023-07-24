@@ -104,6 +104,11 @@ const SingleProduct = () => {
           </section>
         </div>
       </section>
+
+      <section id="footerSection">
+        <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
+        <p> Beetal Team </p>
+      </section>
     </>
   );
 };

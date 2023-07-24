@@ -18,9 +18,8 @@ const AllChips = ({ chips, filters, handleFilterChange }) => (
           <Link to="/"> Home </Link>
           <Link to="/allchips"> All Chips </Link>
           <Link to="/signup">Sign Up</Link>
-          <Navbar />
           <AppRoutes />
-          <div className="cart">CART</div>
+          <Navbar />
         </nav>
       </header>
     </section>

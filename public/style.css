@@ -29,6 +29,7 @@ a:hover {
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
+  flex: 1;
 }
 
 /* Header Section */
@@ -262,6 +263,8 @@ img.productImage2 {
   padding: 20px;
   display: flex;
   justify-content: space-evenly;
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 a {
@@ -423,7 +426,7 @@ form div {
   max-width: 500px;
   max-height: 500px;
   height: auto;
-  width:fit-content;
+  width: fit-content;
 }
 
 .nutrition-image {

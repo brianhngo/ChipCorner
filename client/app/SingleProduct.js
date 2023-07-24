@@ -45,6 +45,10 @@ const SingleProduct = () => {
     dispatch(getSingleChipData(id));
   }, []);
 
+  const handleDeleteUser = () => {
+    dispatch(deleteUser(id));
+  }
+
   return (
     <>
       <div id="container">
@@ -96,11 +100,11 @@ const SingleProduct = () => {
                 onClick={submitHandler}>
                 Buy Now
               </button>
+              <button className='delete-btn' onClick={handleDeleteUser}>
+                 Delete Product
+            </button>
               <Link to="/">Back to Products</Link>
             </div>
-          </section>
-          <section>
-            <div>Our customers also like</div>
           </section>
         </div>
       </section>

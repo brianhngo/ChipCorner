@@ -47,6 +47,7 @@ const AllChips = ({ chips, filters, handleFilterChange }) => (
 
     <section id="productsSection">
       <h3>Chips</h3>
+      <Link to='/addchips'>Add Chips</Link>
       <div id="chipContainers">
         {chips.map((chip) => (
           <div className="chipContainer" key={chip.id}>

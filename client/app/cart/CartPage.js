@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import React, { useEffect, useState } from 'react';
 
 import Navbar from '../../features/navbar/Navbar';
 import AppRoutes from '../AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartData } from './CartPageSlice';
+import StripeContainer from './stripe/StripContainer';
 
 const CartPage = () => {
   const orderDataList = useSelector((state) => state.order.orders);
   const cartData = useSelector((state) => state.order.cartData);
+  const [showItem, setShowItem] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -24,10 +24,8 @@ const CartPage = () => {
   );
 
   // Array of the Object ex/ [ {ProductId#1} : Quantity , {ProductId#2} : Quantity ]
-
   const arrayOfQuantity = Object.values(grabCartFromStorage) || [];
   console.log(arrayOfQuantity, 'HEELOELEEIJIGFU');
-
   useEffect(() => {
     dispatch(getCartData({ arrayOfProductIdInteger }));
   }, []);
@@ -63,7 +61,6 @@ const CartPage = () => {
           </nav>
         </header>
       </section>
-
       <div>
         {cartData ? (
           cartData.map((item, index) => (
@@ -71,9 +68,7 @@ const CartPage = () => {
               <h4>{item.title}</h4>
               <img src={item.imageUrl} alt={item.name} />
               <p>Price: ${item.price}</p>
-
               <h1>{arrayOfQuantity[index]}</h1>
-
             </div>
           ))
         ) : (
@@ -81,11 +76,20 @@ const CartPage = () => {
         )}
       </div>
       <div>
-
         <h2>Total Amount: ${getTotalAmount()}</h2>
       </div>
+      {/* stripe */}
+      <h1>Checkout</h1>
+      {showItem ? (
+        <StripeContainer />
+      ) : (
+        <>
+          <h3>Total Amount: ${getTotalAmount()}</h3>
+          <button onClick={() => setShowItem(true)}>Checkout!</button>
+        </>
+      )}
+      {/* stripe */}
       <section id='footerSection'>
-
         <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
         <p> Beetal Team </p>
       </section>

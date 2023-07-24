@@ -32,8 +32,8 @@ const LandingPage = () => {
             <Link to="/"> Home </Link>
             <Link to="/allchips"> All Chips </Link>
             <Link to="/signup">Sign Up</Link>
-            <NavBar />
             <AppRoutes />
+            <NavBar />
           </nav>
         </header>
       </section>

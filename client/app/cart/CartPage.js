@@ -22,7 +22,9 @@ const CartPage = () => {
   );
 
   // Array of the Object ex/ [ {ProductId#1} : Quantity , {ProductId#2} : Quantity ]
-  const arrayOfQuantity = Object.entries(grabCartFromStorage) || [];
+  const arrayOfQuantity = Object.entries(arrayOfProductIdInteger) || [];
+  console.log(arrayOfQuantity);
+  const testing = Object.values(grabCartFromStorage);
 
   useEffect(() => {
     dispatch(getCartData({ arrayOfProductIdInteger }));
@@ -49,7 +51,31 @@ const CartPage = () => {
         </header>
       </section>
 
-      {grabCartFromStorage === null ? <p> Wrong</p> : <p> Yes</p>}
+      <div>
+        {cartData ? (
+          cartData.map((item, index) => (
+            <div key={index}>
+              <h4>{item.title}</h4>
+              <img src={item.imageUrl} alt={item.name} />
+              <p>Price: ${item.price}</p>
+              <p> {testing[index]} </p>
+            </div>
+          ))
+        ) : (
+          <p>Empty</p>
+        )}
+      </div>
+      <div>
+        {arrayOfQuantity ? (
+          arrayOfQuantity.map((item, index) => (
+            <div key={index}>
+              <h4>{item.index}</h4>
+            </div>
+          ))
+        ) : (
+          <p>Empty</p>
+        )}
+      </div>
 
       <section id="footerSection">
         <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>

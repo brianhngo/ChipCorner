@@ -30,6 +30,7 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   flex: 1;
+  min-height: 100vh; /* This ensures the container takes at least the full height of the viewport */
 }
 
 /* Header Section */
@@ -263,7 +264,6 @@ img.productImage2 {
   padding: 20px;
   display: flex;
   justify-content: space-evenly;
-  flex-shrink: 0;
   margin-top: auto;
 }
 

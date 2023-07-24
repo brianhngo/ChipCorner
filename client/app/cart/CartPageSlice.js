@@ -9,7 +9,8 @@ export const singleOrder = createSlice({
       console.log('hi');
       const { id } = payload;
 
-      const cartData = JSON.parse(window.localStorage.getItem('cart'));
+      const cartData = JSON.parse(window.localStorage.getItem('cart')) || {};
+
       if (!cartData) {
         cartData = {};
       }

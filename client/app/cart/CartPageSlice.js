@@ -1,12 +1,28 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+export const getCartData = createAsyncThunk(
+  'PUT api/users/carts',
+  async ({ arrayOfProductIdInteger }) => {
+    try {
+      const { data } = await axios.put('api/chips/cartData', {
+        array: arrayOfProductIdInteger,
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+
 export const singleOrder = createSlice({
   name: 'singleOrder',
-  initialState: {},
+  initialState: {
+    cartData: [],
+  },
   reducers: {
     changeOrder: (state, { payload }) => {
-      console.log('hi');
       const { id } = payload;
 
       const cartData = JSON.parse(window.localStorage.getItem('cart')) || {};
@@ -22,7 +38,11 @@ export const singleOrder = createSlice({
       window.localStorage.setItem('cart', JSON.stringify(cartData));
     },
   },
-  extraReducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(getCartData.fulfilled, (state, { payload }) => {
+      state.cartData = payload;
+    });
+  },
 });
 
 export const { changeOrder } = singleOrder.actions;

@@ -11,7 +11,11 @@ const LandingPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getChipDataList());
-  }, []);
+  }, [dispatch]);
+
+  const buttonHandler = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <div id="container">
@@ -27,8 +31,9 @@ const LandingPage = () => {
           <nav id="navContainer">
             <Link to="/"> Home </Link>
             <Link to="/allchips"> All Chips </Link>
-            <NavBar />
+            <Link to="/signup">Sign Up</Link>
             <AppRoutes />
+            <NavBar />
           </nav>
         </header>
       </section>
@@ -87,7 +92,7 @@ const LandingPage = () => {
           <div id="newsLetterContainer">
             <label>Newsletter : </label>
             <input type="email" placeholder="Enter your email"></input>
-            <button>Subscribe</button>
+            <button onClick={buttonHandler}>Subscribe</button>
           </div>
         </form>
       </section>

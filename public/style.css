@@ -14,19 +14,27 @@ a {
   color: black;
 }
 
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 #container {
   display: flex;
   flex-direction: column;
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 /* Header Section */
 #headerSection {
   background-color: #f0f0f0;
-  padding: 10px 0;
+  padding-bottom: 10px;
 }
 
 img.logoImage {
@@ -38,9 +46,7 @@ img.logoImage {
 
 #headerContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+  justify-content: space-evenly;
 }
 
 #websiteTitle h3 {
@@ -64,28 +70,18 @@ img.logoImage {
   width: 30px;
   text-align: center;
   justify-content: center;
-  position: absolute;
-  margin-left: 50vh;
+  align-items: center;
 }
 
 /* Panel Container Section */
 #panelContainerSection {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 .imagePlaceHolder {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-img.imagePlaceHolder2 {
-  max-width: 100%;
-  max-height: 100%;
 }
 
 #productContainer {
@@ -137,12 +133,10 @@ img.imagePlaceHolder2 {
 /* About Us Page Section */
 #aboutUsPageSection {
   background-color: #f9f9f9;
-  padding: 20px;
 }
 
 #aboutUsPageSection h2 {
   font-size: 28px;
-  margin-bottom: 10px;
 }
 
 /*Featured Products */
@@ -152,7 +146,6 @@ Section / #featuredProductsSection {
 
 #featuredProductsSection h2 {
   font-size: 28px;
-  margin-bottom: 20px;
 }
 
 #FeatureProductsContainers {
@@ -207,7 +200,6 @@ img.chipImage2 {
 .productImage {
   background-color: white;
   padding: 100px 0;
-  margin-bottom: 10px;
 }
 
 .ProductsContainer button {
@@ -234,7 +226,6 @@ img.productImage2 {
 #newsletterSection {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 20px;
 }
 
@@ -338,7 +329,24 @@ form div {
 .createNewUserContainer {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.createNewUserContainer p {
+  font-size: 14px;
+}
+
+.createNewUserContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .highlights {

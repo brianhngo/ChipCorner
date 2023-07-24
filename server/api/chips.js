@@ -73,6 +73,28 @@ router.delete('/:chipId', async (req, res, next) => {
   }
 });
 
+//Get Cart Data PUT Route
+
+router.put('/cartData', async (req, res, next) => {
+  try {
+    const { array } = req.body;
+    if (array.length < 1) {
+      return res.status(200).json(null);
+    }
+    const data = await Chips.findAll({
+      where: {
+        id: {
+          [Op.or]: array,
+        },
+      },
+    });
+
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
+
 //PUT chip - update
 router.put('/:chipId', async (req, res, next) => {
   try {

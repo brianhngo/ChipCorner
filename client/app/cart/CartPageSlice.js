@@ -8,7 +8,6 @@ export const getCartData = createAsyncThunk(
       const { data } = await axios.put('api/chips/cartData', {
         array: arrayOfProductIdInteger,
       });
-      console.log(data);
       return data;
     } catch (error) {
       console.error(error);

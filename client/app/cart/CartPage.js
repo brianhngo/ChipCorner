@@ -24,8 +24,10 @@ const CartPage = () => {
   );
 
   // Array of the Object ex/ [ {ProductId#1} : Quantity , {ProductId#2} : Quantity ]
+
   const arrayOfQuantity = Object.values(grabCartFromStorage) || [];
   console.log(arrayOfQuantity, 'HEELOELEEIJIGFU');
+
   useEffect(() => {
     dispatch(getCartData({ arrayOfProductIdInteger }));
   }, []);
@@ -61,6 +63,7 @@ const CartPage = () => {
           </nav>
         </header>
       </section>
+
       <div>
         {cartData ? (
           cartData.map((item, index) => (
@@ -68,7 +71,9 @@ const CartPage = () => {
               <h4>{item.title}</h4>
               <img src={item.imageUrl} alt={item.name} />
               <p>Price: ${item.price}</p>
+
               <h1>{arrayOfQuantity[index]}</h1>
+
             </div>
           ))
         ) : (
@@ -76,9 +81,11 @@ const CartPage = () => {
         )}
       </div>
       <div>
+
         <h2>Total Amount: ${getTotalAmount()}</h2>
       </div>
       <section id='footerSection'>
+
         <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
         <p> Beetal Team </p>
       </section>

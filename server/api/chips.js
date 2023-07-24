@@ -77,9 +77,10 @@ router.delete('/:chipId', async (req, res, next) => {
 
 router.put('/cartData', async (req, res, next) => {
   try {
-    console.log(req.body.array);
     const { array } = req.body;
-    console.log(array);
+    if (array.length < 1) {
+      return res.status(200).json(null);
+    }
     const data = await Chips.findAll({
       where: {
         id: {
@@ -87,6 +88,7 @@ router.put('/cartData', async (req, res, next) => {
         },
       },
     });
+
     res.status(200).json(data);
   } catch (err) {
     next(err);

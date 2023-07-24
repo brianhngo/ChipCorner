@@ -74,6 +74,10 @@ img.logoImage {
   justify-content: center;
   align-items: center;
 }
+.cartImg {
+  width: 100px;
+  height: 100px;
+}
 
 /* Panel Container Section */
 #panelContainerSection {
@@ -283,34 +287,6 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-/* Cart Page CSS */
-.shoppingCartItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin: 10px;
-  width: 200px;
-}
-
-/* Styling for the product image */
-.shoppingCartItem__image {
-  width: 100px;
-  max-height: 150px; /* Set a maximum height for the image container */
-  overflow: hidden; /* Hide any image content that exceeds the container */
-  border-radius: 8px;
-}
-
-/* Styling for the product title */
-.shoppingCartItem__title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
 }
 
 /* Styling for the button */

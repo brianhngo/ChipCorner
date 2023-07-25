@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const CARD_OPTIONS = {
@@ -24,6 +25,8 @@ const CARD_OPTIONS = {
 
 export default function PaymentForm() {
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -33,7 +36,6 @@ export default function PaymentForm() {
       type: 'card',
       card: elements.getElement(CardElement),
     });
-
     if (!error) {
       try {
         const { id } = paymentMethod;
@@ -52,6 +54,18 @@ export default function PaymentForm() {
       console.log(error.message);
     }
   };
+  useEffect(() => {
+    if (success) {
+      const redirectTimeout = setTimeout(() => {
+        redirect();
+      }, 2000);
+      return () => clearTimeout(redirectTimeout);
+    }
+  }, [success]);
+
+  const redirect = () => {
+    navigate('/');
+  };
 
   return (
     <>
@@ -66,7 +80,9 @@ export default function PaymentForm() {
         </form>
       ) : (
         <div>
-          <h2>You Just Bought Chips!!!</h2>
+          <h2>Thank You For Shopping At The Chip Corner</h2>
+          <h3>redirecting now</h3>
+          {localStorage.removeItem('cart')}
         </div>
       )}
     </>

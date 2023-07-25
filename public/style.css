@@ -29,8 +29,8 @@ a:hover {
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  flex: 1;
-  min-height: 100vh; /* This ensures the container takes at least the full height of the viewport */
+  flex: 1 0 auto;
+  min-height: 100vh;
 }
 
 /* Header Section */
@@ -90,23 +90,42 @@ img.logoImage {
   align-items: center;
 }
 
-#productContainer {
-  width: 50%;
-  padding: 0 20px;
-}
-
 #productContainer h4 {
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-#productContainer button {
+#productContainer button,
+#productContainer {
   background-color: #007bff;
   color: #fff;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+#productContainersss {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
+  margin-top: 7px;
+}
+
+#productContainerssss {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
 }
 
 .imagePlaceHolder2 {
@@ -130,6 +149,7 @@ img.logoImage {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  height: 50px;
 }
 .svgContainer {
   display: flex;
@@ -265,12 +285,12 @@ img.productImage2 {
 /*Footer Section */
 #footerSection {
   background-color: #f0f0f0;
-  padding: 20px;
-  display: flex;
-  justify-content: space-evenly;
+  padding: 10px;
+  text-align: center;
   margin-top: auto;
+  display: flex;
+  justify-content: center;
 }
-
 a {
   text-decoration: none;
 }
@@ -340,7 +360,6 @@ form div {
 /* Single Chip Page */
 
 .single-product-container {
-  width: 100vw;
   display: flex;
   justify-content: center;
   border: 2px solid black;
@@ -410,4 +429,83 @@ form div {
   max-height: 300px;
   width: auto;
   height: auto;
+}
+
+.success-page {
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.success-page h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #42b983;
+}
+/* stripe */
+.FormGroup {
+  margin: 0 15px 20px;
+  padding: 0;
+  border-style: none;
+  background-color: #7795f8;
+  will-change: opacity, transform;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #829fff;
+  border-radius: 4px;
+}
+.FormRow {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 15px;
+  border-top: 1px solid #819efc;
+}
+
+.StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+.StripeElement {
+  width: 100%;
+  padding: 11px 15px 11px 0;
+}
+
+#CheckOutBtn {
+  box-shadow: 3px 4px 0px 0px #8a2a21;
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border-radius: 18px;
+  border: 1px solid #d02718;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #810e05;
+}
+#CheckOutBtn:hover {
+  background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+  background-color: #f24437;
+}
+#CheckOutBtn:active {
+  position: relative;
+  top: 1px;
+}
+
+.SignedInComponent {
+  display: flex;
+}
+
+.SignedInComponent2 {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
 }

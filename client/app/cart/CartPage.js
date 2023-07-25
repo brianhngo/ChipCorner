@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
-
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../features/navbar/Navbar';
 import AppRoutes from '../AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartData } from './CartPageSlice';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
   const orderDataList = useSelector((state) => state.order.orders);
   const cartData = useSelector((state) => state.order.cartData);
+  const [showItem, setShowItem] = useState(false);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // deStringify the JSON stringify
@@ -24,9 +25,7 @@ const CartPage = () => {
   );
 
   // Array of the Object ex/ [ {ProductId#1} : Quantity , {ProductId#2} : Quantity ]
-
   const arrayOfQuantity = Object.values(grabCartFromStorage) || [];
-  console.log(arrayOfQuantity, 'HEELOELEEIJIGFU');
 
   useEffect(() => {
     dispatch(getCartData({ arrayOfProductIdInteger }));
@@ -43,7 +42,42 @@ const CartPage = () => {
         total += cartData[i].price * arrayOfQuantity[i];
       }
     }
-    return total;
+
+    // Formatting total to 2 decimal places
+    const formattedTotal = total.toFixed(2);
+    return formattedTotal;
+  };
+
+  const handleCheckout = () => {
+    if (cartData && cartData.length > 0) {
+      // Redirect to the payment page when the cart is not empty
+      navigate('/payment');
+    } else {
+      // Show an alert when the cart is empty
+      alert('Your cart is empty. Add items to proceed to checkout.');
+    }
+  };
+  const handleIncrement = (productId) => {
+    const updatedCart = { ...grabCartFromStorage };
+    updatedCart[productId]++;
+    window.localStorage.setItem('cart', JSON.stringify(updatedCart));
+    setShowItem(!showItem);
+  };
+
+  const handleDecrement = (productId) => {
+    const updatedCart = { ...grabCartFromStorage };
+    if (updatedCart[productId] > 1) {
+      updatedCart[productId]--;
+      window.localStorage.setItem('cart', JSON.stringify(updatedCart));
+      setShowItem(!showItem);
+    }
+  };
+
+  const handleRemoveItem = (productId) => {
+    const updatedCart = { ...grabCartFromStorage };
+    delete updatedCart[productId];
+    window.localStorage.setItem('cart', JSON.stringify(updatedCart));
+    setShowItem(!showItem); // Trigger re-render to reflect the changes
   };
 
   return (
@@ -58,22 +92,31 @@ const CartPage = () => {
             />
           </div>
           <nav id='navContainer'>
+            <Link to='/'> Home </Link>
+            <Link to='/allchips'> All Chips </Link>
+            <Link to='/signup'>Sign Up</Link>
             <AppRoutes />
             <Navbar />
           </nav>
         </header>
       </section>
-
       <div>
         {cartData ? (
           cartData.map((item, index) => (
             <div key={index}>
+              <button onClick={() => handleRemoveItem(arrayOfProductId[index])}>
+                x
+              </button>
               <h4>{item.title}</h4>
               <img src={item.imageUrl} alt={item.name} />
               <p>Price: ${item.price}</p>
-
-              <h1>{arrayOfQuantity[index]}</h1>
-
+              <p>quanity: {arrayOfQuantity[index]}</p>
+              <button onClick={() => handleDecrement(arrayOfProductId[index])}>
+                -
+              </button>
+              <button onClick={() => handleIncrement(arrayOfProductId[index])}>
+                +
+              </button>
             </div>
           ))
         ) : (
@@ -81,11 +124,10 @@ const CartPage = () => {
         )}
       </div>
       <div>
-
         <h2>Total Amount: ${getTotalAmount()}</h2>
       </div>
+      <button onClick={handleCheckout}>Checkout</button>
       <section id='footerSection'>
-
         <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
         <p> Beetal Team </p>
       </section>

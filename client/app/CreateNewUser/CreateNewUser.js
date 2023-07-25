@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { changeStatus } from './CreateNewUserSlice';
-import AppRoutes from './AppRoutes';
-import Navbar from '../features/navbar/Navbar';
+import AppRoutes from '../AppRoutes';
+import Navbar from '../../features/navbar/Navbar';
 
 export default function CreateNewUser() {
   const navigate = useNavigate();
@@ -118,7 +118,7 @@ export default function CreateNewUser() {
               value={email}
               onChange={emailHandler}
               className={verifyStatus === true ? 'highlights' : null}></input>
-            <button> Create User! </button>
+            <button id="productContainerssss"> Create User! </button>
           </form>
           {verifyStatus === true ? (
             <p className="error-message"> Email and Username has been used </p>

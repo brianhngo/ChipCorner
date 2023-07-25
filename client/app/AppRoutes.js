@@ -23,29 +23,29 @@ const AppRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/chips/:id" element={<SingleProduct />} />
+        <Route path='/chips/:id' element={<SingleProduct />} />
 
         {isLoggedIn ? (
           <>
-            <Route path="/chips/:id" element={<SingleProduct />} />
-            <Route path="/home" element={<Home />} />
+            <Route path='/chips/:id' element={<SingleProduct />} />
+            <Route path='/home' element={<Home />} />
           </>
         ) : (
           <>
-            <Route path="/chips/:id" element={<SingleProduct />} />
+            <Route path='/chips/:id' element={<SingleProduct />} />
             <Route
-              path="/login"
-              element={<AuthForm name="login" displayName="Login" />}
+              path='/login'
+              element={<AuthForm name='login' displayName='Login' />}
             />
             <Route path='/addchips' element={<AdminAddChips/>}/>
             <Route path='/editchips' element={<AdminEditChips/>}/>
             <Route
-              path="/signup"
-              element={<AuthForm name="signup" displayName="Sign Up" />}
+              path='/signup'
+              element={<AuthForm name='signup' displayName='Sign Up' />}
             />
             <Route
-              path="/*"
-              element={<AuthForm name="login" displayName="Login" />}
+              path='/*'
+              element={<AuthForm name='login' displayName='Login' />}
             />
           </>
         )}

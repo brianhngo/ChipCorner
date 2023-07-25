@@ -3,6 +3,8 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import toast, { Toaster } from 'react-hot-toast';
+
 const CARD_OPTIONS = {
   iconStyle: 'solid',
   style: {
@@ -40,7 +42,7 @@ export default function PaymentForm() {
       try {
         const { id } = paymentMethod;
         const response = await axios.post('http://localhost:8080/payment', {
-          amount: 1000,
+          amount: 50000,
           id,
         });
         if (response.data.success) {
@@ -56,9 +58,10 @@ export default function PaymentForm() {
   };
   useEffect(() => {
     if (success) {
+      toast.success('Success!');
       const redirectTimeout = setTimeout(() => {
         redirect();
-      }, 2000);
+      }, 4000);
       return () => clearTimeout(redirectTimeout);
     }
   }, [success]);
@@ -80,6 +83,7 @@ export default function PaymentForm() {
         </form>
       ) : (
         <div>
+          <Toaster />
           <h2>Thank You For Shopping At The Chip Corner</h2>
           <h3>redirecting now</h3>
           {localStorage.removeItem('cart')}

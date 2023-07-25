@@ -17,24 +17,25 @@ const Navbar = () => {
   };
 
   return (
-    <div className="SignedInComponent">
+    <div className='SignedInComponent'>
       <nav>
         {isLoggedIn ? (
-          <div className="SignedInComponent2">
+          <div className='SignedInComponent2'>
             {/* The navbar will show these links after you log in */}
             <h2>Welcome, {username}</h2>
             <button
-              id="productContainersss"
-              type="button"
-              onClick={logoutAndRedirectHome}>
+              id='productContainersss'
+              type='button'
+              onClick={logoutAndRedirectHome}
+            >
               Logout
             </button>
           </div>
         ) : null}
       </nav>
 
-      <Link to="/cart">
-        <div className="cart">
+      <Link to='/cart'>
+        <div className='cart'>
           <ShoppingCartTwoToneIcon />
         </div>
       </Link>

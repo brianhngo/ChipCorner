@@ -3,7 +3,7 @@ import logger from 'redux-logger';
 import authReducer from '../features/auth/authSlice';
 import landingPageSlice from './LandingPageSlice';
 import singleOrder from './cart/CartPageSlice';
-import CreateNewUserSlice from './CreateNewUserSlice';
+import CreateNewUserSlice from './CreateNewUser/CreateNewUserSlice';
 import chipsSlice from './chipsSlice';
 
 const store = configureStore({

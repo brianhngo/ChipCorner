@@ -186,7 +186,7 @@ async function seed() {
       username: "murphy246",
       email: "murphy246@gmail.com",
       password: "123",
-      admin: true,
+      admin: false,
     }),
   ]);
 

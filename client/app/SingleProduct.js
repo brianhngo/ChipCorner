@@ -103,6 +103,7 @@ const SingleProduct = () => {
               <button className='delete-btn' onClick={handleDeleteUser}>
                  Delete Product
             </button>
+              <Link to='/editchips'>Edit Chips</Link>
               <Link to="/">Back to Products</Link>
             </div>
           </section>

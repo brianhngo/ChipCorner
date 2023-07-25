@@ -8,7 +8,8 @@ const AdminAddChips = () => {
     const [size, setSize] = useState("");
     const [baked, setBaked] = useState("");
     const [ingredients, setIngredients] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
+    // const [nutritional, setNutritional] = useState("");
+    // const [imageUrl, setImageUrl] = useState("");
     const [price, setPrice] = useState("");
     const dispatch = useDispatch();
 
@@ -22,8 +23,8 @@ const AdminAddChips = () => {
             size,
             baked,
             ingredients,
-            nutritional,
-            imageUrl,
+            // nutritional,
+            // imageUrl,
             price,
         };
 
@@ -36,8 +37,8 @@ const AdminAddChips = () => {
     setSize('');
     setBaked('');
     setIngredients('');
-    setNutritional('');
-    setImageUrl('');
+    // setNutritional('');
+    // setImageUrl('');
     setPrice('');
   };
 
@@ -45,7 +46,7 @@ const AdminAddChips = () => {
   return (
     <div>
       <h2>Add Chips</h2>
-      <form onSubmit={handleSubmit}/>
+      <form onSubmit={handleSubmit}>
       <div className='chip-input'>
           <label htmlFor="title">Name of Chips:</label>
           <input className='input-box'
@@ -96,16 +97,16 @@ const AdminAddChips = () => {
           <input className='input-box'
             type="text"
             id="ingredients"
-            value={baked}
+            value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
           />
         </div>
-        <div className='chip-input'>
+        {/* <div className='chip-input'>
           <label htmlFor="nurtritional">Nutritional:</label>
           <input className='input-box'
             type="text"
             id="nutritional"
-            value={baked}
+            value={nutritional}
             onChange={(e) => setNutritional(e.target.value)}
           />
         </div>
@@ -117,7 +118,7 @@ const AdminAddChips = () => {
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
           />
-        </div>
+        </div> */}
         <div className='chip-input'>
           <label htmlFor="price">Price:</label>
           <input className='input-box'
@@ -127,6 +128,8 @@ const AdminAddChips = () => {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
+        <button className='add-btn' type="submit">Add</button>
+        </form>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-const AdminEditProduct = ({ chips }) => {
+const AdminEditChips = ({ chips }) => {
     const [title, setTitle] = useState(chips.title);
     const [description, setDescription] = useState(chips.description);
     const [brand, setBrand] = useState(chips.brand);
@@ -47,7 +47,7 @@ const AdminEditProduct = ({ chips }) => {
   return (
     <div>
       <h2>Edit Chips</h2>
-      <form onSubmit={handleSubmit}/>
+      <form onSubmit={handleSubmit}>
       <div className='chip-input'>
           <label htmlFor="title">Name of Chips:</label>
           <input className='input-box'
@@ -129,8 +129,10 @@ const AdminEditProduct = ({ chips }) => {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
+        <button className='add-btn'>Edit</button>
+        </form>
     </div>
   )
 }
 
-export default AdminEditProduct;
+export default AdminEditChips;

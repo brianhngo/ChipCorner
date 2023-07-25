@@ -4,6 +4,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import AdminAddChips from './AdminAddChips';
+import AdminEditChips from './AdminEditChips';
 import SingleProduct from './SingleProduct';
 import { me } from './store';
 
@@ -37,6 +38,7 @@ const AppRoutes = () => {
               element={<AuthForm name="login" displayName="Login" />}
             />
             <Route path='/addchips' element={<AdminAddChips/>}/>
+            <Route path='/editchips' element={<AdminEditChips/>}/>
             <Route
               path="/signup"
               element={<AuthForm name="signup" displayName="Sign Up" />}

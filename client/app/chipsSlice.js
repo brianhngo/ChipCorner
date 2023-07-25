@@ -23,6 +23,7 @@ export const updateChips = createAsyncThunk('chips/updateChips', async (updatedC
     try {
       const { data } = await axios.put(`/api/chips/${updatedChips.id}`, updatedChips);
       return data;
+    // console.log(data)
     } catch (err) {
       return err.message;
     }
@@ -41,11 +42,9 @@ export const updateChips = createAsyncThunk('chips/updateChips', async (updatedC
         .addCase(deleteChips.fulfilled, (state, {payload}) => {
             state.chips = state.chips.filter((chips) => chips.id !== payload)
         })
-        .addCase(updateChips.fulfilled, (state, { payload }) => {
-            const id = payload.id;
-            const existingChips = state.chips.find((chip) => chip.id === id);
-        })
-    
+        .addCase(updateChips.fulfilled, (state, action) => {
+            return action.payload;
+        });
     }
   })
 

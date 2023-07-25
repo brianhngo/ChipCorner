@@ -7,11 +7,15 @@ import FilterChips from './FilterChips';
 import CreateNewUser from './CreateNewUser';
 import SuccessPage from './SuccessPage';
 import CartPage from './cart/CartPage';
+
 import AdminAddChips from './AdminAddChips';
+import CheckoutPage from './cart/stripe/checkoutComp';
+
 
 const App = () => {
   return (
     <Routes>
+      <Route path='/payment' element={<CheckoutPage />} />
       <Route path='/allchips' element={<FilterChips />} />
       <Route path='/chips/:id' element={<SingleProduct />} />
       <Route path='/signup' element={<CreateNewUser />} />

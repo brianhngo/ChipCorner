@@ -44,9 +44,9 @@ User.prototype.generateToken = function () {
 };
 
 //instance for checking admin
-User.prototype.isAdmin = function () {
-  return this.admin;
-};
+// User.prototype.isAdmin = function () {
+//   return this.admin;
+// };
 
 /**
  * classMethods

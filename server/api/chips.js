@@ -51,12 +51,30 @@ router.get('/:id', async (req, res, next) => {
 //POST new chip
 router.post('/', async (req, res, next) => {
   try {
-    const { title, description, brand, size, price, baked, ingredients, imageUrl } = req.body
-    const newChip = await Chips.create({ title, description, brand, size, price, baked, ingredients, imageUrl });
-    console.log(newChip)
+    const {
+      title,
+      description,
+      brand,
+      size,
+      price,
+      baked,
+      ingredients,
+      imageUrl,
+    } = req.body;
+    const newChip = await Chips.create({
+      title,
+      description,
+      brand,
+      size,
+      price,
+      baked,
+      ingredients,
+      imageUrl,
+    });
+    console.log(newChip);
     res.status(201).json(newChip);
   } catch (err) {
-    next(err, "this is the error");
+    next(err, 'this is the error');
   }
 });
 
@@ -100,13 +118,9 @@ router.put('/cartData', async (req, res, next) => {
 //PUT chip - update
 router.put('/:chipId', async (req, res, next) => {
   try {
-    const chip = await Chips.findByPk(req.params.chipId);
-    if (chip) {
-      const updatedChip = await chip.update(req.body);
-      res.json(updatedChip);
-    } else {
-      res.status(404).send('Chip not found');
-    }
+    const chipId = req.params.id;
+    const chips = await Chips.findByPk(chipId);
+    res.send(await chips.update(req.body));
   } catch (err) {
     next(err);
   }

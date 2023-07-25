@@ -21,16 +21,16 @@ const Navbar = () => {
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
-            <Link to="/home">Welcome </Link>
-            <button type="button" onClick={logoutAndRedirectHome}>
+            <p to='/home'>Welcome </p>
+            <button type='button' onClick={logoutAndRedirectHome}>
               Logout
             </button>
           </div>
         ) : null}
       </nav>
 
-      <Link to="/cart">
-        <div className="cart">
+      <Link to='/cart'>
+        <div className='cart'>
           <ShoppingCartTwoToneIcon />
         </div>
       </Link>

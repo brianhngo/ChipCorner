@@ -13,7 +13,7 @@ const CheckoutPage = () => {
         <StripeContainer />
       ) : (
         <>
-          <button id='CheckOutBtn' onClick={() => setShowItem(true)}>
+          <button className='CheckOutBtn' onClick={() => setShowItem(true)}>
             Checkout!
           </button>
         </>

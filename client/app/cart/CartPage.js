@@ -5,9 +5,9 @@ import AppRoutes from '../AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartData } from './CartPageSlice';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CartPage = () => {
-  const orderDataList = useSelector((state) => state.order.orders);
   const cartData = useSelector((state) => state.order.cartData);
   const [showItem, setShowItem] = useState(false);
 
@@ -19,7 +19,6 @@ const CartPage = () => {
     JSON.parse(window.localStorage.getItem('cart')) || {};
   // Array of product IDs
   const arrayOfProductId = Object.keys(grabCartFromStorage) || [];
-  console.log(arrayOfProductId, 'this is the id');
   const arrayOfProductIdInteger = arrayOfProductId.map((element) =>
     parseInt(element)
   );
@@ -54,20 +53,13 @@ const CartPage = () => {
       navigate('/payment');
     } else {
       // Show an alert when the cart is empty
-      alert('Your cart is empty. Add items to proceed to checkout.');
+      toast.error('Empty Cart!');
     }
   };
-  const handleIncrement = (productId) => {
-    const updatedCart = { ...grabCartFromStorage };
-    updatedCart[productId]++;
-    window.localStorage.setItem('cart', JSON.stringify(updatedCart));
-    setShowItem(!showItem);
-  };
-
-  const handleDecrement = (productId) => {
-    const updatedCart = { ...grabCartFromStorage };
-    if (updatedCart[productId] > 1) {
-      updatedCart[productId]--;
+  const handleQuantityChange = (productId, newQuantity) => {
+    if (newQuantity >= 1) {
+      const updatedCart = { ...grabCartFromStorage };
+      updatedCart[productId] = newQuantity;
       window.localStorage.setItem('cart', JSON.stringify(updatedCart));
       setShowItem(!showItem);
     }
@@ -82,6 +74,7 @@ const CartPage = () => {
 
   return (
     <div id='container'>
+      <Toaster />
       <section id='headerSection'>
         <header id='headerContainer'>
           <div id='websiteTitle'>
@@ -104,18 +97,25 @@ const CartPage = () => {
         {cartData ? (
           cartData.map((item, index) => (
             <div key={index}>
-              <button onClick={() => handleRemoveItem(arrayOfProductId[index])}>
-                x
-              </button>
               <h4>{item.title}</h4>
-              <img src={item.imageUrl} alt={item.name} />
+              <img className='cartSize' src={item.imageUrl} alt={item.name} />
               <p>Price: ${item.price}</p>
-              <p>quanity: {arrayOfQuantity[index]}</p>
-              <button onClick={() => handleDecrement(arrayOfProductId[index])}>
-                -
-              </button>
-              <button onClick={() => handleIncrement(arrayOfProductId[index])}>
-                +
+              <p>
+                quanity:{' '}
+                <input
+                  className='cartInput'
+                  type='number'
+                  value={arrayOfQuantity[index]}
+                  onChange={(e) => {
+                    handleQuantityChange(
+                      arrayOfProductId[index],
+                      parseInt(e.target.value)
+                    );
+                  }}
+                />
+              </p>
+              <button onClick={() => handleRemoveItem(arrayOfProductId[index])}>
+                remove from cart
               </button>
             </div>
           ))
@@ -126,7 +126,9 @@ const CartPage = () => {
       <div>
         <h2>Total Amount: ${getTotalAmount()}</h2>
       </div>
-      <button onClick={handleCheckout}>Checkout</button>
+      <button className='CheckOutBtn' onClick={handleCheckout}>
+        Checkout
+      </button>
       <section id='footerSection'>
         <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
         <p> Beetal Team </p>

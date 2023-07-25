@@ -51,10 +51,12 @@ router.get('/:id', async (req, res, next) => {
 //POST new chip
 router.post('/', async (req, res, next) => {
   try {
-    const newChip = await Chips.create(req.body);
+    const { title, description, brand, size, price, baked, ingredients, imageUrl } = req.body
+    const newChip = await Chips.create({ title, description, brand, size, price, baked, ingredients, imageUrl });
+    console.log(newChip)
     res.status(201).json(newChip);
   } catch (err) {
-    next(err);
+    next(err, "this is the error");
   }
 });
 

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import { addChips } from './chipsSlice'
+import NavBar from '../features/navbar/Navbar';
+import AppRoutes from './AppRoutes';
+import { Link } from "react-router-dom"
 const AdminAddChips = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -8,8 +11,8 @@ const AdminAddChips = () => {
     const [size, setSize] = useState("");
     const [baked, setBaked] = useState("");
     const [ingredients, setIngredients] = useState("");
-    // const [nutritional, setNutritional] = useState("");
-    // const [imageUrl, setImageUrl] = useState("");
+    const [nutritional, setNutritional] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
     const [price, setPrice] = useState("");
     const dispatch = useDispatch();
 
@@ -23,12 +26,12 @@ const AdminAddChips = () => {
             size,
             baked,
             ingredients,
-            // nutritional,
-            // imageUrl,
+            nutritional,
+            imageUrl,
             price,
         };
 
-        dispatch(addProduct(newProduct));
+        dispatch(addChips(newProduct));
 
     // Clear input fields after submitting
     setTitle('');
@@ -38,12 +41,31 @@ const AdminAddChips = () => {
     setBaked('');
     setIngredients('');
     // setNutritional('');
-    // setImageUrl('');
+    setImageUrl('');
     setPrice('');
   };
 
 
   return (
+    <section>
+    <section id='headerSection'>
+        <header id='headerContainer'>
+          <div id='websiteTitle'>
+            <h3>The Chip Corner</h3>
+            <img
+              className='logoImage'
+              src='https://media.istockphoto.com/id/164661881/vector/nachos-cartoon.jpg?s=612x612&w=0&k=20&c=AFnAYL79XMt0VQSVHtPRTuJUR1z0Iwig8LCzC3083Ag='
+            />
+          </div>
+          <nav id='navContainer'>
+            <Link to='/'> Home </Link>
+            <Link to='/allchips'> All Chips </Link>
+            <Link to='/signup'>Sign Up</Link>
+            <AppRoutes />
+            <NavBar />
+          </nav>
+        </header>
+      </section>
     <div>
       <h2>Add Chips</h2>
       <form onSubmit={handleSubmit}>
@@ -101,7 +123,7 @@ const AdminAddChips = () => {
             onChange={(e) => setIngredients(e.target.value)}
           />
         </div>
-        {/* <div className='chip-input'>
+        <div className='chip-input'>
           <label htmlFor="nurtritional">Nutritional:</label>
           <input className='input-box'
             type="text"
@@ -118,7 +140,7 @@ const AdminAddChips = () => {
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
           />
-        </div> */}
+        </div>
         <div className='chip-input'>
           <label htmlFor="price">Price:</label>
           <input className='input-box'
@@ -131,6 +153,7 @@ const AdminAddChips = () => {
         <button className='add-btn' type="submit">Add</button>
         </form>
     </div>
+    </section>
   )
 }
 

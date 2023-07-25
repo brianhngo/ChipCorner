@@ -47,7 +47,7 @@ const AllChips = ({ chips, filters, handleFilterChange }) => (
 
     <section id="productsSection">
       <h3>Chips</h3>
-      <Link to='/addchips'>Add Chips</Link>
+      <Link to="/addchips">Add Chips</Link>
       <div id="chipContainers">
         {chips.map((chip) => (
           <div className="chipContainer" key={chip.id}>
@@ -77,9 +77,13 @@ const AllChips = ({ chips, filters, handleFilterChange }) => (
               <p>Bake Status</p>
               <p>{chip.baked ? 'Baked' : 'Not baked'}</p>
             </div>
-            <button /*onClick={() => addToCart(chip)} This is for future use, I only made it as example*/
+            <button
+              className="buttonPlaceHolder" /*onClick={() => addToCart(chip)} This is for future use, I only made it as an example*/
             >
-              Add to cart
+              <Link className="buttonLink" to={`/chips/${chip.id}`}>
+                {' '}
+                Click Here for this Chips Page!{' '}
+              </Link>
             </button>
           </div>
         ))}

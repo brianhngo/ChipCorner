@@ -29,8 +29,8 @@ a:hover {
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  flex: 1;
-  min-height: 100vh; /* This ensures the container takes at least the full height of the viewport */
+  flex: 1 0 auto;
+  min-height: 100vh;
 }
 
 /* Header Section */
@@ -93,23 +93,42 @@ img.logoImage {
   align-items: center;
 }
 
-#productContainer {
-  width: 50%;
-  padding: 0 20px;
-}
-
 #productContainer h4 {
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-#productContainer button {
+#productContainer button,
+#productContainer {
   background-color: #007bff;
   color: #fff;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+#productContainersss {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
+  margin-top: 7px;
+}
+
+#productContainerssss {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
 }
 
 .imagePlaceHolder2 {
@@ -133,6 +152,7 @@ img.logoImage {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  height: 50px;
 }
 .svgContainer {
   display: flex;
@@ -268,12 +288,12 @@ img.productImage2 {
 /*Footer Section */
 #footerSection {
   background-color: #f0f0f0;
-  padding: 20px;
-  display: flex;
-  justify-content: space-evenly;
+  padding: 10px;
+  text-align: center;
   margin-top: auto;
+  display: flex;
+  justify-content: center;
 }
-
 a {
   text-decoration: none;
 }
@@ -343,7 +363,6 @@ form div {
 /* Single Chip Page */
 
 .single-product-container {
-  width: 100vw;
   display: flex;
   justify-content: center;
   border: 2px solid black;
@@ -415,6 +434,22 @@ form div {
   height: auto;
 }
 
+.success-page {
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.success-page h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #42b983;
+}
 /* stripe */
 .FormGroup {
   margin: 0 15px 20px;
@@ -479,4 +514,14 @@ form div {
 
 .cartSize {
   width: 80px;
+}
+
+.SignedInComponent {
+  display: flex;
+}
+
+.SignedInComponent2 {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
 }

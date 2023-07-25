@@ -40,8 +40,13 @@ User.prototype.correctPassword = function (candidatePwd) {
 };
 
 User.prototype.generateToken = function () {
-  return jwt.sign({ id: this.id }, process.env.JWT);
+  return jwt.sign({ id: this.id, admin: this.admin }, process.env.JWT);
 };
+
+//instance for checking admin
+// User.prototype.isAdmin = function () {
+//   return this.admin;
+// };
 
 /**
  * classMethods

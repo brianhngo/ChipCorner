@@ -1,5 +1,7 @@
 const router = require('express').Router();
-module.exports = router;
+const {
+  models: { User },
+} = require('../db');
 
 router.use('/users', require('./users'));
 router.use('/chips', require('./chips'));
@@ -10,3 +12,5 @@ router.use((req, res, next) => {
   error.status = 404;
   next(error);
 });
+
+module.exports = router;

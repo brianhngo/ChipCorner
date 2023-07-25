@@ -90,11 +90,6 @@ img.logoImage {
   align-items: center;
 }
 
-#productContainer {
-  width: 50%;
-  padding: 0 20px;
-}
-
 #productContainer h4 {
   font-size: 20px;
   margin-bottom: 10px;
@@ -108,6 +103,29 @@ img.logoImage {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+#productContainersss {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
+  margin-top: 7px;
+}
+
+#productContainerssss {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
 }
 
 .imagePlaceHolder2 {
@@ -131,6 +149,7 @@ img.logoImage {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  height: 50px;
 }
 .svgContainer {
   display: flex;
@@ -479,4 +498,14 @@ form div {
 #CheckOutBtn:active {
   position: relative;
   top: 1px;
+}
+
+.SignedInComponent {
+  display: flex;
+}
+
+.SignedInComponent2 {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
 }

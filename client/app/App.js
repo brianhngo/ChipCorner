@@ -15,14 +15,15 @@ import CheckoutPage from './cart/stripe/checkoutComp';
 const App = () => {
   return (
     <Routes>
+      <Route path='/payment' element={<CheckoutPage />} />
       <Route path='/allchips' element={<FilterChips />} />
       <Route path='/chips/:id' element={<SingleProduct />} />
       <Route path='/signup' element={<CreateNewUser />} />
       <Route path='/successPage' element={<SuccessPage />} />
       <Route path='/cart' element={<CartPage />} />
-      <Route path='/' element={<LandingPage />} />
       <Route path='/addchips' element={<AdminAddChips />} />
       <Route path='/editchips' element={<AdminEditChips />} />
+      <Route path='/' element={<LandingPage />} />
     </Routes>
   );
 };

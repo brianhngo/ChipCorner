@@ -118,9 +118,13 @@ router.put('/cartData', async (req, res, next) => {
 //PUT chip - update
 router.put('/:chipId', async (req, res, next) => {
   try {
-    const chipId = req.params.id;
-    const chips = await Chips.findByPk(chipId);
-    res.send(await chips.update(req.body));
+    const chip = await Chips.findByPk(req.params.chipId);
+    if (chip) {
+      const updatedChip = await chip.update(req.body);
+      res.json(updatedChip);
+    } else {
+      res.status(404).send('Chip not found');
+    }
   } catch (err) {
     next(err);
   }

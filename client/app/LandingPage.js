@@ -72,7 +72,6 @@ const LandingPage = () => {
                 <div className='productImage'>
                   <img className='productImage2' src={element.imageUrl} />
                 </div>
-                <p> {element.title}</p>
                 <button>
                   {' '}
                   <Link

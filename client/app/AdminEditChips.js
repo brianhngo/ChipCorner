@@ -1,42 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { updateChips } from './chipsSlice';
-
-const AdminEditChips = (chips) => {
+const AdminEditChips = ({ chips }) => {
+  console.log(chips, 'this is chips info');
+  const [title, setTitle] = useState(chips.title);
+  const [description, setDescription] = useState(chips.description);
+  const [brand, setBrand] = useState(chips.brand);
+  const [size, setSize] = useState(chips.size);
+  const [baked, setBaked] = useState(chips.baked);
+  const [ingredients, setIngredients] = useState(chips.ingredients);
+  const [nutritional, setNutritional] = useState(chips.nutritional);
+  const [imageUrl, setImageUrl] = useState(chips.price);
+  const [price, setPrice] = useState(chips.price);
   const dispatch = useDispatch();
-
-  const [updatedChip, setUpdatedChip] = useState({});
-
-  const handleSubmit = (event) => {
-    dispatch(updateChips(updatedChip));
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const updateProduct = {
+      id: chips.id,
+      title,
+      description,
+      brand,
+      size,
+      baked,
+      ingredients,
+      nutritional,
+      imageUrl,
+      price,
+    };
+    dispatch(updateChips(updateProduct));
+    // Clear input fields after submitting
+    setTitle('');
+    setDescription('');
+    setBrand('');
+    setSize('');
+    setBaked('');
+    setIngredients('');
+    setNutritional('');
+    setImageUrl('');
+    setPrice('');
   };
-  useEffect(() => {
-    if (chips) {
-      setUpdatedChip(chips.chips);
-    }
-  }, [chips]);
-
   return (
     <div>
       <h2>Edit Chips</h2>
       <form onSubmit={handleSubmit}>
         <div className='chip-input'>
-          <label>Name of Chips:</label>
+          <label htmlFor='title'>Name of Chips:</label>
           <input
+            className='input-box'
             type='text'
-            id='description'
-            value={updatedChip.description}
-            onChange={(event) =>
-              setUpdatedChip({
-                ...updatedChip,
-                description: event.target.value,
-              })
-            }
+            id='title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        {/* <div className='chip-input'>
+        <div className='chip-input'>
           <label htmlFor='description'>Description:</label>
           <input
             className='input-box'
@@ -115,12 +132,10 @@ const AdminEditChips = (chips) => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-        </div> */}
-
+        </div>
         <button className='add-btn'>Edit</button>
       </form>
     </div>
   );
 };
-
 export default AdminEditChips;

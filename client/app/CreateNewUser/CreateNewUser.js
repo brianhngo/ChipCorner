@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { changeStatus } from './CreateNewUserSlice';
 import AppRoutes from '../AppRoutes';
-import Navbar from '../../features/navbar/Navbar';
+import Navbar from '../Navbar/Navbar.js';
 
 export default function CreateNewUser() {
   const navigate = useNavigate();

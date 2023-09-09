@@ -5,7 +5,7 @@ import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import AdminAddChips from './AdminAddChips';
 import AdminEditChips from './AdminEditChips';
-import SingleProduct from './SingleProduct';
+import SingleProduct from './SingleProduct/SingleProduct';
 import { me } from './store';
 
 /**

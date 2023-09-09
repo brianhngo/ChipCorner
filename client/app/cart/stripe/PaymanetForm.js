@@ -32,12 +32,16 @@ export default function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
 
-  const handleSubmit = async (e) => {
+  const handleSubmits = async (e) => {
+   
+  
     e.preventDefault();
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement),
     });
+    
     if (!error) {
       try {
         const { id } = paymentMethod;
@@ -46,7 +50,7 @@ export default function PaymentForm() {
           id,
         });
         if (response.data.success) {
-          console.log('payment Success');
+        
           setSuccess(true);
         }
       } catch (error) {
@@ -56,8 +60,10 @@ export default function PaymentForm() {
       console.log(error.message);
     }
   };
+  
   useEffect(() => {
     if (success) {
+      
       toast.success('Success!');
       const redirectTimeout = setTimeout(() => {
         redirect();
@@ -67,19 +73,19 @@ export default function PaymentForm() {
   }, [success]);
 
   const redirect = () => {
-    navigate('/');
+    navigate('/success');
   };
 
   return (
     <>
       {!success ? (
-        <form onSubmit={handleSubmit}>
+        <form>
           <fieldset className='FormGroup'>
             <div className='FormRow'>
-              <CardElement options={CARD_OPTIONS} />
+              <CardElement stripe-element options={CARD_OPTIONS} />
             </div>
           </fieldset>
-          <button>Pay</button>
+          <button onClick={handleSubmits}>Pay</button>
         </form>
       ) : (
         <div>
@@ -87,6 +93,7 @@ export default function PaymentForm() {
           <h2>Thank You For Shopping At The Chip Corner</h2>
           <h3>redirecting now</h3>
           {localStorage.removeItem('cart')}
+           {localStorage.removeItem('cartNumber')};
         </div>
       )}
     </>

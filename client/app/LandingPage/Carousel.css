@@ -1,0 +1,95 @@
+.my-carousel{
+  text-align:center;
+}
+
+.my-carousel .thumbs-wrapper {
+ text-align:center;
+  justify-content: center;
+}
+
+.my-carousel .thumbs-wrapper .thumbs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-carousel .control-dots {
+  display:none;
+}
+
+
+.my-carousel .carousel .control-prev.control-arrow,
+.my-carousel .carousel .control-next.control-arrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+
+
+.my-carousel .carousel .control-prev.control-arrow {
+  left: 10px;
+}
+
+
+.my-carousel .carousel .control-next.control-arrow {
+  right: 10px;
+}
+
+
+.my-carousel .carousel .control-prev.control-arrow:hover,
+.my-carousel .carousel .control-next.control-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset margin for the carousel container */
+.carousel-root {
+  margin: 0 !important;
+}
+
+
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.carousel-text h2 {
+  color: #fff;
+  font-size: 24px;
+}
+
+.shop-button {
+  background-color: #ff5733;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.shop-button:hover {
+  background-color: #ff4500;
+}
+

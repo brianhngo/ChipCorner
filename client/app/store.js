@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import authReducer from '../features/auth/authSlice';
-import landingPageSlice from './LandingPageSlice';
+import landingPageSlice from './LandingPage/LandingPageSlice.js';
 import singleOrder from './cart/CartPageSlice';
 import CreateNewUserSlice from './CreateNewUser/CreateNewUserSlice';
 import chipsSlice from './chipsSlice';

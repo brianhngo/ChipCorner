@@ -4,7 +4,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import PaymentForm from './PaymanetForm';
 
 const PUBLIC_KEY =
-  'pk_test_51NXVL6FALHsHDsiCvV9oCOsXYDvNbihzsBIn7vBNo4y1SaLq4yJr6GqIO5FA2PlduMigU1wq0cn9WlChqkWD4nCy00KRErPUnh';
+  'pk_test_51NoEPiFFjbVZ0rjaNYwhzPXsWGbZuL8Kdb6RDB4v8rsyN5Hcr3Eu2ii6aL9sPLmIl10mJKLkULUVT9ng1aygX6f600pv1mun3e';
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 export default function StripeContainer() {
@@ -14,3 +14,4 @@ export default function StripeContainer() {
     </Elements>
   );
 }
+

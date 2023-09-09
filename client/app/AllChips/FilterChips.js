@@ -7,7 +7,8 @@ const FilterChips = () => {
     const [filter, setFilter] = useState({
       price: 'All',
       size: 'All',
-      baked: 'All'
+      baked: 'All',
+     
     })
 
     useEffect(() => {

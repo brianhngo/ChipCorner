@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
@@ -8,7 +8,7 @@ ul,
 a {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  
   margin: 10px;
   gap: 10px;
   color: black;
@@ -23,46 +23,9 @@ a:hover {
   text-decoration: underline;
 }
 
-#container {
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex: 1 0 auto;
-  min-height: 100vh;
-}
-
-/* Header Section */
-#headerSection {
-  background-color: #f0f0f0;
-  padding-bottom: 10px;
-}
-
-img.logoImage {
-  max-width: 200px;
-  max-height: 100px;
-  width: 100%;
-  height: 100%;
-}
-
-#headerContainer {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-#websiteTitle h3 {
-  font-size: 24px;
-  margin-right: 20px;
-}
-
-#navContainer {
-  display: flex;
-  align-items: center;
-}
 
 /* Cart placeholder */
-.cart {
+/* .cart {
   display: flex;
   background-color: #007bff;
   color: #fff;
@@ -80,240 +43,14 @@ img.logoImage {
 .cartImg {
   width: 100px;
   height: 100px;
-}
+} */ */
 
-/* Panel Container Section */
-#panelContainerSection {
-  padding: 20px;
-}
 
-.imagePlaceHolder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-#productContainer h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
 
-#productContainer button,
-#productContainer {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#productContainersss {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  height: 40px;
-  justify-content: center;
-  margin-top: 7px;
-}
-
-#productContainerssss {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  height: 40px;
-  justify-content: center;
-}
-
-.imagePlaceHolder2 {
-  max-width: 890px;
-  max-height: 580px;
-  width: auto;
-  height: auto;
-}
-.carouselButtonContainer {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.buttonPlaceHolder {
-  margin: 5px;
-  margin-top: 30px;
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 50px;
-}
-.svgContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-/* About Us Page Section */
-#aboutUsPageSection {
-  background-color: #f9f9f9;
-}
-
-#aboutUsPageSection h2 {
-  font-size: 28px;
-}
-
-/*Featured Products */
-Section / #featuredProductsSection {
-  padding: 20px;
-}
-
-#featuredProductsSection h2 {
-  font-size: 28px;
-}
-
-#FeatureProductsContainers {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#chipContainers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.ProductsContainer {
-  width: 30%;
-  padding: 20px;
-  text-align: center;
-}
-
-.chipContainer {
-  flex: 0 1 300px;
-  border: 2px solid #000;
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: #f1f1f1;
-  margin: 10px;
-}
-
-.chipImage {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-img.chipImage2 {
-  max-width: 100%;
-  max-height: 200px;
-  width: auto;
-  height: auto;
-}
-
-.chipDetail {
-  background-color: #d1d0d0;
-  border: 1px solid #000;
-  border-radius: 4px;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-.productImage {
-  background-color: white;
-  padding: 100px 0;
-}
-
-.ProductsContainer button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-img.productImage2 {
-  max-width: 200px;
-  max-height: 150px;
-  width: auto;
-  height: auto;
-  margin: 5px;
-}
-
-.buttonLink {
-  color: white;
-}
-
-#newsletterSection {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-
-#newsLetterContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#newsletterSection label {
-  display: block;
-  font-size: 18px;
-  margin-right: 10px;
-}
-
-#newsletterSection input[type='email'] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-#newsletterSection button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/*Footer Section */
-#footerSection {
-  background-color: #f0f0f0;
-  padding: 10px;
-  text-align: center;
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-}
-a {
-  text-decoration: none;
-}
-
-label {
-  display: block;
-}
-
-nav a {
-  display: inline-block;
-  margin: 1em;
-}
-
-form div {
-  margin: 1em;
-  display: inline-block;
-}
 
 /* Styling for the button */
-.shoppingCartItem__button {
+/* .shoppingCartItem__button {
   background-color: #ff0000;
   color: #fff;
   border: none;
@@ -349,20 +86,20 @@ form div {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-}
+} */
 
-.highlights {
+/* .highlights {
   border: 2px solid red;
 }
 
 .error-message {
   color: red;
   margin-bottom: 5px;
-}
+} */
 
 /* Single Chip Page */
 
-.single-product-container {
+/* .single-product-container {
   display: flex;
   justify-content: center;
   border: 2px solid black;
@@ -393,9 +130,9 @@ form div {
   font-size: 14px;
   margin: 5px 0;
   color: var(--dark-grayish-blue);
-}
+} */
 
-.chip-price {
+/* .chip-price {
   font-size: 20px;
   font-weight: bold;
   margin: 10px 0;
@@ -432,9 +169,9 @@ form div {
   max-height: 300px;
   width: auto;
   height: auto;
-}
+} */
 
-.success-page {
+/* .success-page {
   text-align: center;
   padding: 20px;
   background-color: #f0f0f0;
@@ -449,7 +186,7 @@ form div {
   font-size: 24px;
   margin-bottom: 10px;
   color: #42b983;
-}
+} */
 /* stripe */
 .FormGroup {
   margin: 0 15px 20px;

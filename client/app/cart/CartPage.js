@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../../features/navbar/Navbar';
+import Navbar from '../Navbar/Navbar.js';
 import AppRoutes from '../AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartData } from './CartPageSlice';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { AiFillStar, AiOutlineStar, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { TiDeleteOutline } from 'react-icons/ti'
 
 const CartPage = () => {
+  // retrieves from cart db
   const cartData = useSelector((state) => state.order.cartData);
+  
   const [showItem, setShowItem] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // Getting the Amount from cart
   // deStringify the JSON stringify
   const grabCartFromStorage =
     JSON.parse(window.localStorage.getItem('cart')) || {};
+    console.log(grabCartFromStorage)
   // Array of product IDs
   const arrayOfProductId = Object.keys(grabCartFromStorage) || [];
   const arrayOfProductIdInteger = arrayOfProductId.map((element) =>
@@ -25,7 +31,7 @@ const CartPage = () => {
 
   // Array of the Object ex/ [ {ProductId#1} : Quantity , {ProductId#2} : Quantity ]
   const arrayOfQuantity = Object.values(grabCartFromStorage) || [];
-
+ 
   useEffect(() => {
     dispatch(getCartData({ arrayOfProductIdInteger }));
   }, []);
@@ -56,84 +62,102 @@ const CartPage = () => {
       toast.error('Empty Cart!');
     }
   };
-  const handleQuantityChange = (productId, newQuantity) => {
-    if (newQuantity >= 1) {
-      const updatedCart = { ...grabCartFromStorage };
-      updatedCart[productId] = newQuantity;
-      window.localStorage.setItem('cart', JSON.stringify(updatedCart));
-      setShowItem(!showItem);
-    }
-  };
+  
+  const increaseQuantityHandler = (index) => {
+    const cartData = JSON.parse(window.localStorage.getItem('cart'))
+    let cartNumber = JSON.parse(window.localStorage.getItem('cartNumber'))
+    cartData[index] += 1;
+    cartNumber += 1;
+    arrayOfQuantity[index]++
+   window.localStorage.setItem('cart', JSON.stringify(cartData));
+    window.localStorage.setItem('cartNumber', JSON.stringify(cartNumber))
+  }
 
-  const handleRemoveItem = (productId) => {
-    const updatedCart = { ...grabCartFromStorage };
-    delete updatedCart[productId];
-    window.localStorage.setItem('cart', JSON.stringify(updatedCart));
-    setShowItem(!showItem); // Trigger re-render to reflect the changes
-  };
+  const decreaseQuantityHandler = (index) => {
+    const cartData = JSON.parse(window.localStorage.getItem('cart'))
+    let cartNumber = JSON.parse(window.localStorage.getItem('cartNumber'))
+    if (cartData[index] === 0){
+      return
+    } else {
+       cartData[index] -= 1;
+      cartNumber -= 1;
+      arrayOfQuantity[index]--
+    }
+    window.localStorage.setItem('cart', JSON.stringify(cartData));
+      window.localStorage.setItem('cartNumber', JSON.stringify(cartNumber))
+   
+  }
+
+  useEffect( () => {
+
+  }, [decreaseQuantityHandler, increaseQuantityHandler])
 
   return (
-    <div id='container'>
-      <Toaster />
-      <section id='headerSection'>
-        <header id='headerContainer'>
-          <div id='websiteTitle'>
-            <h3>The Chip Corner</h3>
-            <img
-              className='logoImage'
-              src='https://media.istockphoto.com/id/164661881/vector/nachos-cartoon.jpg?s=612x612&w=0&k=20&c=AFnAYL79XMt0VQSVHtPRTuJUR1z0Iwig8LCzC3083Ag='
-            />
+   <div id='container'>
+  <Toaster />
+  
+  <div className="product-container">
+    <h1> Cart </h1>
+   
+
+    {cartData ? (
+      cartData.map((item, index) => (
+        <div className='product' key={item.id}>
+          <div className='product-column'>
+            <img className='cart-product-image' src={item.imageUrl} alt={item.name} />
           </div>
-          <nav id='navContainer'>
-            <Link to='/'> Home </Link>
-            <Link to='/allchips'> All Chips </Link>
-            <Link to='/signup'>Sign Up</Link>
-            <AppRoutes />
-            <Navbar />
-          </nav>
-        </header>
-      </section>
-      <div>
-        {cartData ? (
-          cartData.map((item, index) => (
-            <div key={index}>
-              <h4>{item.title}</h4>
-              <img className='cartSize' src={item.imageUrl} alt={item.name} />
-              <p>Price: ${item.price}</p>
-              <p>
-                quanity:{' '}
-                <input
-                  className='cartInput'
-                  type='number'
-                  value={arrayOfQuantity[index]}
-                  onChange={(e) => {
-                    handleQuantityChange(
-                      arrayOfProductId[index],
-                      parseInt(e.target.value)
-                    );
-                  }}
-                />
-              </p>
-              <button onClick={() => handleRemoveItem(arrayOfProductId[index])}>
-                remove from cart
-              </button>
+          <div className='product-column'>
+            <div className="flex top"> 
+              <h5>{item.title} </h5>
             </div>
-          ))
-        ) : (
-          <p>Empty</p>
-        )}
+          </div>
+          <div className='product-column'>
+            <p className="quantity-desc">
+              <span className="minus" onClick={() => decreaseQuantityHandler(index)}>
+                <AiOutlineMinus/> 
+              </span>
+              <span className="num" onClick="">
+                {arrayOfQuantity[index]}
+              </span>
+              <span className="plus" onClick={() => increaseQuantityHandler(index)}>
+                <AiOutlinePlus/> 
+              </span>
+            </p>
+          </div>
+          <div className='product-column'>
+            <h4 className='totalPriceProduct'>${item.price} </h4>
+          </div>
+          <div className='product-column'>
+            <p className='totalPriceProductss'> Product Price Total </p>
+            <h4 className='totalPriceProducts'>${(item.price * arrayOfQuantity[index]).toFixed(2)} </h4>
+          </div>
+          <div className='product-column'>
+            <button type='button' className='remove-item' onClick="">
+              <TiDeleteOutline/>
+            </button>
+          </div>
+        </div>
+      ))
+    ) : (
+      <div className = 'emptyContainer'>
+      <p>The Cart is empty!!</p>
+      <img className='cart-product-image' src={'emptyCart.png'} />
       </div>
-      <div>
-        <h2>Total Amount: ${getTotalAmount()}</h2>
+    )}
+
+    <div className="cart-bottom"> 
+      <div className="total">
+        <h3> Subtotal: </h3>
+        <h3> ${getTotalAmount()} </h3>
       </div>
-      <button className='CheckOutBtn' onClick={handleCheckout}>
-        Checkout
-      </button>
-      <section id='footerSection'>
-        <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
-        <p> Beetal Team </p>
-      </section>
+      <div className='btn-container'>
+        <button type='button' className='btn' onClick={handleCheckout}>
+          Checkout
+        </button>
+      </div>
     </div>
+  </div>
+</div>
   );
 };
 

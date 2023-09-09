@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// fetch Best seller products
 export const getChipDataList = createAsyncThunk('GET /api/users', async () => {
   try {
     const { data } = await axios.get('api/chips/landingPage');
+    console.log(data)
     return data;
   } catch (error) {
     console.error(error);
@@ -24,11 +26,23 @@ export const getSingleChipData = createAsyncThunk(
   }
 );
 
+// fetch all data Chips
+export const getAllChipDataList = createAsyncThunk('GET /api/chips', async () => {
+  try {
+    const {data} = await axios.get('/api/chips')
+    console.log('data',data)
+    return data
+  } catch (error){
+    console.error(error)
+  }
+}) 
+
 const landingPageSlice = createSlice({
   name: 'LandingPage',
   initialState: {
     chipsInfo: [],
     singleChipInfo: {},
+    allChipInfo: [],
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -38,6 +52,9 @@ const landingPageSlice = createSlice({
       })
       .addCase(getSingleChipData.fulfilled, (state, { payload }) => {
         state.singleChipInfo = payload;
+      })
+      .addCase(getAllChipDataList.fulfilled, (state, {payload}) => {
+        state.allChipInfo = payload;
       });
   },
 });

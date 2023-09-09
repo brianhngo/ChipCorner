@@ -19,22 +19,32 @@ export const singleOrder = createSlice({
   name: 'singleOrder',
   initialState: {
     cartData: [],
+    quantityAmount: JSON.parse(window.localStorage.getItem('cartNumber')) || 0,
   },
   reducers: {
     changeOrder: (state, { payload }) => {
-      const { id } = payload;
 
+      const { id, quantity } = payload;
+     
       const cartData = JSON.parse(window.localStorage.getItem('cart')) || {};
-      if (!cartData) {
-        cartData = {};
-      }
-      if (!cartData[id]) {
-        cartData[id] = 1;
-      } else {
-        cartData[id] += 1;
+      let cartNumber = JSON.parse(window.localStorage.getItem('cartNumber') || 0)
+      if (cartNumber === 0){
+        state.quantityAmount = 0;
       }
 
+      if (!cartData[id]) {
+       
+        cartData[id] = quantity;
+        cartNumber += quantity // updates cart
+        state.quantityAmount = cartNumber; // upates state
+      } else {
+        cartData[id] += quantity;
+        cartNumber += quantity // updats cart
+        state.quantityAmount = cartNumber // updates state
+      }
+    
       window.localStorage.setItem('cart', JSON.stringify(cartData));
+      window.localStorage.setItem('cartNumber', JSON.stringify(cartNumber))
     },
   },
   extraReducers: (builder) => {

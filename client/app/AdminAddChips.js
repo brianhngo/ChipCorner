@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addChips } from './chipsSlice'
-import NavBar from '../features/navbar/Navbar';
+import NavBar from './Navbar/Navbar.js';
 import AppRoutes from './AppRoutes';
 import { Link } from "react-router-dom"
 const AdminAddChips = () => {

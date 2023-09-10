@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import image1 from '../../../public/image1.jpeg';
 import image2 from '../../../public/image2.jpeg';
 import image3 from '../../../public/image3.jpeg';
-
+ //
 import './Carousel.css'
 const MyCarousel = () => {
   return (

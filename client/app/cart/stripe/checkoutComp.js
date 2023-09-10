@@ -13,7 +13,7 @@ const CheckoutPage = () => {
   // deStringify the JSON stringify
   const grabCartFromStorage =
     JSON.parse(window.localStorage.getItem('cart')) || {};
-  console.log(grabCartFromStorage);
+  
   // Array of product IDs
   const arrayOfProductId = Object.keys(grabCartFromStorage) || [];
   const arrayOfProductIdInteger = arrayOfProductId.map((element) =>
@@ -44,6 +44,7 @@ const CheckoutPage = () => {
     return formattedTotal;
   };
 
+  const totalAmount = getTotalAmount()
   return (
     <div id='containerStripe'>
       <h1 className='checkout-title'>Checkout</h1>
@@ -141,7 +142,7 @@ const CheckoutPage = () => {
         {showItem ? (
           <>
           <label htmlFor='Stripe'>Stripe Payment:</label>
-          <StripeContainer />
+          <StripeContainer totalAmount = {totalAmount} />
           </>
         ) : (
           <>

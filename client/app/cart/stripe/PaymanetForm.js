@@ -25,7 +25,8 @@ const CARD_OPTIONS = {
   },
 };
 
-export default function PaymentForm() {
+export default function PaymentForm({totalAmount}) {
+  const amountInDollars = parseFloat(totalAmount);
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
@@ -46,7 +47,7 @@ export default function PaymentForm() {
       try {
         const { id } = paymentMethod;
         const response = await axios.post('http://localhost:8080/payment', {
-          amount: 50000,
+          amount: Math.round(amountInDollars*100),
           id,
         });
         if (response.data.success) {

@@ -23,7 +23,7 @@ export const singleOrder = createSlice({
   },
   reducers: {
     changeOrder: (state, { payload }) => {
-
+      // Adding to Local Storage when person hits checkout
       const { id, quantity } = payload;
      
       const cartData = JSON.parse(window.localStorage.getItem('cart')) || {};
@@ -46,6 +46,24 @@ export const singleOrder = createSlice({
       window.localStorage.setItem('cart', JSON.stringify(cartData));
       window.localStorage.setItem('cartNumber', JSON.stringify(cartNumber))
     },
+    decreaseQuantity:(state, {payload}) => {
+      if (state.quantityAmount <= 0){
+        return
+      }
+      state.quantityAmount -= 1
+      
+      
+    },
+    increaseQuantity:(state, {payload}) => {
+        state.quantityAmount += 1
+      
+        
+    },
+    removeQuantity: (state, {payload}) => {
+      const {value} = payload
+      state.quantityAmount -= value
+    
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(getCartData.fulfilled, (state, { payload }) => {
@@ -54,5 +72,5 @@ export const singleOrder = createSlice({
   },
 });
 
-export const { changeOrder } = singleOrder.actions;
+export const { changeOrder, decreaseQuantity, increaseQuantity, removeQuantity } = singleOrder.actions;
 export default singleOrder.reducer;

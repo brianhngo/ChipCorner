@@ -15,7 +15,7 @@ const Navbar = () => {
   const username = useSelector((state) => state.auth.me.username);
 
    const number = useSelector((state) => state.order.quantityAmount);
-   
+   const [numberState, setNumberState] = useState(JSON.parse(window.localStorage.getItem('cartNumber')))
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
@@ -34,8 +34,8 @@ const Navbar = () => {
 
 
   useEffect(() => {
-  
-  }, [number]);
+    
+  }, [numberState]);
 
   return (
     <header>
@@ -44,14 +44,15 @@ const Navbar = () => {
         </Link>
         <nav ref = {navRef}> 
           <Link to='/'> Home </Link>
-          <Link to='/allchips'> All Chips </Link>
+          <Link to='/allchips'> All Products </Link>
           <Link to='/about'> About Us </Link>
           <Link to='/contact'> Contact </Link>
           <Link to='/signup'>Sign In</Link>
           <button type = 'button' className = 'cart-icon'>
              <Link to='/cart'>
                 <ShoppingCartTwoToneIcon />
-                <span className = "cart-item-qty" > {
+                <span className = "cart-item-qty" > 
+                {
                    number
                 }
                  </span>

@@ -29,6 +29,7 @@ nav a {
     color: var(--textColor);
     font-family:Arial;
     text-decoration:none;
+    font-size:18px;
 }
 
 nav a:hover {

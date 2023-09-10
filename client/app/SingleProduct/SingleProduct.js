@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Link, Route, Routes } from 'react-router-dom';
+import { useParams, Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { getSingleChipData } from '../LandingPage/LandingPageSlice';
 import Navbar from '../Navbar/Navbar.js';
 
 import RecommendProducts from './RecommendProducts.js';
 import { changeOrder } from '../cart/CartPageSlice.js';
 import { AiFillStar, AiOutlineStar, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import toast, { Toaster } from 'react-hot-toast';
+
+import { toast } from 'react-toastify';
 import './RecommendProduct.css'
 import '../LandingPage/LandingPage.css'
 
 const SingleProduct = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const singleChip = useSelector((state) => state.landingPage.singleChipInfo);
   const [index, setIndex] = useState(0);
@@ -31,6 +33,7 @@ const SingleProduct = () => {
 
   const addToCartHandler = (event) => {
     event.preventDefault();
+    toast.success('Added to Cart!')
     dispatch(changeOrder({
       id:id,
       quantity: quantity,
@@ -114,7 +117,7 @@ const SingleProduct = () => {
 
             <div className = "buttons">
               <button type = 'button' className = "add-to-cart" onClick = {addToCartHandler}> Add to Cart </button>
-              <button type = 'button' className = "buy-now" onClick = ""> Buy Now </button>
+              <button type = 'button' className = "buy-now" onClick = {() => navigate('/payment')}> Buy Now </button>
             </div>
 
             

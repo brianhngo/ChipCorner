@@ -11,6 +11,8 @@ import Footer from './Footer/Footer.js'
 import AdminAddChips from './AdminAddChips';
 import AdminEditChips from './AdminEditChips';
 import CheckoutPage from './cart/stripe/checkoutComp';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from './Navbar/Navbar.js'
 
@@ -30,6 +32,7 @@ const App = () => {
       <Route path='/success' element={<SuccessPage/>} />
       <Route path='/' element={<LandingPage />} />
     </Routes>
+    <ToastContainer/>
     <Footer/>
     </>
   );

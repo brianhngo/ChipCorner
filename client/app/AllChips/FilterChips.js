@@ -4,6 +4,7 @@ import AllChips from './AllChips'
 
 const FilterChips = () => {
     const [chips, setChips] = useState([])
+
     const [filter, setFilter] = useState({
       price: 'All',
       size: 'All',
@@ -17,6 +18,7 @@ const FilterChips = () => {
       .catch(error => console.error('Error: cannot fetch chips:', error))
   }, [])
 
+  // Handles All Product filtering. Matches it based upon the filter state
   const handleFilterChange = event => {
     let filterName = event.target.name
     let filterValue = event.target.value

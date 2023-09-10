@@ -7,6 +7,8 @@ import './AllChips.css'
 const AllChips = ( ({ chips, filters, handleFilterChange }) => {
   const [sortSetting, setSortSetting] = useState('None')
   const copy = chips.slice();
+
+  // handles Sorting Filter for user.
    const handleSortChange = (event) => {
     const selectedSort = event.target.value;
     setSortSetting(selectedSort);

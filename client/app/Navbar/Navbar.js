@@ -5,21 +5,23 @@ import { logout } from '../store.js';
 import AppRoutes from '../AppRoutes.js';
 import {FaBars, FaTimes} from "react-icons/fa"
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
-
+import LoginModal from '../CreateNewUser/LoginModal.js'
+import {me} from '../../features/auth/authSlice.js';
 import './Navbar.css'
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
- 
+ const [isPopupOpen, setIsPopupOpen] = useState(false);
  
   const username = useSelector((state) => state.auth.me.username);
-
+  
    const number = useSelector((state) => state.order.quantityAmount);
    const [numberState, setNumberState] = useState(JSON.parse(window.localStorage.getItem('cartNumber')))
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
+    setIsPopupOpen(false)
     navigate('/');
   };
 
@@ -31,7 +33,17 @@ const Navbar = () => {
 
  const [cartQuantity, setCartQuantity] = useState(0);
 
+ const openPopup = () => {
+  setIsPopupOpen(true)
+ }
 
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  useEffect( () => {
+    dispatch(me())
+  }, [])
 
   useEffect(() => {
     
@@ -42,12 +54,35 @@ const Navbar = () => {
         <Link to = '/'> 
           <img src = "logo.png" class = 'logo'/>
         </Link>
-        <nav ref = {navRef}> 
+        <nav className = 'navContainer' ref = {navRef}> 
           <Link to='/'> Home </Link>
           <Link to='/allchips'> All Products </Link>
           <Link to='/about'> About Us </Link>
           <Link to='/contact'> Contact </Link>
-          <Link to='/signup'>Sign In</Link>
+          
+            {isLoggedIn === false ? 
+            <>
+             <a href="#" onClick={openPopup}>Sign In</a>
+             {isPopupOpen === true ? <LoginModal isOpen={isPopupOpen} onClose={closePopup} /> : null } 
+             </>
+             :
+              <>
+            <div className='SignedInComponent2'>
+              <h2>Welcome, {username}</h2>
+               <Link to='/profile'> My Profile </Link>
+               <button
+                   id='productContainersss'
+                   type='button'
+                    onClick={logoutAndRedirectHome}
+                  >
+                    Logout
+                </button>
+                </div>
+            </>
+          
+          }
+            
+          
           <button type = 'button' className = 'cart-icon'>
              <Link to='/cart'>
                 <ShoppingCartTwoToneIcon />
@@ -66,19 +101,6 @@ const Navbar = () => {
           <FaBars />
         </button>
       
-         {isLoggedIn && (
-              <div className='SignedInComponent2'>
-                {/* The navbar will show these links after you log in */}
-                <h2>Welcome, {username}</h2>
-                <button
-                  id='productContainersss'
-                  type='button'
-                  onClick={logoutAndRedirectHome}
-                >
-                  Logout
-                </button>
-              </div>
-            )}
     </header>
   );
 };

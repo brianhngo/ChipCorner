@@ -9,6 +9,8 @@ import { authenticate } from '../../app/store';
 **/
 
 const AuthForm = ({ name, displayName }) => {
+  const loginTest = 'Login'
+  const nameTest = 'login'
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -17,32 +19,32 @@ const AuthForm = ({ name, displayName }) => {
     const formName = evt.target.name;
     const username = evt.target.username.value;
     const password = evt.target.password.value;
+   
     dispatch(authenticate({ username, password, method: formName }));
+  
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button id="productContainerssss" type="submit">
-            {displayName}
-          </button>
-        </div>
-        {error && <div> {JSON.stringify(error)} </div>}
-      </form>
+  <form onSubmit={handleSubmit} name={nameTest} className="login-form">
+    <div className="form-group">
+      <label htmlFor="username" className="form-label">
+        <h2>Username</h2>
+      </label>
+      <input name="username" type="text" className="form-input" />
     </div>
+    <div className="form-group">
+      <label htmlFor="password" className="form-label">
+        <h2>Password</h2>
+      </label>
+      <input name="password" type="password" className="form-input" />
+    </div>
+    <button id="productContainerssss" type="submit" className="submit-button">
+      {loginTest}
+    </button>
+    {error && <div className="error-message"> {JSON.stringify(error)} </div>}
+  </form>
+</div>
   );
 };
 

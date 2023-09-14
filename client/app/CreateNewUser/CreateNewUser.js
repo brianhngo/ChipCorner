@@ -7,7 +7,7 @@ import { changeStatus } from './CreateNewUserSlice';
 import AppRoutes from '../AppRoutes';
 import Navbar from '../Navbar/Navbar.js';
 
-export default function CreateNewUser() {
+export default function CreateNewUser({changeStatus}) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [username, setUserName] = useState('');
@@ -56,39 +56,18 @@ export default function CreateNewUser() {
 
   useEffect(() => {
     if (createUserStatus === true) {
-      navigate('/successPage');
+      navigate('/');
       dispatch(changeStatus(null));
     }
   }, [createUserStatus]);
 
   return (
-    <>
-      <div id="container">
-        <section id="headerSection">
-          <header id="headerContainer">
-            <div id="websiteTitle">
-              <h3>All Chips</h3>
-              <img
-                className="logoImage"
-                src="https://media.istockphoto.com/id/164661881/vector/nachos-cartoon.jpg?s=612x612&w=0&k=20&c=AFnAYL79XMt0VQSVHtPRTuJUR1z0Iwig8LCzC3083Ag="
-              />
-            </div>
-            <nav id="navContainer">
-              <Link to="/"> Home </Link>
-              <Link to="/allchips"> All Chips </Link>
-              <Link to="/signup">Sign Up</Link>
-              <AppRoutes />
-              <Navbar />
-            </nav>
-          </header>
-        </section>
-
+  
         <div className="createNewUserContainer">
-          <h1> Create New User</h1>
-          <p> Please Enter Information to continue </p>
-          <form onSubmit={submitHandler}>
-            <label htmlFor="username">
-              <h4> Username :</h4>
+          <form onSubmit={submitHandler} className="login-form">
+
+            <label htmlFor="username" className="form-label">
+              <h2> Username :</h2>
             </label>
             <input
               type="text"
@@ -98,18 +77,20 @@ export default function CreateNewUser() {
               onChange={userNameHandler}
               className={verifyStatus === true ? 'highlights' : null}></input>
 
-            <label htmlFor="password">
-              <h4> Password : </h4>
+
+            <label htmlFor="password" className="form-label">
+              <h2> Password : </h2>
             </label>
             <input
               type="password"
               id="password"
               name="password"
               value={password}
-              onChange={passwordHandler}></input>
+              onChange={passwordHandler}
+              ></input>
 
-            <label htmlFor="email">
-              <h4> Email : </h4>
+            <label htmlFor="email" className="form-label">
+              <h2> Email : </h2>
             </label>
             <input
               type="email"
@@ -118,19 +99,16 @@ export default function CreateNewUser() {
               value={email}
               onChange={emailHandler}
               className={verifyStatus === true ? 'highlights' : null}></input>
-            <button id="productContainerssss"> Create User! </button>
+
+            <button className = 'submit-button'> Create User! </button>
           </form>
           {verifyStatus === true ? (
             <p className="error-message"> Email and Username has been used </p>
           ) : null}
-          <Link to="/"> Back to Home Page</Link>
+          <a className = 'CreateNewUserLink' onClick = {changeStatus} > Back to Login</a>
         </div>
 
-        <section id="footerSection">
-          <p> Copyrights © 2023 All Rights Reserved. The Chip Corner </p>
-          <p> Beetal Team </p>
-        </section>
-      </div>
-    </>
+      
+
   );
 }

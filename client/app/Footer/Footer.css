@@ -18,8 +18,19 @@
     text-align:center;
 }
 
+.col-1-links{
+    display:flex;
+    flex-direction:column;
+    align-items: center; 
+  
+  justify-content:center;
+}
+
 .col-2{
-    flex-grow:2;
+    display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center; 
 }
 
 .footer div h3{
@@ -32,7 +43,11 @@
     display:block;
     text-decoration:none;
     color:#efefef;
-    margin-bottom:10px;
+    margin-bottom:30px;
+}
+
+.col-1 a:hover{
+    text-decoration:underline;
 }
 
 #subscribeInput {
@@ -56,8 +71,11 @@
     cursor:pointer;
 }
 
+
 #subscribeButton:hover {
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   background: #ccc; 
+   color: #000; 
 }
 
 #subscribeButton:active {
@@ -82,3 +100,9 @@
     border: 2px solid white;
   border-radius: 50%; 
 }
+
+.input-container {
+  width: 100%; 
+  text-align: center; 
+}
+

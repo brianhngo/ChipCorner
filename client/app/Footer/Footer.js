@@ -7,10 +7,12 @@ export default function Footer() {
     <div className="footer">
       <div className="col-1">
         <h3>Links</h3>
+        <div className = 'col-1-links'>
         <Link to="/">Home</Link>
         <Link to="/chips">All Chips</Link>
         <Link to="/contact-us">Contact Us</Link>
         <Link to="/terms">Terms</Link>
+        </div>
       </div>
       <div className="col-2">
         <h3>NEWSLETTER</h3>

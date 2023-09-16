@@ -98,44 +98,69 @@ const CheckoutPage = () => {
       <h1 className='checkout-title'>Personal Information</h1>
       <form id='checkout-form' className='checkout-form'>
 
-        <div className='form-group'>
-          <label htmlFor='name'>Name:</label>
-          <input type='text' id='name' name='name' required />
+
+        <div className='group'>
+          <input type='text' id='firstname' name='firstname' required />
+           <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>First Name</label>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='email'>Email:</label>
+        <div className='group'>
+          <input type='text' id='firstname' name='firstname' required />
+           <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>First Name</label>
+        </div>
+        
+
+        <div className='group'>
           <input type='email' id='email' name='email' required />
+           <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Email</label>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='address'>Address:</label>
+        <div className='group'>
           <input type = 'text' id='address' name='address' required/>
+           <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Address</label>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='zipcode'>Zipcode:</label>
+        <div className='group'>
           <input type = 'text' id='zipcode' name='zipcode' required/>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Zipcode</label>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='city'>City:</label>
+        <div className='group'>
           <input type = 'text' id='city' name='city' required/>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>City</label>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='state'>State/Region:</label>
+        <div className='group'>
           <input type = 'text' id='state' name='state' required/>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>State/Region</label>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='country'>Country:</label>
+        <div className='group'>
           <input type='text' id='country' name='country' required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Country</label>
         </div>
 
-        <div className='form-group'>
-          <label htmlFor='phone'>Phone Number:</label>
+        <div className='group'>
           <input type='tel' id='phone' name='phone' required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Phone Number</label>
         </div>
 
 

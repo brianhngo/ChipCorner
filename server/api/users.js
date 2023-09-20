@@ -5,7 +5,7 @@ const {
 const { requireToken, isAdmin } = require('./adminAuth')
 module.exports = router;
 
-router.get('/', requireToken, isAdmin, async (req, res, next) => {
+router.get('/',  async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
@@ -18,6 +18,63 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
     next(err);
   }
 });
+
+// updating profile 
+router.put('/updateprofile', async (req,res,next) => {
+  try{
+    const {firstname, lastname, phone, token} = req.body;
+    const user =  await User.findByToken(token)
+    if (user){
+    const updateUser = await user.update({
+      firstname : firstname || null,
+      lastname : lastname || null,
+      phone : phone || null,
+
+    })
+    res.send(true)
+  }
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+});
+
+// getProfileData
+router.put('/getprofiledata', async (req,res,next) => {
+  try{
+    const {token} = req.body;
+    const user =  await User.findByToken(token)
+    if (user){
+    res.status(200).send(user)
+  }
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+});
+
+// updating profile 
+router.put('/updateprofile2', async (req,res,next) => {
+  try{
+    const {address,zipcode,city,state,country, token} = req.body;
+    const user =  await User.findByToken(token)
+    if (user){
+    const updateUser = await user.update({
+      address : address || null,
+      zipcode : zipcode || null,
+      city : city || null,
+      state : state || null,
+      country : country || null,
+
+    })
+    res.send(true)
+  }
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+});
+
 
 //GET individual user by id
 router.get('/:id', async (req, res, next) => {
@@ -93,3 +150,4 @@ router.put('/:id', async (req, res, next) => {
     next(err);
   }
 });
+

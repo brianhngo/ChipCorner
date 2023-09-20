@@ -19,7 +19,6 @@ export default function MyProfile() {
       <h1 className="user-info">Your Profile</h1>
       <TabBar   active = {active} changeState = {setActive}/>
       {active === 'contact' ? (<ProfileContact/>) : null}
-      {active === 'billing' ? (<ProfileBilling/>) : null}
       {active === 'shipping' ? (<ProfileShipping/>) : null}
       {active === 'bookmarks' ? (<ProfileBookmarks/>) : null}
       {active === 'pastorders' ? (<ProfilePastOrders/>) : null}

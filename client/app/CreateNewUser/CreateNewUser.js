@@ -65,10 +65,7 @@ export default function CreateNewUser({changeStatus}) {
   
         <div className="createNewUserContainer">
           <form onSubmit={submitHandler} className="login-form">
-
-            <label htmlFor="username" className="form-label">
-              <h2> Username :</h2>
-            </label>
+            <div className = 'group'>
             <input
               type="text"
               id="username"
@@ -76,11 +73,12 @@ export default function CreateNewUser({changeStatus}) {
               value={username}
               onChange={userNameHandler}
               className={verifyStatus === true ? 'highlights' : null}></input>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+               <label>Username</label>
+            </div>
 
-
-            <label htmlFor="password" className="form-label">
-              <h2> Password : </h2>
-            </label>
+            <div className = 'group'>
             <input
               type="password"
               id="password"
@@ -88,10 +86,11 @@ export default function CreateNewUser({changeStatus}) {
               value={password}
               onChange={passwordHandler}
               ></input>
-
-            <label htmlFor="email" className="form-label">
-              <h2> Email : </h2>
-            </label>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+               <label>Password</label>
+              </div>
+            <div className = 'group'>
             <input
               type="email"
               id="email"
@@ -99,6 +98,10 @@ export default function CreateNewUser({changeStatus}) {
               value={email}
               onChange={emailHandler}
               className={verifyStatus === true ? 'highlights' : null}></input>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+               <label>Email</label>
+            </div>
 
             <button className = 'submit-button'> Create User! </button>
           </form>

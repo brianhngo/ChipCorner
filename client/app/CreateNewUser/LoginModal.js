@@ -22,12 +22,14 @@ import CreateNewUser from './CreateNewUser.js'
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
+import {useDispatch } from 'react-redux';
+import { exit } from '../store.js';
 
 export default function LoginModal({isOpen, onClose}) {
+    const dispatch = useDispatch()
     const [createUserStatus, setCreateUserStatus] = useState(false)
     const exitHandler = (event) => {
+      dispatch(exit())
         event.preventDefault();
         onClose()
     }

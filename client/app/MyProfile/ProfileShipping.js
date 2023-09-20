@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import {updateProfile2, getUpdateProfileData} from './ProfileSlice.js';
 
 export default function ProfileBilling() {
+  const dispatch = useDispatch()
+  const userProfileData = useSelector( (state) =>  state.profile.storage.information)
    const [address, setAddress] = useState("");
    const [zipcode, setZipcode] = useState("");
    const [city, setCity] = useState("");
@@ -8,33 +13,57 @@ export default function ProfileBilling() {
    const [country, setCountry] = useState("");
 
     const addressHandler = (event) => {
-        console.log(address)
         setAddress(event.target.value)
     }
 
      const zipcodeHandler = (event) => {
-        console.log(zipcode)
         setZipcode(event.target.value)
     }
 
      const cityHandler = (event) => {
-        console.log(city)
         setCity(event.target.value)
     }
 
      const stateHandler = (event) => {
-        console.log(state)
         setState(event.target.value)
     }
 
      const countryHandler = (event) => {
-        console.log(country)
         setCountry(event.target.value)
     }
 
      const onClickHandler = (event) => {
-        console.log('hi')
+       toast.success('Saved')
+       dispatch(updateProfile2({
+          address : `${address}`,
+          zipcode : `${zipcode}`,
+          city : `${city}`,
+          state : `${state}`,
+          country : `${country}`,
+          token :window.localStorage.getItem('token') || "",
+        }))
     }
+
+    useEffect(() => {
+ 
+    if (userProfileData) {
+      setAddress(userProfileData.address || '');
+      setZipcode(userProfileData.zipcode || '');
+      setCity(userProfileData.city || '');
+      setState(userProfileData.state || '');
+      setCountry(userProfileData.country || '');
+    }
+  }, [userProfileData]); 
+
+  useEffect( () => {
+    const token = window.localStorage.getItem('token')
+    const getProfileData = async (token) => {
+      dispatch(getUpdateProfileData({
+        token:token
+      }))
+    }
+    getProfileData(token)
+  }, [])
 
 
   return (
@@ -47,7 +76,7 @@ export default function ProfileBilling() {
           <input type = 'text' id='address' name='address' value = {address} onChange = {addressHandler} required/>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Name</label>
+          <label>Address</label>
         </div>
 
         <div className='group'>

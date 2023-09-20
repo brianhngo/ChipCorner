@@ -1,19 +1,19 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 /*
   CONSTANT VARIABLES
 */
-const TOKEN = "token";
+const TOKEN = 'token';
 
 /*
   THUNKS
 */
-export const me = createAsyncThunk("auth/me", async () => {
+export const me = createAsyncThunk('auth/me', async () => {
   const token = window.localStorage.getItem(TOKEN);
   try {
     if (token) {
-      const res = await axios.get("/auth/me", {
+      const res = await axios.get('/auth/me', {
         headers: {
           authorization: token,
         },
@@ -26,57 +26,58 @@ export const me = createAsyncThunk("auth/me", async () => {
     if (err.response.data) {
       throw new Error(err.response.data);
     } else {
-      return "There was an issue with your request.";
+      return 'There was an issue with your request.';
     }
   }
 });
 
 export const authenticate = createAsyncThunk(
-  "auth/authenticate",
+  'auth/authenticate',
   async ({ username, password, method }, thunkAPI) => {
     try {
-      console.log(method)
       const res = await axios.post(`/auth/${method}`, { username, password });
       window.localStorage.setItem(TOKEN, res.data.token);
       thunkAPI.dispatch(me());
-      
     } catch (err) {
       if (err.response.data) {
         throw new Error(err.response.data);
       } else {
-        return "There was an issue with your request.";
+        return 'There was an issue with your request.';
       }
     }
   }
 );
 
-export const checkAdminStatus = createAsyncThunk("auth/checkAdminStatus", async () => {
-  const token = window.localStorage.getItem(TOKEN);
-  try {
-    if (token) {
-      const res = await axios.get("/auth/checkAdminStatus", {
-        headers: {
-          authorization: token,
-        },
-      });
-      return res.data.isAdmin;
-    } else {
-      return false;
-    }
-  } catch (err) {
-    if (err.response.data) {
-      throw new Error(err.response.data);
-    } else {
-      return "There was an issue with your request.";
+export const checkAdminStatus = createAsyncThunk(
+  'auth/checkAdminStatus',
+  async () => {
+    const token = window.localStorage.getItem(TOKEN);
+    try {
+      if (token) {
+        const res = await axios.get('/auth/checkAdminStatus', {
+          headers: {
+            authorization: token,
+          },
+        });
+        return res.data.isAdmin;
+      } else {
+        return false;
+      }
+    } catch (err) {
+      if (err.response.data) {
+        throw new Error(err.response.data);
+      } else {
+        return 'There was an issue with your request.';
+      }
     }
   }
-});
+);
 
 /*
   SLICE
 */
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState: {
     me: {},
     error: null,
@@ -84,6 +85,10 @@ export const authSlice = createSlice({
   reducers: {
     logout(state, action) {
       window.localStorage.removeItem(TOKEN);
+      state.me = {};
+      state.error = null;
+    },
+    exit(state, action) {
       state.me = {};
       state.error = null;
     },
@@ -110,7 +115,7 @@ export const authSlice = createSlice({
 /*
   ACTIONS
 */
-export const { logout } = authSlice.actions;
+export const { logout, exit } = authSlice.actions;
 
 /*
   REDUCER

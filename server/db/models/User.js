@@ -27,6 +27,30 @@ const User = db.define('user', {
     allowNull: false,
     defaultValue: false,
   },
+  firstname: {
+    type: Sequelize.STRING,
+  },
+  lastname: {
+    type: Sequelize.STRING,
+  },
+  phone: {
+    type: Sequelize.STRING,
+  },
+  address: {
+    type: Sequelize.STRING,
+  },
+  zipcode: {
+    type: Sequelize.STRING,
+  },
+  city: {
+    type: Sequelize.STRING,
+  },
+  state: {
+    type: Sequelize.STRING,
+  },
+  country: {
+    type: Sequelize.STRING,
+  },
 });
 
 module.exports = User;
@@ -56,7 +80,7 @@ User.authenticate = async function ({ username, password }) {
   if (!user || !(await user.correctPassword(password))) {
     const error = Error('Incorrect username/password');
     error.status = 401;
-    throw error;
+    throw error
   }
   return user.generateToken();
 };

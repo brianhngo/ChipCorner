@@ -1,21 +1,14 @@
-const Sequelize = require("sequelize");
-const db = require("../db");
+const Sequelize = require('sequelize');
+const db = require('../db');
 
-const Orders = db.define("orders", {
-  cart: {
+const Orders = db.define('orders', {
+  orderInfo: {
     type: Sequelize.JSON,
     allowNull: false,
   },
-  isProcessed: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  orderTotal: {
-    type: Sequelize.FLOAT,
-    defaultValue: 0,
-    validate: {
-      min: 0,
-    },
+  userInfo: {
+    type: Sequelize.JSON,
+    allowNull: false,
   },
   userId: {
     type: Sequelize.INTEGER,

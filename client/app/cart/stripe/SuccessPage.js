@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BsBagCheckFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 export default function SuccessPage() {
-
-  
-  
- 
-
   return (
     <div className="success-wrapper">
       <div className="success">
@@ -18,7 +13,7 @@ export default function SuccessPage() {
         <p className="description">
           If you have any questions, please email
           <a className="email" href="mailto:order@example.com">
-            chipcorner@example.com
+            chipcorner@gmail.com
           </a>
         </p>
         <Link to="/">
@@ -28,8 +23,5 @@ export default function SuccessPage() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
-
-
-

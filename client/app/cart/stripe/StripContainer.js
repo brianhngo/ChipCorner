@@ -7,10 +7,18 @@ const PUBLIC_KEY =
   'pk_test_51NoEPiFFjbVZ0rjaNYwhzPXsWGbZuL8Kdb6RDB4v8rsyN5Hcr3Eu2ii6aL9sPLmIl10mJKLkULUVT9ng1aygX6f600pv1mun3e';
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
-export default function StripeContainer({totalAmount}) {
+export default function StripeContainer({
+  totalAmount,
+  storageObject,
+  userId,
+}) {
   return (
     <Elements stripe={stripeTestPromise}>
-      <PaymentForm  totalAmount = {totalAmount}/>
+      <PaymentForm
+        totalAmount={totalAmount}
+        storageObject={storageObject}
+        // userId={userId}
+      />
     </Elements>
   );
 }

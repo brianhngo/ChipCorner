@@ -21,8 +21,33 @@ const CheckoutPage = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
-  const [email, setEmail] = useState('');
 
+  const [shippingAddress, setShippingAddress] = useState('');
+  const [shippingZipcode, setShippingZipcode] = useState('');
+  const [shippingCity, setShippingCity] = useState('');
+  const [shippingState, setShippingState] = useState('');
+  const [shippingCountry, setShippingCountry] = useState('');
+  const [email, setEmail] = useState('');
+  const [useProfileInfo, setUseProfileInfo] = useState(false);
+  const [sameAddress, setSameAddress] = useState(true);
+  const storageObject = {
+    firstname: firstName,
+    lastname: lastName,
+    phone: phoneNumber,
+    address: address,
+    zipcode: zipcode,
+    city: city,
+    state: state,
+    country: country,
+    useProfileInfo: useProfileInfo,
+    sameAddress: sameAddress,
+    shippingAddress: shippingAddress,
+    shippingZipcode: shippingZipcode,
+    shippingCity: shippingCity,
+    shippingState: shippingState,
+    shippingCountry: shippingCountry,
+  };
+  console.log(storageObject);
   // Getting the Amount from cart
   // deStringify the JSON stringify
   const grabCartFromStorage =
@@ -73,42 +98,80 @@ const CheckoutPage = () => {
   };
 
   const emailHandler = (event) => {
-    setPhoneNumber(event.target.value);
+    setEmail(event.target.value);
   };
 
   const addressHandler = (event) => {
     setAddress(event.target.value);
   };
 
+  const shippingAddressHandler = (event) => {
+    setShippingAddress(event.target.value);
+  };
+
   const zipcodeHandler = (event) => {
     setZipcode(event.target.value);
+  };
+
+  const shippingZipcodeHandler = (event) => {
+    setShippingZipcode(event.target.value);
   };
 
   const cityHandler = (event) => {
     setCity(event.target.value);
   };
 
+  const shippingCityHandler = (event) => {
+    setShippingCity(event.target.value);
+  };
+
   const stateHandler = (event) => {
     setState(event.target.value);
+  };
+
+  const shippingStateHandler = (event) => {
+    setShippingState(event.target.value);
   };
 
   const countryHandler = (event) => {
     setCountry(event.target.value);
   };
 
+  const shippingCountryHandler = (event) => {
+    setShippingCountry(event.target.value);
+  };
+
+  const handleUseProfileInfoChange = () => {
+    setUseProfileInfo(!useProfileInfo);
+  };
+
+  const handleSameAddressChange = () => {
+    setSameAddress(!sameAddress);
+  };
+
   useEffect(() => {
-    if (userProfileData) {
-      setFirstName(userProfileData.firstname || '');
-      setLastName(userProfileData.lastname || '');
-      setPhoneNumber(userProfileData.phone || '');
+    if (userProfileData && useProfileInfo === true) {
+      setFirstName(userProfileData.firstname);
+      setLastName(userProfileData.lastname);
+      setPhoneNumber(userProfileData.phone);
       setEmail(userProfileData.email);
-      setAddress(userProfileData.address || '');
-      setZipcode(userProfileData.zipcode || '');
-      setCity(userProfileData.city || '');
-      setState(userProfileData.state || '');
-      setCountry(userProfileData.country || '');
+      setAddress(userProfileData.address);
+      setZipcode(userProfileData.zipcode);
+      setCity(userProfileData.city);
+      setState(userProfileData.state);
+      setCountry(userProfileData.country);
+    } else {
+      setFirstName('');
+      setLastName('');
+      setPhoneNumber('');
+      setEmail('');
+      setAddress('');
+      setZipcode('');
+      setCity('');
+      setState('');
+      setCountry('');
     }
-  }, [userProfileData]);
+  }, [userProfileData, useProfileInfo]);
 
   useEffect(() => {
     const token = window.localStorage.getItem('token');
@@ -173,7 +236,30 @@ const CheckoutPage = () => {
         </div>
         <div className="StripeBodyContainer2">
           <h1 className="checkout-title">Personal Information</h1>
+          <div className="checkboxContainer">
+            <div className="checkbox">
+              <input
+                type="checkbox"
+                checked={useProfileInfo}
+                onChange={handleUseProfileInfoChange}
+              />
+              <h5> Use information from profile?</h5>
+            </div>
+
+            <div className="checkbox">
+              <input
+                type="checkbox"
+                checked={sameAddress}
+                onChange={handleSameAddressChange}
+              />
+              <h5> Same Shipping/Billing Address?</h5>
+            </div>
+          </div>
+
           <form id="checkout-form" className="checkout-form">
+            {sameAddress === false ? (
+              <h3 className="paymentText"> Shipping Address </h3>
+            ) : null}
             <div className="group">
               <input
                 type="text"
@@ -187,7 +273,6 @@ const CheckoutPage = () => {
               <span class="bar"></span>
               <label>First Name</label>
             </div>
-
             <div className="group">
               <input
                 type="text"
@@ -199,7 +284,7 @@ const CheckoutPage = () => {
               />
               <span class="highlight"></span>
               <span class="bar"></span>
-              <label>First Name</label>
+              <label>Last Name</label>
             </div>
 
             <div className="group">
@@ -300,10 +385,89 @@ const CheckoutPage = () => {
               <label>Phone Number</label>
             </div>
 
+            {sameAddress === false ? (
+              <>
+                <h3 className="paymentText"> Billing Address </h3>
+                <div className="group">
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    value={shippingAddress}
+                    onChange={shippingAddressHandler}
+                    required
+                  />
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Address</label>
+                </div>
+
+                <div className="group">
+                  <input
+                    type="text"
+                    id="zipcode"
+                    name="zipcode"
+                    value={shippingZipcode}
+                    onChange={shippingZipcodeHandler}
+                    required
+                  />
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Zipcode</label>
+                </div>
+
+                <div className="group">
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value={shippingCity}
+                    onChange={shippingCityHandler}
+                    required
+                  />
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>City</label>
+                </div>
+
+                <div className="group">
+                  <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    value={shippingState}
+                    onChange={shippingStateHandler}
+                    required
+                  />
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>State/Region</label>
+                </div>
+
+                <div className="group">
+                  <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value={shippingCountry}
+                    onChange={shippingCountryHandler}
+                    required
+                  />
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Country</label>
+                </div>
+              </>
+            ) : null}
+
             {showItem ? (
               <>
                 <label htmlFor="Stripe">Stripe Payment:</label>
-                <StripeContainer totalAmount={totalAmount} />
+                <StripeContainer
+                  totalAmount={totalAmount}
+                  storageObject={storageObject}
+                  // userId={userProfileData.id}
+                />
               </>
             ) : (
               <>

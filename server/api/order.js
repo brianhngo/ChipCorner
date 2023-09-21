@@ -29,11 +29,17 @@ router.get('/:orderId', async (req, res, next) => {
 //POST new order
 router.post('/', async (req, res, next) => {
   try {
-    const { items, totalPrice, userId } = req.body; // Assuming the request body contains items, totalPrice, and userId
+    const cart = req.body.data.cart;
+    const userInfo = req.body.data.userInfo;
+    const userId = req.body.data.userId;
+    console.log('req.body', req.body);
+    console.log(cart);
+    console.log(userInfo);
+    console.log(userId);
     const newOrder = await Orders.create({
-      items,
-      totalPrice,
-      userId,
+      orderInfo: cart,
+      userInfo: userInfo,
+      userId: userId,
     });
     res.status(201).json(newOrder);
   } catch (err) {

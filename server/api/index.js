@@ -5,8 +5,8 @@ const {
 
 router.use('/users', require('./users'));
 router.use('/chips', require('./chips'));
-router.use('/stripe', require('./stripe'))
-// router.use('/orders', require('./orders'));
+router.use('/stripe', require('./stripe'));
+router.use('/order', require('./order'));
 
 router.use((req, res, next) => {
   const error = new Error('Not Found');

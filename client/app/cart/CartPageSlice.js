@@ -76,6 +76,9 @@ export const singleOrder = createSlice({
       const { value } = payload;
       state.quantityAmount -= value;
     },
+    resetQuantity: (state, { payload }) => {
+      state.quantityAmount = 0;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -93,5 +96,6 @@ export const {
   decreaseQuantity,
   increaseQuantity,
   removeQuantity,
+  resetQuantity,
 } = singleOrder.actions;
 export default singleOrder.reducer;

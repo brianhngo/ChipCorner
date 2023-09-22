@@ -51,6 +51,9 @@ const User = db.define('user', {
   country: {
     type: Sequelize.STRING,
   },
+  bookmark: {
+    type: Sequelize.JSONB,
+  },
 });
 
 module.exports = User;
@@ -80,7 +83,7 @@ User.authenticate = async function ({ username, password }) {
   if (!user || !(await user.correctPassword(password))) {
     const error = Error('Incorrect username/password');
     error.status = 401;
-    throw error
+    throw error;
   }
   return user.generateToken();
 };

@@ -22,6 +22,7 @@ const AuthForm = ({ name, displayName }) => {
     const password = evt.target.password.value;
 
     dispatch(authenticate({ username, password, method: formName }));
+    window.localStorage.removeItem('bookmark');
   };
 
   return (

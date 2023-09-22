@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 const {
   db,
-  models: { User },
-} = require("../server/db");
-const Chips = require("../server/db/models/Chips");
+  models: { User, Orders },
+} = require('../server/db');
+const Chips = require('../server/db/models/Chips');
 
 //title, description,size,baked or not baked, ingrediants,nutrional
 
@@ -172,37 +172,120 @@ const chips = [
  */
 async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
-  console.log("db synced!");
+  console.log('db synced!');
 
   // Creating Users
   const users = await Promise.all([
     User.create({
-      username: "cody135",
-      email: "cody135@gmail.com",
-      password: "123",
+      username: 'cody135',
+      email: 'cody135@gmail.com',
+      password: '123',
       admin: false,
-      firstname : null,
-      lastname : null,
+      firstname: null,
+      lastname: null,
       phone: null,
       address: null,
       zipcode: null,
-      city : null,
-      state : null,
+      city: null,
+      state: null,
       country: null,
+      bookmark: null,
     }),
     User.create({
-      username: "murphy246",
-      email: "murphy246@gmail.com",
-      password: "123",
+      username: 'murphy246',
+      email: 'murphy246@gmail.com',
+      password: '123',
       admin: true,
-      firstname : null,
-      lastname : null,
+      firstname: null,
+      lastname: null,
       phone: null,
       address: null,
       zipcode: null,
-      city : null,
-      state : null,
+      city: null,
+      state: null,
       country: null,
+      bookmark: null,
+    }),
+  ]);
+
+  const orders = await Promise.all([
+    Orders.create({
+      orderInfo: {
+        1: 4,
+        2: 2,
+        3: 3,
+        7: 3,
+      },
+      userInfo: {
+        firstname: 'Murphy',
+        lastname: 'Reynolds',
+        phone: '123-456-7890',
+        address: '123 Main Street',
+        zipcode: '12345',
+        city: 'Los Angeles',
+        state: 'California',
+        country: 'United States',
+        useProfileInfo: true,
+        sameAddress: true,
+        shippingAddress: '123 Main Street',
+        shippingZipcode: '12345',
+        shippingCity: 'Los Angeles',
+        shippingState: 'California',
+        shippingCountry: 'United States',
+      },
+      userId: 2,
+    }),
+    Orders.create({
+      orderInfo: {
+        4: 3,
+        9: 1,
+        10: 1,
+        12: 4,
+      },
+      userInfo: {
+        firstname: 'Murphy',
+        lastname: 'Reynolds',
+        phone: '123-456-7890',
+        address: '123 Main Street',
+        zipcode: '12345',
+        city: 'Los Angeles',
+        state: 'California',
+        country: 'United States',
+        useProfileInfo: true,
+        sameAddress: true,
+        shippingAddress: '123 Main Street',
+        shippingZipcode: '12345',
+        shippingCity: 'Los Angeles',
+        shippingState: 'California',
+        shippingCountry: 'United States',
+      },
+      userId: 2,
+    }),
+    Orders.create({
+      orderInfo: {
+        1: 3,
+        3: 2,
+        6: 5,
+        12: 4,
+      },
+      userInfo: {
+        firstname: 'Murphy',
+        lastname: 'Reynolds',
+        phone: '123-456-7890',
+        address: '123 Main Street',
+        zipcode: '12345',
+        city: 'Los Angeles',
+        state: 'California',
+        country: 'United States',
+        useProfileInfo: true,
+        sameAddress: true,
+        shippingAddress: '123 Main Street',
+        shippingZipcode: '12345',
+        shippingCity: 'Los Angeles',
+        shippingState: 'California',
+        shippingCountry: 'United States',
+      },
+      userId: 2,
     }),
   ]);
 
@@ -220,6 +303,11 @@ async function seed() {
       cody: users[0],
       murphy: users[1],
     },
+    orders: {
+      1: orders[1],
+      2: orders[2],
+      3: orders[3],
+    },
   };
 }
 
@@ -229,16 +317,16 @@ async function seed() {
  The `seed` function is concerned only with modifying the database.
 */
 async function runSeed() {
-  console.log("seeding...");
+  console.log('seeding...');
   try {
     await seed();
   } catch (err) {
     console.error(err);
     process.exitCode = 1;
   } finally {
-    console.log("closing db connection");
+    console.log('closing db connection');
     await db.close();
-    console.log("db connection closed");
+    console.log('db connection closed');
   }
 }
 

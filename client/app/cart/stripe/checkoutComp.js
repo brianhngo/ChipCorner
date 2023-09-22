@@ -47,7 +47,7 @@ const CheckoutPage = () => {
     shippingState: shippingState,
     shippingCountry: shippingCountry,
   };
-  console.log(storageObject);
+
   // Getting the Amount from cart
   // deStringify the JSON stringify
   const grabCartFromStorage =

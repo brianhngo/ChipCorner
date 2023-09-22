@@ -1,11 +1,12 @@
 const router = require('express').Router();
+const Sequelize = require('sequelize');
 const {
-  models: { User },
+  models: { User, Chips },
 } = require('../db');
-const { requireToken, isAdmin } = require('./adminAuth')
+const { requireToken, isAdmin } = require('./adminAuth');
 module.exports = router;
 
-router.get('/',  async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
@@ -19,62 +20,124 @@ router.get('/',  async (req, res, next) => {
   }
 });
 
-// updating profile 
-router.put('/updateprofile', async (req,res,next) => {
-  try{
-    const {firstname, lastname, phone, token} = req.body;
-    const user =  await User.findByToken(token)
-    if (user){
-    const updateUser = await user.update({
-      firstname : firstname || null,
-      lastname : lastname || null,
-      phone : phone || null,
-
-    })
-    res.send(true)
-  }
+// updating profile
+router.put('/updateprofile', async (req, res, next) => {
+  try {
+    const { firstname, lastname, phone, token } = req.body;
+    const user = await User.findByToken(token);
+    if (user) {
+      const updateUser = await user.update({
+        firstname: firstname || null,
+        lastname: lastname || null,
+        phone: phone || null,
+      });
+      res.send(true);
+    }
   } catch (error) {
-    console.log(error)
-    next(error)
+    console.log(error);
+    next(error);
   }
 });
 
 // getProfileData
-router.put('/getprofiledata', async (req,res,next) => {
-  try{
-    const {token} = req.body;
-    const user =  await User.findByToken(token)
-    if (user){
-    res.status(200).send(user)
-  }
+router.put('/getprofiledata', async (req, res, next) => {
+  try {
+    const { token } = req.body;
+    const user = await User.findByToken(token);
+    if (user) {
+      res.status(200).send(user);
+    }
   } catch (error) {
-    console.log(error)
-    next(error)
+    console.log(error);
+    next(error);
   }
 });
 
-// updating profile 
-router.put('/updateprofile2', async (req,res,next) => {
-  try{
-    const {address,zipcode,city,state,country, token} = req.body;
-    const user =  await User.findByToken(token)
-    if (user){
-    const updateUser = await user.update({
-      address : address || null,
-      zipcode : zipcode || null,
-      city : city || null,
-      state : state || null,
-      country : country || null,
-
-    })
-    res.send(true)
-  }
+// updating profile
+router.put('/updateprofile2', async (req, res, next) => {
+  try {
+    const { address, zipcode, city, state, country, token } = req.body;
+    const user = await User.findByToken(token);
+    if (user) {
+      const updateUser = await user.update({
+        address: address || null,
+        zipcode: zipcode || null,
+        city: city || null,
+        state: state || null,
+        country: country || null,
+      });
+      res.send(true);
+    }
   } catch (error) {
-    console.log(error)
-    next(error)
+    console.log(error);
+    next(error);
   }
 });
 
+router.put('/getUsersChipData', async (req, res, next) => {
+  try {
+    const { listOfChips } = req.body;
+    const chipData = await Chips.findAll({
+      where: {
+        id: {
+          [Sequelize.Op.in]: listOfChips,
+        },
+      },
+    });
+    res.status(200).json(chipData);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+// get bookmark
+
+router.put('/bookmarksdata', async (req, res, next) => {
+  try {
+    const { token } = req.body;
+    const user = await User.findByToken(token);
+    const objectData = Object.values(user.bookmark).filter(
+      (element) => element !== null
+    );
+    const chipData = await Chips.findAll({
+      where: {
+        id: {
+          [Sequelize.Op.in]: objectData,
+        },
+      },
+    });
+    res.status(200).json(chipData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// update bookmark
+router.put('/bookmark', async (req, res, next) => {
+  try {
+    const { userId, id, status } = req.body;
+    const user = await User.findByPk(userId);
+    if (user) {
+      if (status === 'add') {
+        const bookmarkColumn = user.bookmark || {};
+        bookmarkColumn[id] = id;
+        // Update the 'bookmark' property of the 'user' instance
+        await user.update({ bookmark: null });
+        await user.update({ bookmark: bookmarkColumn });
+      } else {
+        const bookmarkColumn = user.bookmark || {};
+        bookmarkColumn[id] = null;
+        await user.update({ bookmark: null });
+        await user.update({ bookmark: bookmarkColumn });
+      }
+    }
+
+    res.send(user);
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
 
 //GET individual user by id
 router.get('/:id', async (req, res, next) => {
@@ -150,4 +213,3 @@ router.put('/:id', async (req, res, next) => {
     next(err);
   }
 });
-

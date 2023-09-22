@@ -2,13 +2,13 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../store.js';
-import AppRoutes from '../AppRoutes.js';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import LoginModal from '../CreateNewUser/LoginModal.js';
 import { me } from '../../features/auth/authSlice.js';
 import './Navbar.css';
 import { resetUserInfo } from '../MyProfile/ProfileSlice.js';
+import { removeBookmark } from '../LandingPage/LandingPageSlice.js';
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -26,6 +26,7 @@ const Navbar = () => {
     dispatch(logout());
     setIsPopupOpen(false);
     dispatch(resetUserInfo());
+    dispatch(removeBookmark());
     navigate('/');
   };
 
@@ -61,6 +62,7 @@ const Navbar = () => {
         <Link to="/allchips"> All Products </Link>
         <Link to="/about"> About Us </Link>
         <Link to="/contact"> Contact </Link>
+        <Link to="/bookmarks"> Bookmarks </Link>
 
         {isLoggedIn === false ? (
           <>

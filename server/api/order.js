@@ -1,7 +1,23 @@
 const router = require('express').Router();
+const Sequelize = require('sequelize');
 const {
   models: { Orders },
 } = require('../db');
+
+router.put('/orderHistory', async (req, res, next) => {
+  try {
+    const { userId } = req.body;
+    const orderHistory = await Orders.findAll({
+      where: {
+        userId: userId,
+      },
+    });
+    console.log('orderHistory', orderHistory);
+    res.status(200).json(orderHistory);
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.get('/', async (req, res, next) => {
   try {

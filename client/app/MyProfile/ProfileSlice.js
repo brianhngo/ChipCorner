@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// saving Personal Contact Information
 export const updateProfile = createAsyncThunk(
   '/api/users/updateprofile',
   async ({ firstname, lastname, phone, token }) => {
@@ -18,6 +19,7 @@ export const updateProfile = createAsyncThunk(
   }
 );
 
+// Getting User Info by sending token
 export const getUpdateProfileData = createAsyncThunk(
   '/api/users/getProfileContact',
   async ({ token }) => {
@@ -31,7 +33,7 @@ export const getUpdateProfileData = createAsyncThunk(
     }
   }
 );
-
+// Saving Shipping address into DB
 export const updateProfile2 = createAsyncThunk(
   '/api/users/updateprofile2',
   async ({ address, zipcode, city, state, country, token }) => {
@@ -50,6 +52,19 @@ export const updateProfile2 = createAsyncThunk(
     }
   }
 );
+// Getting User's order history
+export const getOrderHistoryProfile = createAsyncThunk(
+  '/api/orderHistory',
+  async (obj) => {
+    try {
+      const { data } = await axios.put('/api/order/orderHistory', obj);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 const ProfileSlice = createSlice({
   name: 'profile',
@@ -57,6 +72,7 @@ const ProfileSlice = createSlice({
     storage: {
       information: null,
       status: null,
+      orderHistory: [],
     },
   },
   reducers: {
@@ -74,6 +90,9 @@ const ProfileSlice = createSlice({
       })
       .addCase(updateProfile2.fulfilled, (state, { payload }) => {
         state.storage.status = payload;
+      })
+      .addCase(getOrderHistoryProfile.fulfilled, (state, { payload }) => {
+        state.orderHistory = payload;
       });
   },
 });

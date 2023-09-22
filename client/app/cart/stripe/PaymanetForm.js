@@ -6,7 +6,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { submitOrder } from '../CartPageSlice';
 import { getUpdateProfileData } from '../../MyProfile/ProfileSlice';
-
+import { resetQuantity } from '../CartPageSlice';
 const CARD_OPTIONS = {
   iconStyle: 'solid',
   style: {
@@ -61,7 +61,7 @@ export default function PaymentForm({ totalAmount, storageObject }) {
       console.log('The object does not contain any null values.');
     }
     const orderInformationToDB = {
-      cart: window.localStorage.getItem('cart'),
+      cart: JSON.parse(window.localStorage.getItem('cart')),
       userInfo: storageObject,
       userId: userProfileData.id !== undefined ? userProfileData.id : 0,
     };
@@ -80,6 +80,7 @@ export default function PaymentForm({ totalAmount, storageObject }) {
         if (response.data.success) {
           setSuccess(true);
           dispatch(submitOrder(orderInformationToDB));
+          dispatch(resetQuantity());
         }
       } catch (error) {
         console.log('error', error);

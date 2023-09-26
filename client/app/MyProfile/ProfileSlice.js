@@ -58,7 +58,22 @@ export const getOrderHistoryProfile = createAsyncThunk(
   async (obj) => {
     try {
       const { data } = await axios.put('/api/order/orderHistory', obj);
-      console.log(data);
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const getOrderHistoryChipInfo = createAsyncThunk(
+  '/api/orderHistoryChips',
+  async (chipIdObj) => {
+    try {
+      const { data } = await axios.put(
+        '/api/chips/orderHistoryChips',
+        chipIdObj
+      );
       return data;
     } catch (error) {
       console.log(error);
@@ -73,6 +88,7 @@ const ProfileSlice = createSlice({
       information: null,
       status: null,
       orderHistory: [],
+      orderHistoryChip: [],
     },
   },
   reducers: {
@@ -92,7 +108,10 @@ const ProfileSlice = createSlice({
         state.storage.status = payload;
       })
       .addCase(getOrderHistoryProfile.fulfilled, (state, { payload }) => {
-        state.orderHistory = payload;
+        state.storage.orderHistory = payload;
+      })
+      .addCase(getOrderHistoryChipInfo.fulfilled, (state, { payload }) => {
+        state.storage.orderHistoryChip = payload;
       });
   },
 });

@@ -2368,7 +2368,7 @@ header .nav-btn:focus {
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 90px;
-  color: #333;
+  color: #324d67;
   text-align: center;
 }
 
@@ -2377,6 +2377,7 @@ header .nav-btn:focus {
   cursor: pointer;
   border: 1px solid transparent;
   font-size: 18px;
+  color: #324d67;
 }
 
 .user-section:hover {
@@ -2392,7 +2393,7 @@ header .nav-btn:focus {
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 54px;
-  color: #333;
+  color: #324d67;
   text-align: center;
 }
 
@@ -2605,4 +2606,73 @@ input:focus ~ .highlight {
 
 .bookmarked svg path {
   fill: rgb(255, 168, 6);
+}
+.orderHistoryTitle {
+  text-align: center;
+  font-size: 42px;
+  text-decoration: underline;
+  color: #324d67;
+  margin-bottom: 20px;
+}
+
+.orderHistoryPaymentTotal {
+  text-align: center;
+  font-size: 36px;
+  color: #324d67;
+  margin-bottom: 20px;
+}
+
+.order-items-list {
+  width: 100%;
+  padding-left: 20px;
+  margin: 0;
+  list-style-type: none;
+}
+
+.order-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  width: 100%;
+  height: 60px;
+  text-align: left;
+  padding: 10px 20px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  color: #324d67;
+}
+
+.order-button .order-text {
+  flex: 1;
+  text-align: center;
+}
+
+.order-button.active {
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.order-item ul {
+  list-style-type: none;
+}
+
+.profileContainer2 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.products-container-recommend2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: 10%;
+  margin-top: 20px;
+  max-width: 100%;
+  margin-bottom: 5%;
 }

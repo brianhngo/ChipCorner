@@ -31,12 +31,32 @@ router.get('/landingPage', async (req, res, next) => {
   }
 });
 
+// get individual chip id from Order History
+
+router.put('/orderHistoryChips', async (req, res, next) => {
+  try {
+    const { chipData } = req.body;
+
+    const data = await Chips.findAll({
+      where: {
+        id: {
+          [Op.or]: chipData,
+        },
+      },
+    });
+    console.log(data);
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 //GET individual chip
 
 router.get('/:id', async (req, res, next) => {
   try {
     const chip = await Chips.findByPk(req.params.id);
-   
+
     if (chip) {
       res.json(chip);
     } else {
@@ -71,7 +91,7 @@ router.post('/', async (req, res, next) => {
       ingredients,
       imageUrl,
     });
-    
+
     res.status(201).json(newChip);
   } catch (err) {
     next(err, 'this is the error');

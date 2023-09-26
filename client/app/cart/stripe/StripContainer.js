@@ -14,11 +14,7 @@ export default function StripeContainer({
 }) {
   return (
     <Elements stripe={stripeTestPromise}>
-      <PaymentForm
-        totalAmount={totalAmount}
-        storageObject={storageObject}
-        // userId={userId}
-      />
+      <PaymentForm totalAmount={totalAmount} storageObject={storageObject} />
     </Elements>
   );
 }

@@ -64,6 +64,7 @@ export default function PaymentForm({ totalAmount, storageObject }) {
       cart: JSON.parse(window.localStorage.getItem('cart')),
       userInfo: storageObject,
       userId: userProfileData.id !== undefined ? userProfileData.id : 0,
+      totalAmount: totalAmount,
     };
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',

@@ -12,8 +12,8 @@ router.put('/orderHistory', async (req, res, next) => {
         userId: userId,
       },
     });
-    console.log('orderHistory', orderHistory);
-    res.status(200).json(orderHistory);
+    const sortedData = orderHistory.sort((a, b) => a.id - b.id);
+    res.status(200).json(sortedData);
   } catch (err) {
     next(err);
   }
@@ -48,14 +48,12 @@ router.post('/', async (req, res, next) => {
     const cart = req.body.data.cart;
     const userInfo = req.body.data.userInfo;
     const userId = req.body.data.userId;
-    console.log('req.body', req.body);
-    console.log(cart);
-    console.log(userInfo);
-    console.log(userId);
+    const totalAmount = req.body.data.totalAmount;
     const newOrder = await Orders.create({
       orderInfo: cart,
       userInfo: userInfo,
       userId: userId,
+      totalAmount: totalAmount,
     });
     res.status(201).json(newOrder);
   } catch (err) {

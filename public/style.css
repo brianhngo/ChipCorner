@@ -1357,6 +1357,7 @@ span.text-red {
 
 .product-column {
   align-self: center;
+  margin: 10px;
 }
 
 .flex h5 {
@@ -2662,6 +2663,7 @@ input:focus ~ .highlight {
 .profileContainer2 {
   max-width: 1000px;
   margin: 0 auto;
+  height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -2675,4 +2677,64 @@ input:focus ~ .highlight {
   margin-top: 20px;
   max-width: 100%;
   margin-bottom: 5%;
+}
+
+.admin-AllProducts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 60px;
+  margin-bottom: 25px;
+}
+
+.profileContainer3 {
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 50px;
+  display: flex;
+
+  flex-direction: column;
+}
+
+.admin-form {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.popupAdmin {
+  background-color: black;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.popupAdmin p {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.popup-title-admin {
+  font-size: 38px;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
 }

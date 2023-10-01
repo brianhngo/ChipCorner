@@ -1,3 +1,4 @@
+import { DataArraySharp } from '@mui/icons-material';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -54,12 +55,12 @@ export const checkAdminStatus = createAsyncThunk(
     const token = window.localStorage.getItem(TOKEN);
     try {
       if (token) {
-        const res = await axios.get('/auth/checkAdminStatus', {
+        const { data } = await axios.get('/auth/checkAdminStatus', {
           headers: {
             authorization: token,
           },
         });
-        return res.data.isAdmin;
+        return data;
       } else {
         return false;
       }
@@ -81,12 +82,14 @@ export const authSlice = createSlice({
   initialState: {
     me: {},
     error: null,
+    isAdmin: false,
   },
   reducers: {
     logout(state, action) {
       window.localStorage.removeItem(TOKEN);
       state.me = {};
       state.error = null;
+      state.isAdmin = false;
     },
     exit(state, action) {
       state.me = {};

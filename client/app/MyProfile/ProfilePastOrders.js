@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getUpdateProfileData,
   getOrderHistoryProfile,
   getOrderHistoryChipInfo,
 } from './ProfileSlice.js';
-import { Link } from 'react-router-dom';
+
 export default function ProfilePastOrders() {
   const userProfileData = useSelector(
     (state) => state.profile.storage.information

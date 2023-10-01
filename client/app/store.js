@@ -5,7 +5,8 @@ import landingPageSlice from './LandingPage/LandingPageSlice.js';
 import singleOrder from './cart/CartPageSlice';
 import CreateNewUserSlice from './CreateNewUser/CreateNewUserSlice';
 import chipsSlice from './chipsSlice';
-import ProfileSlice from './MyProfile/ProfileSlice.js'
+import ProfileSlice from './MyProfile/ProfileSlice.js';
+import AdminSlice from './Admin/AdminSlice';
 
 const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ const store = configureStore({
     createNewUser: CreateNewUserSlice,
     chips: chipsSlice,
     profile: ProfileSlice,
+    admin: AdminSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

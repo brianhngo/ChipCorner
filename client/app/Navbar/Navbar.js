@@ -5,13 +5,14 @@ import { logout } from '../store.js';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import LoginModal from '../CreateNewUser/LoginModal.js';
-import { me } from '../../features/auth/authSlice.js';
+import { me, checkAdminStatus } from '../../features/auth/authSlice.js';
 import './Navbar.css';
 import { resetUserInfo } from '../MyProfile/ProfileSlice.js';
 import { removeBookmark } from '../LandingPage/LandingPageSlice.js';
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isAdmin = useSelector((state) => state.auth.isAdmin);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const username = useSelector((state) => state.auth.me.username);
@@ -48,6 +49,7 @@ const Navbar = () => {
 
   useEffect(() => {
     dispatch(me());
+    dispatch(checkAdminStatus());
   }, []);
 
   useEffect(() => {}, [numberState]);
@@ -63,6 +65,7 @@ const Navbar = () => {
         <Link to="/about"> About Us </Link>
         <Link to="/contact"> Contact </Link>
         <Link to="/bookmarks"> Bookmarks </Link>
+        {isAdmin === true ? <Link to="/Admin"> Admin </Link> : null}
 
         {isLoggedIn === false ? (
           <>

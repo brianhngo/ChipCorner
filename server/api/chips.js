@@ -3,6 +3,7 @@ const {
   models: { Chips },
 } = require('../db');
 const { Op } = require('sequelize');
+const { Chip } = require('@mui/material');
 
 router.get('/', async (req, res, next) => {
   try {
@@ -31,7 +32,7 @@ router.get('/landingPage', async (req, res, next) => {
   }
 });
 
-// get individual chip id from Order History
+// PUT- individual chip id from Order History
 
 router.put('/orderHistoryChips', async (req, res, next) => {
   try {
@@ -44,8 +45,39 @@ router.put('/orderHistoryChips', async (req, res, next) => {
         },
       },
     });
-    console.log(data);
+
     res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+// PUT /chips/getAdminSingleProductData individual CHIP for Admin Page
+router.put('/getAdminSingleProductData', async (req, res, next) => {
+  try {
+    const { id } = req.body;
+    const data = await Chips.findAll({
+      where: {
+        id: id,
+      },
+    });
+    res.status(200).json(data);
+  } catch {
+    console.error(error);
+  }
+});
+
+// PUT /chips/saveAdminSingleProductData individual CHIP for Admin Page
+router.put('/saveAdminSingleProduct', async (req, res, next) => {
+  try {
+    const { chipData } = req.body;
+    const chip = await Chips.findOne({
+      where: {
+        id: chipData.id,
+      },
+    });
+    const updatedChip = await chip.update(chipData);
+    res.status(200).json(updatedChip);
   } catch (error) {
     console.error(error);
   }

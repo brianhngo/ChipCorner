@@ -19,10 +19,26 @@ router.put('/orderHistory', async (req, res, next) => {
   }
 });
 
+router.put('/orderHistoryIndividual', async (req, res, next) => {
+  try {
+    const { orderId } = req.body;
+    const orderHistory = await Orders.findAll({
+      where: {
+        id: orderId,
+      },
+    });
+
+    res.status(200).json(orderHistory);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/', async (req, res, next) => {
   try {
     const orders = await Orders.findAll();
-    res.json(orders);
+    const sortedData = orders.sort((a, b) => a.id - b.id);
+    res.status(200).json(sortedData);
   } catch (err) {
     next(err);
   }

@@ -20,6 +20,29 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.put('/adminUsersList', async (req, res, next) => {
+  try {
+    const users = await User.findAll();
+    res.status(200).json(users);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put('/adminUserInfo', async (req, res, next) => {
+  try {
+    const { id } = req.body;
+    const user = await User.findAll({
+      where: {
+        id: id,
+      },
+    });
+    res.status(200).json(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // updating profile
 router.put('/updateprofile', async (req, res, next) => {
   try {

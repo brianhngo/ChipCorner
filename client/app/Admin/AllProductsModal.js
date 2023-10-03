@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import {
   getAdminSingleProductData,
   saveAdminSingleProductData,
+  deleteAdminSingleProductData,
 } from './AdminSlice';
 
 const customStyles = {
@@ -26,8 +27,9 @@ const customStyles = {
 export default function AllProductsModal({ isOpen, onClose, chipId }) {
   const dispatch = useDispatch();
   const singleProductData = useSelector((state) => state.admin.singleProducts);
+  const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] =
+    useState(false);
 
-  // Use a single state object to manage form data
   const [formData, setFormData] = useState({
     id: chipId,
     title: null,
@@ -56,6 +58,22 @@ export default function AllProductsModal({ isOpen, onClose, chipId }) {
     event.preventDefault();
     toast.success('Saved!');
     dispatch(saveAdminSingleProductData(formData));
+  };
+
+  const openDeleteConfirmationModal = (event) => {
+    event.preventDefault();
+    setIsDeleteConfirmationOpen(true);
+  };
+
+  const closeDeleteConfirmationModal = () => {
+    setIsDeleteConfirmationOpen(false);
+  };
+
+  const confirmDelete = () => {
+    dispatch(deleteAdminSingleProductData(chipId));
+    closeDeleteConfirmationModal();
+    onClose();
+    toast.success('Product Deleted!');
   };
 
   useEffect(() => {
@@ -92,7 +110,10 @@ export default function AllProductsModal({ isOpen, onClose, chipId }) {
       ariaHideApp={false}>
       <div className="popupAdmin">
         <h1 className="popup-title-admin"> Edit Product </h1>
-        <button className="exit-button" onClick={exitHandler}></button>
+        <button className="exit-button" onClick={exitHandler}>
+          {' '}
+          X{' '}
+        </button>
         <div>
           <form className="admin-form">
             {Object.keys(formData).map((fieldName) => (
@@ -112,6 +133,31 @@ export default function AllProductsModal({ isOpen, onClose, chipId }) {
                 </div>
               </>
             ))}
+            <button
+              className="submit-button"
+              onClick={openDeleteConfirmationModal}>
+              {' '}
+              Delete Product{' '}
+            </button>
+            <Modal
+              isOpen={isDeleteConfirmationOpen}
+              onRequestClose={closeDeleteConfirmationModal}>
+              <div className="delete-confirmation-modal">
+                <p>Are you sure you want to delete this product?</p>
+                <button
+                  onClick={() => {
+                    confirmDelete();
+                  }}>
+                  Confirm
+                </button>
+                <button
+                  onClick={() => {
+                    closeDeleteConfirmationModal();
+                  }}>
+                  Cancel
+                </button>
+              </div>
+            </Modal>
             <button
               id="productContainerssss"
               type="submit"

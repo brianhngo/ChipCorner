@@ -8,7 +8,7 @@ const { Chip } = require('@mui/material');
 router.get('/', async (req, res, next) => {
   try {
     const chips = await Chips.findAll();
-    res.json(chips);
+    res.status(200).json(chips.sort((a, b) => a.id - b.id));
   } catch (err) {
     next(err);
   }
@@ -80,6 +80,40 @@ router.put('/saveAdminSingleProduct', async (req, res, next) => {
     res.status(200).json(updatedChip);
   } catch (error) {
     console.error(error);
+  }
+});
+
+router.put('/addNewProduct', async (req, res, next) => {
+  try {
+    const { chipData } = req.body;
+    const chip = await Chips.create({
+      title: chipData.title,
+      description: chipData.description,
+      brand: chipData.brand,
+      size: chipData.size,
+      baked: chipData.baked,
+      ingredients: chipData.ingredients,
+      nutritional: chipData.nutritional,
+      imageUrl: chipData.imageUrl,
+      price: chipData.price,
+    });
+    res.status(200).json(chip);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+router.put('/deleteAdminSingleProduct', async (req, res, next) => {
+  try {
+    const { id } = req.body;
+    const rowDeleted = await Chips.destroy({
+      where: {
+        id: id,
+      },
+    });
+    res.status(200).json(id);
+  } catch (error) {
+    console.error('Error deleting product:', error);
   }
 });
 

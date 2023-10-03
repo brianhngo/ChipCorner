@@ -48,8 +48,8 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    dispatch(me());
     dispatch(checkAdminStatus());
+    dispatch(me());
   }, []);
 
   useEffect(() => {}, [numberState]);

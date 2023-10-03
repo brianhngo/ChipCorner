@@ -34,6 +34,21 @@ router.put('/orderHistoryIndividual', async (req, res, next) => {
   }
 });
 
+router.put('/deleteAdminSingleOrder', async (req, res, next) => {
+  try {
+    const { id } = req.body;
+    console.log('id', id);
+    const rowDeleted = await Orders.destroy({
+      where: {
+        id: id,
+      },
+    });
+    res.status(200).json(id);
+  } catch (error) {
+    console.error('Error deleting product:', error);
+  }
+});
+
 router.get('/', async (req, res, next) => {
   try {
     const orders = await Orders.findAll();

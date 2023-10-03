@@ -2184,11 +2184,6 @@ header .nav-btn:focus {
   opacity: 1;
 }
 
-#productContainerssss {
-  width: 100px;
-  height: 50px;
-}
-
 /* modal */
 
 .popup {
@@ -2680,6 +2675,7 @@ input:focus ~ .highlight {
 }
 
 .admin-AllProducts {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -2737,4 +2733,25 @@ input:focus ~ .highlight {
   margin-bottom: 20px;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
+}
+
+.admin-AllProductsButtons {
+  background-color: #ff5733;
+  color: #fff;
+  border: none;
+  width: 200px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.admin-AllProductsButtons:hover {
+  background-color: #ff4500;
 }

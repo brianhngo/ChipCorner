@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allOrders, singleOrder } from './AdminSlice';
+import Modal from 'react-modal';
+import { deleteAdminOrder } from './AdminSlice';
+import { toast } from 'react-toastify';
 export default function AllOrders() {
   const dispatch = useDispatch();
   const [selectedOrder, setSelectedOrder] = useState(null);
   const allOrdersData = useSelector((state) => state.admin.allOrders);
   const singleOrderData = useSelector((state) => state.admin.singleOrder);
-  console.log(singleOrderData);
+  const [IsDeleteConfirmationOpen, setIsDeleteConfirmationOpen] =
+    useState(false);
 
   const toggleOrder = (orderId) => {
     if (selectedOrder === orderId) {
@@ -20,6 +24,20 @@ export default function AllOrders() {
   useEffect(() => {
     dispatch(allOrders());
   }, []);
+
+  const openDeleteConfirmationModal = () => {
+    setIsDeleteConfirmationOpen(true);
+  };
+
+  const closeDeleteConfirmationModal = () => {
+    setIsDeleteConfirmationOpen(false);
+  };
+
+  const confirmDelete = (userId) => {
+    dispatch(deleteAdminOrder(userId));
+    toast.success('Deleted');
+    closeDeleteConfirmationModal();
+  };
 
   return (
     <section className="profileContainer2">
@@ -92,6 +110,28 @@ export default function AllOrders() {
                           </div>
                         </div>
                       ))}
+                      <button onClick={openDeleteConfirmationModal}>
+                        Delete Order
+                      </button>
+                      <Modal
+                        isOpen={IsDeleteConfirmationOpen}
+                        onRequestClose={closeDeleteConfirmationModal}>
+                        <div className="delete-confirmation-modal">
+                          <p>Are you sure you want to delete this order?</p>
+                          <button
+                            onClick={() => {
+                              confirmDelete(order.id);
+                            }}>
+                            Confirm
+                          </button>
+                          <button
+                            onClick={() => {
+                              closeDeleteConfirmationModal();
+                            }}>
+                            Cancel
+                          </button>
+                        </div>
+                      </Modal>
                     </div>
                   )}
                 </li>

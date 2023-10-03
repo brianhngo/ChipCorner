@@ -23,7 +23,7 @@ router.get('/', async (req, res, next) => {
 router.put('/adminUsersList', async (req, res, next) => {
   try {
     const users = await User.findAll();
-    res.status(200).json(users);
+    res.status(200).json(users.sort((a, b) => a.id - b.id));
   } catch (err) {
     next(err);
   }
@@ -40,6 +40,44 @@ router.put('/adminUserInfo', async (req, res, next) => {
     res.status(200).json(user);
   } catch (err) {
     next(err);
+  }
+});
+
+//changing Admin Status
+router.put('/saveAdminSingleUser', async (req, res, next) => {
+  try {
+    const { id, admin } = req.body;
+
+    const user = await User.findOne({ where: { id: id } });
+    if (user) {
+      const updateUser = await user.update({
+        admin: admin,
+      });
+      if (admin === true) {
+        res.status(200).send(true);
+      } else {
+        res.status(200).send(false);
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
+router.put('/deleteAdminUser', async (req, res, next) => {
+  try {
+    const { id } = req.body;
+    const user = await User.findOne({
+      where: {
+        id: id,
+      },
+    });
+    await user.destroy();
+    res.status(200).json(id);
+  } catch (error) {
+    console.log(error);
+    next(error);
   }
 });
 

@@ -46,7 +46,7 @@ export const getAdminSingleProductData = createAsyncThunk(
       const { data } = await axios.put('/api/chips/getAdminSingleProductData', {
         id: id,
       });
-      console.log(data);
+
       return data;
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ export const getAdminSingleProductData = createAsyncThunk(
 
 // PUT ADMIN POV  saving individual products listed in the store
 export const saveAdminSingleProductData = createAsyncThunk(
-  'api/users/saveAdminSingleProduct',
+  'api/chips/saveAdminSingleProduct',
   async (chipData) => {
     try {
       const { data } = await axios.put('/api/chips/saveAdminSingleProduct', {
@@ -65,6 +65,36 @@ export const saveAdminSingleProductData = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error);
+    }
+  }
+);
+
+// PUT ADMIN pov Adding a new individual Product listed in the store
+export const addAdminSingleProductData = createAsyncThunk(
+  'api/chips/addAdminSingleProductData',
+  async (chipData) => {
+    try {
+      const { data } = await axios.put('/api/chips/addNewProduct', {
+        chipData: chipData,
+      });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+// ADMIN pov Deleting a product from the store
+export const deleteAdminSingleProductData = createAsyncThunk(
+  'api/chips/deleteAdminSingleProduct',
+  async (chipId) => {
+    try {
+      console.log('hi');
+      const { data } = await axios.put('/api/chips/deleteAdminSingleProduct', {
+        id: chipId,
+      });
+      return chipId;
+    } catch (error) {
+      console.error(error);
     }
   }
 );
@@ -96,12 +126,57 @@ export const getAdminSingleUserList = createAsyncThunk(
   }
 );
 
+export const saveAdminSingleUserChanges = createAsyncThunk(
+  '/api/users/saveAdminSingleUserChanges',
+  async (userInfo) => {
+    try {
+      const { data } = await axios.put('/api/users/saveAdminSingleUser', {
+        id: userInfo.id,
+        admin: userInfo.admin,
+      });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+
+export const deleteAdminUser = createAsyncThunk(
+  '/api/users/deleteAdminUser',
+  async (id) => {
+    try {
+      const { data } = await axios.put('/api/users/deleteAdminUser', {
+        id: id,
+      });
+      console.log('id', id);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+
+export const deleteAdminOrder = createAsyncThunk(
+  '/api/users/deleteAdminOrder',
+  async (id) => {
+    try {
+      const { data } = await axios.put('/api/order/deleteAdminSingleOrder', {
+        id: id,
+      });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+
 const AdminSlice = createSlice({
   name: 'profile',
   initialState: {
     allProducts: [],
     singleProducts: [],
     saveProduct: null,
+    addProduct: null,
     allOrders: [],
     singleOrder: [],
     allUsers: [],
@@ -130,6 +205,28 @@ const AdminSlice = createSlice({
       })
       .addCase(saveAdminSingleProductData.fulfilled, (state, { payload }) => {
         state.saveProduct = payload;
+      })
+      .addCase(addAdminSingleProductData.fulfilled, (state, { payload }) => {
+        state.addProduct = true;
+        state.allProducts.push(payload);
+      })
+      .addCase(deleteAdminSingleProductData.fulfilled, (state, { payload }) => {
+        state.allProducts = state.allProducts.filter(
+          (element) => element.id !== payload
+        );
+      })
+      .addCase(saveAdminSingleUserChanges.fulfilled, (state, { payload }) => {
+        state.singleUser[0].admin = payload;
+      })
+      .addCase(deleteAdminUser.fulfilled, (state, { payload }) => {
+        state.allUsers = state.allUsers.filter(
+          (element) => element.id !== payload
+        );
+      })
+      .addCase(deleteAdminOrder.fulfilled, (state, { payload }) => {
+        state.allOrders = state.allOrders.filter(
+          (element) => element.id !== payload
+        );
       });
   },
 });

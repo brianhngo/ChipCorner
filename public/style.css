@@ -8,6 +8,7 @@
   margin-top: 20px;
   max-width: 100%;
   margin-bottom: 5%;
+  justify-content: center;
 }
 
 .product-AllChips-card {
@@ -482,7 +483,7 @@ a {
 .hero-banner-image {
   position: absolute;
   top: 5%;
-  right: 20%;
+  right: 25%;
   width: 450px;
   height: 450px;
 }
@@ -637,7 +638,7 @@ span.text-red {
   font-size: 18px;
 }
 .cart-icon {
-  font-size: 25px;
+  font-size: 36px;
   color: gray;
   cursor: pointer;
   position: relative;
@@ -687,6 +688,7 @@ span.text-red {
 }
 
 .hero-banner-container {
+  display: flex;
   padding: 100px 40px;
   background-color: #dcdcdc;
   border-radius: 15px;
@@ -721,13 +723,6 @@ span.text-red {
   margin-left: -20px;
   text-transform: uppercase;
 }
-.hero-banner-image {
-  position: absolute;
-  top: 0%;
-  right: 20%;
-  width: 450px;
-  height: 450px;
-}
 
 .desc {
   position: absolute;
@@ -761,7 +756,7 @@ span.text-red {
   font-weight: 800;
 }
 .products-heading p {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 200;
 }
 .footer-banner-container {
@@ -887,7 +882,6 @@ span.text-red {
 .product-container {
   margin-top: 15px;
   overflow: auto;
-
   max-height: 70vh;
   padding: 20px 10px;
   width: 100%;
@@ -1634,9 +1628,9 @@ header {
 nav a {
   margin: 0 2rem;
   color: var(--textColor);
-  font-family: Arial;
+  font-family: Latu;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 26px;
 }
 
 nav a:hover {
@@ -2187,8 +2181,8 @@ header .nav-btn:focus {
 /* modal */
 
 .popup {
-  background-color: black;
-  color: white;
+  background-color: rgb(245, 245, 245);
+  color: #324d67;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -2203,14 +2197,14 @@ header .nav-btn:focus {
 }
 
 .popup p {
-  color: white;
+  color: #324d67;
   font-size: 18px;
   margin-bottom: 20px;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .CreateNewUserLink {
-  color: white;
+  color: #324d67;
   font-size: 24px;
   margin-bottom: 20px;
   font-family: 'Times New Roman', Times, serif;
@@ -2218,7 +2212,10 @@ header .nav-btn:focus {
 
 .CreateNewUserLink:hover {
   text-decoration: underline;
-  color: white;
+  color: #324d67;
+
+  filter: brightness(0.8);
+
   cursor: pointer;
 }
 
@@ -2237,12 +2234,12 @@ header .nav-btn:focus {
 }
 
 .exit-button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(64, 64, 64, 0.3); /* Dark gray with RGBA value */
 }
 
 .popup-title {
   font-size: 38px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
@@ -2255,7 +2252,7 @@ header .nav-btn:focus {
   margin: 0 auto;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2672,6 +2669,8 @@ input:focus ~ .highlight {
   margin-top: 20px;
   max-width: 100%;
   margin-bottom: 5%;
+  align-items: center;
+  justify-content: center;
 }
 
 .admin-AllProducts {
@@ -2699,17 +2698,17 @@ input:focus ~ .highlight {
   margin: 0 auto;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
   display: flex;
   flex-direction: column;
 }
 
 .popupAdmin {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: #324d67;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
   width: 100%;
   height: 100%;
   max-width: 800px;
@@ -2752,6 +2751,108 @@ input:focus ~ .highlight {
   margin: 0 auto;
 }
 
+.orderHistory-button:hover {
+  background-color: #ff4500;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 .admin-AllProductsButtons:hover {
   background-color: #ff4500;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.empty-bookmarks-message {
+  text-align: center;
+  justify-self: center;
+  font-size: 18px;
+  color: #324d67;
+}
+
+.orderHistory-button {
+  display: block;
+  border-radius: 15px;
+  padding: 10px 16px;
+  background-color: #f02d34;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.orderHistory-button:hover {
+  background-color: #ff4500;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.orderHistory-button2 {
+  display: inline-block;
+  border-radius: 15px;
+  padding: 10px 16px;
+  background-color: #f02d34;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.orderHistory-button2:hover {
+  background-color: #ff4500;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.orderHistory-button3 {
+  display: inline-block;
+  border-radius: 15px;
+  padding: 10px 16px;
+  background-color: #f02d34;
+  color: white;
+  border: none;
+  width: 350px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.orderHistory-button3:hover {
+  background-color: #ff4500;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.productsContainer {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.productUserAdmin {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+
+.product-column h4 {
+  font-size: 24px;
+  color: #324d67;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.productUserAdmin h2 {
+  font-size: 36px;
+  color: #324d67;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  white-space: nowrap;
 }

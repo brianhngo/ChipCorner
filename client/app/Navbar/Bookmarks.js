@@ -77,7 +77,9 @@ export default function Bookmarks() {
               );
             })
           ) : (
-            <h1> hi</h1>
+            <p className="empty-bookmarks-message">
+              Your bookmarked products are currently empty.
+            </p>
           )}
         </div>
       </section>

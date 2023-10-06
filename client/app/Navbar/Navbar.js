@@ -48,9 +48,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    dispatch(checkAdminStatus());
     dispatch(me());
+    dispatch(checkAdminStatus());
   }, []);
+
+  useEffect(() => {
+    dispatch(checkAdminStatus());
+  }, [dispatch]);
 
   useEffect(() => {}, [numberState]);
 
@@ -61,7 +65,7 @@ const Navbar = () => {
       </Link>
       <nav className="navContainer" ref={navRef}>
         <Link to="/"> Home </Link>
-        <Link to="/allchips"> All Products </Link>
+        <Link to="/allproducts"> All Products </Link>
         <Link to="/about"> About Us </Link>
         <Link to="/contact"> Contact </Link>
         <Link to="/bookmarks"> Bookmarks </Link>

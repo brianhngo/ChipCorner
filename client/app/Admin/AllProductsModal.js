@@ -7,20 +7,19 @@ import {
   saveAdminSingleProductData,
   deleteAdminSingleProductData,
 } from './AdminSlice';
-
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   content: {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
+    height: '80%',
     maxWidth: '500px',
     backgroundColor: 'transparent',
     border: 'none',
-    height: '75%',
   },
 };
 
@@ -141,16 +140,20 @@ export default function AllProductsModal({ isOpen, onClose, chipId }) {
             </button>
             <Modal
               isOpen={isDeleteConfirmationOpen}
-              onRequestClose={closeDeleteConfirmationModal}>
-              <div className="delete-confirmation-modal">
+              onRequestClose={closeDeleteConfirmationModal}
+              style={customStyles}>
+              <div className="popup">
+                <h1 className="popup-title"> Confirmation </h1>
                 <p>Are you sure you want to delete this product?</p>
                 <button
+                  className="submit-button"
                   onClick={() => {
                     confirmDelete();
                   }}>
                   Confirm
                 </button>
                 <button
+                  className="submit-button"
                   onClick={() => {
                     closeDeleteConfirmationModal();
                   }}>

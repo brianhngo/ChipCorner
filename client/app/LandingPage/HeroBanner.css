@@ -1,4 +1,4 @@
-a {
+/* a {
   text-decoration: none;
 }
 .hero-banner-container{
@@ -74,8 +74,8 @@ text-align: end;
   font-weight: 700;
   font-size: 22px;
   /* color: black; */
-  align-self: flex-end;
-}
+/* align-self: flex-end; */
+/* }
 .products-heading{
   text-align: center;
   margin: 40px 0px;
@@ -117,4 +117,4 @@ text-align: end;
   .desc{
    bottom: 60px;
   }
-}
+} */

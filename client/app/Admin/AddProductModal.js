@@ -6,7 +6,7 @@ import { addAdminSingleProductData } from './AdminSlice';
 
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   content: {
     top: '50%',
@@ -16,7 +16,6 @@ const customStyles = {
     maxWidth: '500px',
     backgroundColor: 'transparent',
     border: 'none',
-    height: '75%',
   },
 };
 

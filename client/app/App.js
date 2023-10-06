@@ -23,7 +23,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/payment" element={<CheckoutPage />} />
-        <Route path="/allchips" element={<FilterChips />} />
+        <Route path="/allproducts" element={<FilterChips />} />
         <Route path="/chips/:id" element={<SingleProduct />} />
         <Route path="/signup" element={<LoginModal />} />
         <Route path="/successPage" element={<SuccessPage />} />

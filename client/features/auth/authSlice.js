@@ -1,4 +1,4 @@
-import { DataArraySharp } from '@mui/icons-material';
+import { DataArray, DataArraySharp } from '@mui/icons-material';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -60,6 +60,7 @@ export const checkAdminStatus = createAsyncThunk(
             authorization: token,
           },
         });
+
         return data;
       } else {
         return false;

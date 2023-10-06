@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authenticate } from '../../app/store';
+import { checkAdminStatus } from '../../app/store';
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -15,15 +16,25 @@ const AuthForm = ({ name, displayName }) => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
     const username = evt.target.username.value;
     const password = evt.target.password.value;
 
-    dispatch(authenticate({ username, password, method: formName }));
-    window.localStorage.removeItem('bookmark');
+    try {
+      await dispatch(authenticate({ username, password, method: formName }));
+      await dispatch(checkAdminStatus());
+      window.localStorage.removeItem('bookmark');
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle authentication or admin status errors here
+    }
   };
+
+  useEffect(() => {
+    dispatch(checkAdminStatus());
+  }, [dispatch]);
 
   return (
     <div>

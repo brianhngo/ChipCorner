@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getChipDataList } from './LandingPageSlice.js';
 import './HeroBanner.css';
 
-
 export default function HeroBanner() {
   const chipsDataList = useSelector((state) => state.landingPage.chipsInfo);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     // Fetch data when the component mounts
     dispatch(getChipDataList());
@@ -16,7 +15,7 @@ export default function HeroBanner() {
 
   const buttonHandler = (event) => {
     event.preventDefault();
-    navigate('/chips/10')
+    navigate('/chips/4');
   };
 
   // Check if chipsDataList is empty or not yet loaded
@@ -24,37 +23,32 @@ export default function HeroBanner() {
     return <div>Loading...</div>; // You can replace this with a loading indicator
   }
 
-
-
   // Now you can safely access chipsDataList
   return (
     <div className="hero-banner-container">
       <div>
         <p className="chips-solo"> Community's Choice: Voted by You! </p>
-  
 
-        <h3>{chipsDataList[4].title} Returns!</h3>
+        <h3>{chipsDataList[3].title} Returns!</h3>
         <h3> Now in stock!</h3>
         <p> </p>
         <h3> Get an Extra 20% Off Today!</h3>
-         <p className="chips-solo"> Use promocode : ABC123 </p>
-        <img src={chipsDataList[4].imageUrl} alt="headphones" className="hero-banner-image" />
-        <Link to = {`/chips/${chipsDataList[4].id}`}>
+        <p className="chips-solo"> Use promocode : ABC123 </p>
+        <img
+          src={chipsDataList[3].imageUrl}
+          alt="headphones"
+          className="hero-banner-image"
+        />
+        <Link to={`/chips/${chipsDataList[3].id}`}>
           <button type="button" onClick={buttonHandler}>
             Shop Now
           </button>
         </Link>
         <div className="desc">
           <h4>Description</h4>
-          <p>{chipsDataList[4].description}</p>
+          <p>{chipsDataList[3].description}</p>
         </div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-

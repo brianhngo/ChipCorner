@@ -4,6 +4,22 @@ import { allOrders, singleOrder } from './AdminSlice';
 import Modal from 'react-modal';
 import { deleteAdminOrder } from './AdminSlice';
 import { toast } from 'react-toastify';
+
+const customStyles = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '80%',
+    height: '80%',
+    maxWidth: '500px',
+    backgroundColor: 'transparent',
+    border: 'none',
+  },
+};
 export default function AllOrders() {
   const dispatch = useDispatch();
   const [selectedOrder, setSelectedOrder] = useState(null);
@@ -110,21 +126,27 @@ export default function AllOrders() {
                           </div>
                         </div>
                       ))}
-                      <button onClick={openDeleteConfirmationModal}>
+                      <button
+                        className="orderHistory-button"
+                        onClick={openDeleteConfirmationModal}>
                         Delete Order
                       </button>
                       <Modal
                         isOpen={IsDeleteConfirmationOpen}
-                        onRequestClose={closeDeleteConfirmationModal}>
-                        <div className="delete-confirmation-modal">
+                        onRequestClose={closeDeleteConfirmationModal}
+                        style={customStyles}>
+                        <div className="popup">
+                          <h1 className="popup-title"> Confirmation </h1>
                           <p>Are you sure you want to delete this order?</p>
                           <button
+                            className="submit-button"
                             onClick={() => {
                               confirmDelete(order.id);
                             }}>
                             Confirm
                           </button>
                           <button
+                            className="submit-button"
                             onClick={() => {
                               closeDeleteConfirmationModal();
                             }}>

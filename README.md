@@ -20,7 +20,7 @@ Deployed Website - "Here"
 ChipStore is built using the following technologies:
 
 - **Frontend**:
-  - React: A JavaScript library for building user interfaces.
+  - React: A JavaScript library for building user interfaces. ![Alt text](![React](https://github.com/brianhngo/ChipCorner/assets/100103783/46309279-0c20-4af7-9d24-5ae68f383ec4))
   - Redux: State management for predictable and maintainable application state.
   - React Router: Client-side routing for navigating between pages.
   - Stripe: Payment processing for secure transactions.

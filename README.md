@@ -21,24 +21,24 @@ Conveniently bookmark products for future reference.
 
 
 - **Frontend**:
-React: Building engaging user interfaces with JavaScript.
-Redux: Ensuring predictable and manageable application state.
-React Router: Navigating seamlessly between different pages in the client-side.
-HTML: The foundation for structuring web content.
-CSS: Styling to make your website visually appealing.
-JavaScript: A crucial language for interactivity and functionality.
-Webpack: Bundling your assets and managing dependencies.
-Axios: Making API requests for smooth data exchange.
+    #React: Building engaging user interfaces with JavaScript.
+    #Redux: Ensuring predictable and manageable application state.
+    #React Router: Navigating seamlessly between different pages in the client-side.
+    #HTML: The foundation for structuring web content.
+    #CSS: Styling to make your website visually appealing.
+    #JavaScript: A crucial language for interactivity and functionality.
+    #Webpack: Bundling your assets and managing dependencies.
+    #Axios: Making API requests for smooth data exchange.
  
 
 - **Backend**:
-Node.js: The runtime environment for server-side JavaScript.
-Stripe: Securely processing online payments.
-Express.js: Building APIs with this web application framework.
-PostgresSQL: Storing product and user data in a Postgres database.
-Sequelize: Object-Relational Mapping (ORM) for working with databases.
-JSON Web Token: Authentication middleware for secure access.
-Stripe API: Integrating the Stripe platform for handling online payments.
+    #Node.js: The runtime environment for server-side JavaScript.
+    #Stripe: Securely processing online payments.
+    #Express.js: Building APIs with this web application framework.
+    #PostgresSQL: Storing product and user data in a Postgres database.
+    #Sequelize: Object-Relational Mapping (ORM) for working with databases.
+    #JSON Web Token: Authentication middleware for secure access.
+    #Stripe API: Integrating the Stripe platform for handling online payments.
  
 ## Demo
 

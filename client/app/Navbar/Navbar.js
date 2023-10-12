@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { logout } from '../store.js';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
@@ -60,16 +60,36 @@ const Navbar = () => {
 
   return (
     <header>
-      <Link to="/">
+      <NavLink className="navLink" to="/">
         <img src="logo.png" class="logo" />
-      </Link>
+      </NavLink>
       <nav className="navContainer" ref={navRef}>
-        <Link to="/"> Home </Link>
-        <Link to="/allproducts"> All Products </Link>
-        <Link to="/about"> About Us </Link>
-        <Link to="/contact"> Contact </Link>
-        <Link to="/bookmarks"> Bookmarks </Link>
-        {isAdmin === true ? <Link to="/Admin"> Admin </Link> : null}
+        <NavLink to="/" className="navLink">
+          {' '}
+          Home{' '}
+        </NavLink>
+        <NavLink to="/allproducts" className="navLink">
+          {' '}
+          All Products{' '}
+        </NavLink>
+        {/* <NavLink to="/about" className="navLink">
+          {' '}
+          About Us{' '}
+        </NavLink>
+        <NavLink to="/contact" className="navLink">
+          {' '}
+          Contact{' '}
+        </NavLink> */}
+        <NavLink to="/bookmarks" className="navLink">
+          {' '}
+          Bookmarks{' '}
+        </NavLink>
+        {isAdmin === true ? (
+          <NavLink to="/Admin" className="navLink">
+            {' '}
+            Admin{' '}
+          </NavLink>
+        ) : null}
 
         {isLoggedIn === false ? (
           <>
@@ -84,7 +104,10 @@ const Navbar = () => {
           <>
             <div className="SignedInComponent2">
               <h2>Welcome, {username}</h2>
-              <Link to="/profile"> My Profile </Link>
+              <NavLink to="/profile" className="navLink">
+                {' '}
+                My Profile{' '}
+              </NavLink>
               <button
                 id="productContainersss"
                 type="button"
@@ -96,10 +119,10 @@ const Navbar = () => {
         )}
 
         <button type="button" className="cart-icon">
-          <Link to="/cart">
+          <NavLink to="/cart" className="navLink">
             <ShoppingCartTwoToneIcon />
             <span className="cart-item-qty">{number}</span>
-          </Link>
+          </NavLink>
         </button>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />

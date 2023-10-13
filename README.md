@@ -100,6 +100,8 @@ GIFs here
 
 ## Experience The Chip Corner
 
+Deployment Link. (Please refresh the page after a couple of minutes! Sorry free service for deployment)
+
 https://thechipcorner-zd7q.onrender.com
 
 # Log in User
@@ -114,23 +116,23 @@ https://thechipcorner-zd7q.onrender.com
 
 ## Run Locally 
 
-  #Clone the project
+  Clone the project
 
-  # Go to the Project directory
+  Go to the Project directory
 
-  #Create database
+  Create database
   createdb Chips
 
-  #Install dependencies
+  Install dependencies
   npm install
 
-  #Seed the Database
+  Seed the Database
   npm run seed
 
-  #Start the server
+  Start the server
   Npm run start:dev
 
-  #Access the project in your browser at localhost:8080
+  Access the project in your browser at localhost:8080
   
 
   

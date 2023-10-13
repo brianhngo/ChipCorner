@@ -1,44 +1,77 @@
 # The Chip Corner - E-commerce Website for Chips
 
-Welcome to The Chip Corner, the ultimate destination for chip lovers! 
-The Chip Corneris an e-commerce website that specializes in selling a wide variety of chips, from classic potato chips to exotic and unique flavors. 
-This README provides an overview of our project and instructions for getting started.
+<p> Welcome to The Chip Corner, the ultimate destination for chip lovers! </p>
+<p> The Chip Corneris an e-commerce website that specializes in selling a wide variety of chips, from classic potato chips to exotic and unique flavors. </p>
+<p> This README provides an overview of our project and instructions for getting started. </p>
 
 ## Features
 
-Explore a diverse selection of chips by brand, flavor, price, and type.
-Access detailed product information, including images, descriptions, and prices.
-Easily manage your shopping cart with local storage support.
-Secure online payments powered by Stripe for worry-free transactions.
-User authentication and account management with JSON web tokens for User/Admin Login.
-Keep track of your order history and delivery status.
-Admin dashboard for streamlined product, order, and user management.
-Responsive design ensures a seamless experience on both mobile and desktop.
-Conveniently bookmark products for future reference.
+<p> Explore a diverse selection of chips by brand, flavor, price, and type. </p>
+<p> Access detailed product information, including images, descriptions, and prices. </p>
+<p> Easily manage your shopping cart with local storage support. </p>
+<p> Secure online payments powered by Stripe for worry-free transactions. </p>
+<p> User authentication and account management with JSON web tokens for User/Admin Login. </p>
+<p> Keep track of your order history and delivery status. </p>
+<p> Admin dashboard for streamlined product, order, and user management. </p>
+<p> Responsive design ensures a seamless experience on both mobile and desktop. </p>
+<p> Conveniently bookmark products for future reference. </p>
 
 ## Technologies
-![](public/images/React.png) ![](public/images/HTMLCSSJS.png) ![](public/images/Node.js_logo.png) ![](public/images/Sequelize.png) ![](public/images/axios.png) ![](public/images/express.jpeg)  ![](public/images/postgresSQL.png)  ![](public/images/redux.png)  ![](public/images/stripelogo.png)  ![](public/images/webpack.png) 
+<p> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"> 
+<img src="https://user-images.githubusercontent.com/48143100/163075516-9b38424a-eec9-411f-8718-6facb953d642.png" alt="javascript" width="40" height="40"/> </a>
+<a href="https://www.postgresql.org">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/>
+<a href="https://www.sequelize.org">
+<img src="https://user-images.githubusercontent.com/48143100/163075611-a24477b9-2c48-462b-9dd5-64ef73f356e3.png" alt="postgresql" width="40" height="40"/>
+</a>
+<a href="https://nodejs.org"> 
+<img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" alt="nodejs" width="40" height="40"/> 
+</a> 
+<a href="https://reactjs.org/"> 
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="react" width="40" height="40"/> 
+</a>
+<a href="https://redux.js.org">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/>
+</a>
+<a href="https://expressjs.com/">
+<img src="https://github.com/CatherineJOnia/DinGo/blob/main/public/images/express.png" alt="express" width="40" height="40"/>
+</a>
+<a href="https://mui.com/">
+<img src="https://user-images.githubusercontent.com/48143100/163075600-bcf5197c-33fa-4d61-933f-1eb82cf4807f.png" alt="redux" width="40" height="40"/>
+</a>
+</a>
+<a href="https://www.w3schools.com/css/"> 
+<img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" alt="css3" width="40" height="40"/> 
+</a> 
+<a href="https://www.w3.org/html/">
+<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" alt="html5" width="40" height="40"/> 
+</a> 
+<a href="https://webpack.js.org/">
+<img src="https://github.com/devicons/devicon/blob/master/icons/webpack/webpack-original.svg" alt="webpack" width="40" height="40"/> 
+</a> 
+</p>
 
 
 - **Frontend**:
-    #React: Building engaging user interfaces with JavaScript.
-    #Redux: Ensuring predictable and manageable application state.
-    #React Router: Navigating seamlessly between different pages in the client-side.
-    #HTML: The foundation for structuring web content.
-    #CSS: Styling to make your website visually appealing.
-    #JavaScript: A crucial language for interactivity and functionality.
-    #Webpack: Bundling your assets and managing dependencies.
-    #Axios: Making API requests for smooth data exchange.
+    <p> #React: Building engaging user interfaces with JavaScript. </p>
+    <p> #Redux: Ensuring predictable and manageable application state. </p>
+    <p> #React Router: Navigating seamlessly between different pages in the client-side. </p>
+    <p> #HTML: The foundation for structuring web content. </p>
+    <p> #CSS: Styling to make your website visually appealing. </p>
+    <p> #JavaScript: A crucial language for interactivity and functionality. </p>
+    <p> #Webpack: Bundling your assets and managing dependencies. </p>
+    <p> #Axios: Making API requests for smooth data exchange. </p>
  
 
 - **Backend**:
-    #Node.js: The runtime environment for server-side JavaScript.
-    #Stripe: Securely processing online payments.
-    #Express.js: Building APIs with this web application framework.
-    #PostgresSQL: Storing product and user data in a Postgres database.
-    #Sequelize: Object-Relational Mapping (ORM) for working with databases.
-    #JSON Web Token: Authentication middleware for secure access.
-    #Stripe API: Integrating the Stripe platform for handling online payments.
+    <p> #Node.js: The runtime environment for server-side JavaScript. </p>
+    <p> #Stripe: Securely processing online payments. </p>
+    <p> #Express.js: Building APIs with this web application framework. </p>
+    <p> #PostgresSQL: Storing product and user data in a Postgres database. </p>
+    <p> #Sequelize: Object-Relational Mapping (ORM) for working with databases. </p>
+    <p> #JSON Web Token: Authentication middleware for secure access. </p>
+    <p> #Stripe API: Integrating the Stripe platform for handling online payments. </p>
  
 ## Demo
 

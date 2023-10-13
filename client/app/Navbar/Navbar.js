@@ -18,6 +18,7 @@ const Navbar = () => {
   const username = useSelector((state) => state.auth.me.username);
 
   const number = useSelector((state) => state.order.quantityAmount);
+  console.log(number);
   const [numberState, setNumberState] = useState(
     JSON.parse(window.localStorage.getItem('cartNumber'))
   );

@@ -27,7 +27,7 @@ Frontend:
     </p>
     <p> Redux: Ensuring predictable and manageable application state. 
         <a href = "https://react-redux.js.org/">
-            <img src = "https://github.com/devicons/devicon/tree/master/icons/redux" alt = "redux" width ="40" height = "40"/>
+            <img src = "https://github.com/devicons/devicon/tree/master/icons/redux-original.svg" alt = "redux" width ="40" height = "40"/>
         </a>
     </p>
     <p> React Router: Navigating seamlessly between different pages in the client-side.

@@ -32,7 +32,7 @@ Frontend:
     </p>
    <p> React Router: Navigating seamlessly between different pages in the client-side.
     <a href="https://reactrouter.com/en/main">
-        <img src="https://raw.githubusercontent.com/brianhngo/ChipCorner/main/public/images/react-router-color-inverted.png" alt="reactRouter" width="40" height="40"/>
+        <img src="https://raw.githubusercontent.com/brianhngo/ChipCorner/main/public/images/react-router-color-inverted.png" alt="reactRouter" width="80" height="40"/>
     </a>
 </p>
     <p> HTML: The foundation for structuring web content.
@@ -68,10 +68,10 @@ Backend:
         </a> 
     </p>
     <p> Stripe: Securely processing online payments. 
-        <a href = "https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20047966507&utm_medium=cpc&utm_source=google&ad_content=670151298446&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjwsp6pBhCfARIsAD3GZuYIdzT2RKhBIBIQ_hLizta6iw905fckG11SE3DfClWH-ttPPmmsOhEaAgpaEALw_wcB">
-         <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/stripelogo.png" alt ="stripe" width ="40" height = "40"/>
-         </a>
-    </p>
+    <a href="https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20047966507&utm_medium=cpc&utm_source=google&ad_content=670151298446&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjwsp6pBhCfARIsAD3GZuYIdzT2RKhBIBIQ_hLizta6iw905fckG11SE3DfClWH-ttPPmmsOhEaAgpaEALw_wcB">
+        <img src="https://raw.githubusercontent.com/brianhngo/ChipCorner/main/public/images/stripelogo.png" alt="stripe" width="40" height="40"/>
+    </a>
+</p>
     <p> Express.js: Building APIs with this web application framework.
         <a href="https://expressjs.com/">
         <img src="https://github.com/CatherineJOnia/DinGo/blob/main/public/images/express.png" alt="express" width="40" height="40"/>

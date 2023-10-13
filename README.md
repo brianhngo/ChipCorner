@@ -106,9 +106,6 @@ Backend:
 
 ## Experience The Chip Corner
 
-Deployment Link. (Please refresh the page after a couple of minutes! Sorry free service for deployment)
-
-https://thechipcorner-zd7q.onrender.com
 
 # Log in User
   username - cody135

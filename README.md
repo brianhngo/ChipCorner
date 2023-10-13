@@ -56,7 +56,7 @@ Frontend:
     </p>
     <p> Axios: Making API requests for smooth data exchange. 
         <a href ="https://axios-http.com>
-            <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/axios.png" alt ="axios" width ="40" height = "40"/>
+            <img src="https://raw.githubusercontent.com/brianhngo/ChipCorner/main/public/images/axios.png" alt="axios" width="40" height="40"/>
         </a>
     </p>
  

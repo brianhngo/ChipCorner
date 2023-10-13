@@ -1,6 +1,7 @@
 const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
+  mode: 'development',
   entry: ['./client/index.js'],
   output: {
     path: __dirname + '/public',
@@ -44,5 +45,3 @@ module.exports = {
     new Dotenv(),
   ],
 };
-
-

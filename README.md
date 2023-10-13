@@ -96,7 +96,13 @@ Backend:
  
 ## Demo
 
-GIFs here
+![Homepage](https://github.com/brianhngo/ChipCorner/raw/main/public/gifs/LandingPage.gif)
+![AllProducts](https://github.com/brianhngo/ChipCorner/raw/main/public/gifs/Allproducts.gif)
+![AllProductsFilter](https://github.com/brianhngo/ChipCorner/raw/main/public/gifs/AllProductsFilter.gif)
+![AddToCart](https://github.com/brianhngo/ChipCorner/raw/main/public/gifs/AddToCart.gif)
+![CartFeature](https://github.com/brianhngo/ChipCorner/raw/main/public/gifs/CartFeatures.gif)
+![Payment](https://github.com/brianhngo/ChipCorner/raw/main/public/gifs/Payment.gif)
+
 
 ## Experience The Chip Corner
 
@@ -120,16 +126,16 @@ https://thechipcorner-zd7q.onrender.com
 
   Go to the Project directory
 
-  Create database
+  Create database - 
   createdb Chips
 
-  Install dependencies
+  Install dependencies - 
   npm install
 
-  Seed the Database
+  Seed the Database - 
   npm run seed
 
-  Start the server
+  Start the server - 
   Npm run start:dev
 
   Access the project in your browser at localhost:8080

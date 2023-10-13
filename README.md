@@ -68,9 +68,9 @@ Frontend:
         </a> 
     </p>
     <p> #Stripe: Securely processing online payments. 
-        <a href="https://expressjs.com/">
-        <img src="https://github.com/CatherineJOnia/DinGo/blob/main/public/images/express.png" alt="express" width="40" height="40"/>
-        </a>
+        <a href = "https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20047966507&utm_medium=cpc&utm_source=google&ad_content=670151298446&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjwsp6pBhCfARIsAD3GZuYIdzT2RKhBIBIQ_hLizta6iw905fckG11SE3DfClWH-ttPPmmsOhEaAgpaEALw_wcB">
+         <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/stripelogo.png" alt ="stripe" width ="40" height = "40"/>
+         </a>
     </p>
     <p> #Express.js: Building APIs with this web application framework.
         <a href="https://expressjs.com/">
@@ -92,11 +92,7 @@ Frontend:
             <img/>
         </a>
     </p>
-    <p> #Stripe API: Integrating the Stripe platform for handling online payments. 
-        <a href = "https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20047966507&utm_medium=cpc&utm_source=google&ad_content=670151298446&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjwsp6pBhCfARIsAD3GZuYIdzT2RKhBIBIQ_hLizta6iw905fckG11SE3DfClWH-ttPPmmsOhEaAgpaEALw_wcB">
-         <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/stripelogo.png" alt ="stripe" width ="40" height = "40"/>
-         </a>
-    </p>
+   
  
 ## Demo
 

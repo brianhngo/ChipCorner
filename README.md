@@ -55,39 +55,39 @@ Frontend:
         </a> 
     </p>
     <p> Axios: Making API requests for smooth data exchange. 
-        <a href ="https://axios-http.com/>
+        <a href ="https://axios-http.com>
             <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/axios.png" alt ="axios" width ="40" height = "40"/>
         </a>
     </p>
  
 
-#Backend:
-    <p> #Node.js: The runtime environment for server-side JavaScript. 
+Backend:
+    <p> Node.js: The runtime environment for server-side JavaScript. 
         <a href="https://nodejs.org"> 
         <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" alt="nodejs" width="40" height="40"/> 
         </a> 
     </p>
-    <p> #Stripe: Securely processing online payments. 
+    <p> Stripe: Securely processing online payments. 
         <a href = "https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20047966507&utm_medium=cpc&utm_source=google&ad_content=670151298446&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjwsp6pBhCfARIsAD3GZuYIdzT2RKhBIBIQ_hLizta6iw905fckG11SE3DfClWH-ttPPmmsOhEaAgpaEALw_wcB">
          <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/stripelogo.png" alt ="stripe" width ="40" height = "40"/>
          </a>
     </p>
-    <p> #Express.js: Building APIs with this web application framework.
+    <p> Express.js: Building APIs with this web application framework.
         <a href="https://expressjs.com/">
         <img src="https://github.com/CatherineJOnia/DinGo/blob/main/public/images/express.png" alt="express" width="40" height="40"/>
         </a>
     </p>
-    <p> #PostgresSQL: Storing product and user data in a Postgres database. 
+    <p> PostgresSQL: Storing product and user data in a Postgres database. 
         <a href="https://www.postgresql.org">
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/>
         </a>
     </p>
-    <p> #Sequelize: Object-Relational Mapping (ORM) for working with databases.
+    <p> Sequelize: Object-Relational Mapping (ORM) for working with databases.
         <a href="https://www.sequelize.org">
         <img src="https://user-images.githubusercontent.com/48143100/163075611-a24477b9-2c48-462b-9dd5-64ef73f356e3.png" alt="postgresql" width="40" height="40"/>
         </a>
     </p>
-    <p> #JSON Web Token: Authentication middleware for secure access. 
+    <p> JSON Web Token: Authentication middleware for secure access. 
         <a href = "https://jwt.io/">
             <img/>
         </a>

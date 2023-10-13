@@ -19,34 +19,46 @@
 ## Technologies
 
 
-#Frontend:
-    <p> #React: Building engaging user interfaces with JavaScript. 
+Frontend:
+    <p> React: Building engaging user interfaces with JavaScript. 
         <a href="https://reactjs.org/"> 
         <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="react" width="40" height="40"/> 
         </a>
     </p>
-    <p> #Redux: Ensuring predictable and manageable application state. </p>
-    <p> #React Router: Navigating seamlessly between different pages in the client-side. </p>
-    <p> #HTML: The foundation for structuring web content.
+    <p> Redux: Ensuring predictable and manageable application state. 
+        <a href = "https://react-redux.js.org/">
+            <img src = "https://github.com/devicons/devicon/tree/master/icons/redux" alt = "redux" width ="40" height = "40"/>
+        </a>
+    </p>
+    <p> React Router: Navigating seamlessly between different pages in the client-side.
+        <a href = "https://reactrouter.com/en/main">
+            <img/>
+        </a>
+    </p>
+    <p> HTML: The foundation for structuring web content.
         <a href="https://www.w3.org/html/">
         <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" alt="html5" width="40" height="40"/> 
         </a> 
     </p>
-    <p> #CSS: Styling to make your website visually appealing. 
+    <p> CSS: Styling to make your website visually appealing. 
         <a href="https://www.w3schools.com/css/"> 
         <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" alt="css3" width="40" height="40"/> 
         </a> 
     </p>
-    <p> #JavaScript: A crucial language for interactivity and functionality.
+    <p> JavaScript: A crucial language for interactivity and functionality.
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"> 
         <img src="https://user-images.githubusercontent.com/48143100/163075516-9b38424a-eec9-411f-8718-6facb953d642.png" alt="javascript" width="40" height="40"/> </a>
     </p>
-    <p> #Webpack: Bundling your assets and managing dependencies. 
+    <p> Webpack: Bundling your assets and managing dependencies. 
         <a href="https://webpack.js.org/">
         <img src="https://github.com/devicons/devicon/blob/master/icons/webpack/webpack-original.svg" alt="webpack" width="40" height="40"/> 
         </a> 
     </p>
-    <p> #Axios: Making API requests for smooth data exchange. </p>
+    <p> Axios: Making API requests for smooth data exchange. 
+        <a href ="https://axios-http.com/>
+            <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/axios.png" alt ="axios" width ="40" height = "40"/>
+        </a>
+    </p>
  
 
 #Backend:
@@ -55,7 +67,11 @@
         <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" alt="nodejs" width="40" height="40"/> 
         </a> 
     </p>
-    <p> #Stripe: Securely processing online payments. </p>
+    <p> #Stripe: Securely processing online payments. 
+        <a href="https://expressjs.com/">
+        <img src="https://github.com/CatherineJOnia/DinGo/blob/main/public/images/express.png" alt="express" width="40" height="40"/>
+        </a>
+    </p>
     <p> #Express.js: Building APIs with this web application framework.
         <a href="https://expressjs.com/">
         <img src="https://github.com/CatherineJOnia/DinGo/blob/main/public/images/express.png" alt="express" width="40" height="40"/>
@@ -71,8 +87,16 @@
         <img src="https://user-images.githubusercontent.com/48143100/163075611-a24477b9-2c48-462b-9dd5-64ef73f356e3.png" alt="postgresql" width="40" height="40"/>
         </a>
     </p>
-    <p> #JSON Web Token: Authentication middleware for secure access. </p>
-    <p> #Stripe API: Integrating the Stripe platform for handling online payments. </p>
+    <p> #JSON Web Token: Authentication middleware for secure access. 
+        <a href = "https://jwt.io/">
+            <img/>
+        </a>
+    </p>
+    <p> #Stripe API: Integrating the Stripe platform for handling online payments. 
+        <a href = "https://stripe.com/?utm_campaign=US_en_Search_Brand_Stripe_EXA-20047966507&utm_medium=cpc&utm_source=google&ad_content=670151298446&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjwsp6pBhCfARIsAD3GZuYIdzT2RKhBIBIQ_hLizta6iw905fckG11SE3DfClWH-ttPPmmsOhEaAgpaEALw_wcB">
+         <img src = "https://github.com/brianhngo/ChipCorner/tree/main/public/images/stripelogo.png" alt ="stripe" width ="40" height = "40"/>
+         </a>
+    </p>
  
 ## Demo
 

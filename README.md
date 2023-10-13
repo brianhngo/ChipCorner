@@ -96,7 +96,12 @@ Backend:
  
 ## Demo
 
-GIFs here
+![Homepage](https://github.com/brianhngo/ChipCorner/tree/main/public/gifs/LandingPage.gif)
+![AllProducts](https://github.com/brianhngo/ChipCorner/tree/main/public/gifs/Allproducts.gif)
+![AllProductsFilter](https://github.com/brianhngo/ChipCorner/tree/main/public/gifs/AllProductsFilter.gif)
+![AddToCart](https://github.com/brianhngo/ChipCorner/tree/main/public/gifs/AddToCart.gif)
+![CartFeature](https://github.com/brianhngo/ChipCorner/tree/main/public/gifs/CartFeatures.gif)
+![Payment](https://github.com/brianhngo/ChipCorner/tree/main/public/gifs/Payment.gif)
 
 ## Experience The Chip Corner
 

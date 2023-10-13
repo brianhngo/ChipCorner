@@ -125,16 +125,16 @@ https://thechipcorner-zd7q.onrender.com
 
   Go to the Project directory
 
-  Create database
+  Create database - 
   createdb Chips
 
-  Install dependencies
+  Install dependencies - 
   npm install
 
-  Seed the Database
+  Seed the Database - 
   npm run seed
 
-  Start the server
+  Start the server - 
   Npm run start:dev
 
   Access the project in your browser at localhost:8080

@@ -6,15 +6,15 @@
 
 ## Features
 
-<p> -Explore a diverse selection of chips by brand, flavor, price, and type. </p>
-<p> -Access detailed product information, including images, descriptions, and prices. </p>
-<p> -Easily manage your shopping cart with local storage support. </p>
-<p> -Secure online payments powered by Stripe for worry-free transactions. </p>
-<p> -User authentication and account management with JSON web tokens for User/Admin Login. </p>
-<p> -Keep track of your order history and delivery status. </p>
-<p> -Admin dashboard for streamlined product, order, and user management. </p>
-<p> -Responsive design ensures a seamless experience on both mobile and desktop. </p>
-<p> -Conveniently bookmark products for future reference. </p>
+<p> Explore a diverse selection of chips by brand, flavor, price, and type. </p>
+<p> Access detailed product information, including images, descriptions, and prices. </p>
+<p> Easily manage your shopping cart with local storage support. </p>
+<p> Secure online payments powered by Stripe for worry-free transactions. </p>
+<p> User authentication and account management with JSON web tokens for User/Admin Login. </p>
+<p> Keep track of your order history and delivery status. </p>
+<p> Admin dashboard for streamlined product, order, and user management. </p>
+<p> Responsive design ensures a seamless experience on both mobile and desktop. </p>
+<p> Conveniently bookmark products for future reference. </p>
 
 ## Technologies
 
